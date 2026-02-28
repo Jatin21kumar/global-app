@@ -1,0 +1,3066 @@
+{
+  "Andhra Pradesh": {
+      "tagline": "The Land of Temples & Beaches",
+
+      "Capital City 🏛️": [
+        { "text": "Amaravati (Proposed), Visakhapatnam (Executive Capital), Kurnool (Judicial Capital)" },
+        { "text": "Andhra Pradesh follows a decentralized capital model with Visakhapatnam serving as the working capital." },
+        { "text": "Amaravati was initially planned as the capital after the state’s bifurcation in 2014." },
+        { "text": "Kurnool is designated as the judicial capital with the High Court." }
+      ],
+
+      "National Importance & Famous Landmarks 🏔️": [
+        { "text": "Tirupati Balaji Temple – One of the richest and most visited temples in the world." },
+        { "text": "Araku Valley – A scenic hill station known for its coffee plantations.",
+        "image": "images/Andra Pradesh/Araku Valley.jpg"},
+        { "text": "Borra Caves – One of India’s largest limestone caves, formed over a million years ago.",
+        "image": "images/Andra Pradesh/Borra caves.jpg"},
+        { "text": "Vishakhapatnam Beaches – RK Beach, Yarada Beach, and Rushikonda Beach are major attractions." },
+        {
+          "text": "Lepakshi Temple – Home to the famous hanging pillar and the world's largest monolithic Nandi statue.",
+          "image": "images/Andra Pradesh/Lepakshi temple.jpg"},
+        { "text": "Kondapalli Fort & Toys – Famous for centuries-old wooden toy-making tradition." }
+      ],
+
+      "Core Production & Economic Focus 🏭": [
+        { "text": "Agriculture Powerhouse – AP is one of India’s largest producers of rice, mangoes, chillies, and tobacco." },
+        { "text": "Fishing & Aquaculture – Andhra Pradesh ranks first in India in fish and shrimp production." },
+        { "text": "IT & Industrial Growth – Visakhapatnam is emerging as a major IT hub with companies like Wipro and Infosys." },
+        { "text": "Ports & Shipping – AP has one of the longest coastlines (972 km), facilitating trade and commerce." },
+        { "text": "Kondapalli Toys & Kalamkari Art – Traditional handicrafts exported worldwide." }
+      ],
+
+      "Native People & Languages 🗣️": [
+        { "text": "Telugu is the official language, spoken by over 83% of the population." },
+        { "text": "AP has a rich cultural history, with influences from Satavahanas, Vijayanagara Empire, and Cholas." },
+        { "text": "Traditional dance forms like Kuchipudi originated here." }
+      ],
+
+      "Area & Geography 🌍": [
+        { "text": "Covers 162,970 sq km, making it India’s seventh-largest state." },
+        { "text": "Bordered by Odisha, Telangana, Karnataka, Tamil Nadu, and the Bay of Bengal." },
+        { "text": "Godavari & Krishna rivers are the lifelines of the state, supporting agriculture." },
+        { "text": "Eastern Ghats run across the state, offering biodiversity-rich forests." }
+      ],
+
+      "Unique Facts 🌟": [
+        { "text": "Andhra Pradesh is the 'Rice Bowl of India', producing the highest amount of paddy." },
+        { "text": "Tirupati Laddu has a GI Tag, making it the only prasad legally protected by geographical identity." },
+        { "text": "Kuchipudi dance form originated in a small village of the same name in AP." },
+        { "text": "The INS Kursura Submarine Museum in Visakhapatnam is one of the very few submarine museums in the world." }
+      ],
+
+    "State Symbols": {
+      "State Animal 🐾": {
+        "text": "Blackbuck (Antilope cervicapra)",
+        "image": "images/Andra Pradesh/blackbuck.jpg"
+      },
+      "State Bird 🐦": {
+        "text": "Rama Chiluka (Oxyura leucocephala)",
+        "image": "images/Andra Pradesh/Rama Chiluka.jpg"
+      },
+      "State Tree 🌳": {
+        "text": "Neem (Azadirachta indica)",
+        "image": "images/Andra Pradesh/neem.jpg"
+      },
+      "State Flower 🌸": {
+        "text": "Jasmine (Jasminum officinale)"
+      }
+    }
+  },
+  "Arunachal Pradesh": {
+    "tagline": "Where India Wakes Up First – Land of the Rising Sun 🌄",
+
+    "Capital City 🏛️": [
+      { "text": "Itanagar is the political and cultural hub of Arunachal Pradesh." },
+      { "text": "Known for Itanagar Fort and the Gompa Buddhist Temple." },
+      { "text": "It's a growing center for tourism, administration, and trade with neighboring Assam and Tibet (China)." }
+    ],
+
+    "National Importance & Famous Landmarks 🏔️": [
+      { "text": "Tawang Monastery – India’s largest and the world’s second-largest Buddhist monastery, founded in the 17th century.",
+      "image": "images/Arunachal Pradesh/tawang monestry.jpeg"},
+      { "text": "Ziro Valley – A UNESCO World Heritage Site nominee; home to the Apatani tribe and Ziro Music Festival." },
+      { "text": "Sela Pass – High-altitude scenic mountain pass connecting Tawang to the rest of the state." },
+      { "text": "Namdapha National Park – One of India’s largest national parks; home to snow leopards, red pandas, and clouded leopards." },
+      { "text": "Dong Valley – The first place in India to receive sunlight every day." },
+      { "text": "Bomdila & Dirang – Hill stations known for monasteries and beautiful landscapes." }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      { "text": "Agriculture – Jhum (shifting) cultivation is common; main crops include rice, maize, and millet." },
+      { "text": "Handicrafts & Weaving – Renowned for bamboo and cane crafts, and handwoven tribal textiles.",
+      "image": "images/Arunachal Pradesh/bamboo and cane products.jpg"},
+      { "text": "Hydropower Generation – Highest hydropower potential in India with major dams on Brahmaputra’s tributaries." },
+      { "text": "Tourism – Popular for adventure, trekking, and tribal cultural tourism." }
+    ],
+
+    "Native People & Languages 🗣️": [
+      { "text": "Home to 26+ major tribes and over 100 sub-tribes, including Monpa, Nyishi, Apatani, Galo, and Adi tribes." },
+      { "text": "Official language: English." },
+      { "text": "Commonly spoken tribal dialects: Tani, Nyishi, and Monpa." },
+      { "text": "Dominant religions: Tibetan Buddhism and animistic tribal beliefs." }
+    ],
+
+    "Area & Geography 🌍": [
+      { "text": "Area: 83,743 sq. km — largest state in Northeast India." },
+      { "text": "Borders: China (Tibet), Bhutan, and Myanmar — strategically important." },
+      { "text": "Home to Kibithu, India’s easternmost point, and many high-altitude passes." }
+    ],
+
+    "Unique Facts 🌟": [
+      { "text": "Called “Land of the Rising Sun” – first Indian state to see sunrise." },
+      { "text": "Tawang Monastery belongs to the Gelug school of Tibetan Buddhism (same as the Dalai Lama)." },
+      { "text": "No railway station yet; road and air connectivity are developing." },
+      { "text": "Menchuka Valley is called the “Switzerland of the East”." }
+    ],
+
+    "State Symbols": {
+      "State Animal 🐾": { "text": "Mithun (Bos frontalis)",
+      "image": "images/Arunachal Pradesh/Mithun.jpg"},
+      "State Bird 🐦": {"text": "Great Hornbill (Buceros bicornis)",
+       "image": "images/Arunachal Pradesh/great hornbill.jpg"},
+      "State Tree 🌳": { "text": "Hollong (Dipterocarpus macrocarpus)",
+        "image": "images/Arunachal Pradesh/hollong.jpg"},
+      "State Flower 🌸": {"text":"Foxtail Orchid (Rhynchostylis retusa)",
+        "image": "images/Arunachal Pradesh/foxtail.jpg"}
+    }
+  },
+  "Assam": {
+    "tagline": "The Land of Tea Gardens and One-Horned Rhinos 🌿🦏",
+
+    "Capital City 🏛️": [
+      { "text": "Dispur is the official capital, located within Guwahati." },
+      { "text": "Guwahati is the largest city and economic hub of Assam." },
+      { "text": "Famous for the Kamakhya Temple, the Brahmaputra River, and rapid urban growth." }
+    ],
+
+    "National Importance & Famous Landmarks 🏔️": [
+      { "text": "Kaziranga National Park – UNESCO World Heritage Site; home to the one-horned Indian rhinoceros." },
+      { "text": "Majuli Island – World’s largest river island; cultural heart of Assamese Vaishnavism." },
+      { "text": "Kamakhya Temple – One of the Shakti Peethas, known for Ambubachi Mela celebrating feminine power.",
+      "image": "images/Assam/Kamakhya Temple.jpg" },
+      { "text": "Manas National Park – UNESCO World Heritage tiger reserve with rich biodiversity." },
+      { "text": "Sivasagar – Ancient Ahom capital with temples and Rang Ghar, Asia’s oldest amphitheater." },
+      { "text": "Haflong – Assam’s only hill station, called the 'Switzerland of the Northeast'." }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      { "text": "Tea Production – Contributes over 50% of India’s tea; globally renowned Assam Tea." },
+      { "text": "Petroleum & Natural Gas – Home to India’s oldest oil fields in Digboi, Duliajan, and Sivasagar." },
+      { "text": "Silk Industry – Famous for exclusive Muga Silk found only in Assam." },
+      { "text": "Agriculture – Major crops include rice, jute, mustard, and betel nuts." },
+      { "text": "Bamboo & Handicrafts – Skilled artisans produce exquisite bamboo and cane crafts." }
+    ],
+
+    "Native People & Languages 🗣️": [
+      { "text": "Official language: Assamese. Bodo, Bengali, and Hindi are also widely spoken." },
+      { "text": "Ethnic diversity includes Assamese, Bodos, Ahoms, Karbis, and other tribes." },
+      { "text": "The Bodo community follows Hinduism and the indigenous faith, Bathouism." },
+      { "text": "Sattriya Dance – One of the eight classical Indian dance forms, originated here." }
+    ],
+
+    "Area & Geography 🌍": [
+      { "text": "Area: 78,438 sq. km – one of the largest Northeastern states." },
+      { "text": "Brahmaputra River runs through Assam, shaping its geography, economy, and culture." },
+      { "text": "Faces annual monsoon floods due to Brahmaputra's overflow." },
+      { "text": "Ecologically rich with rainforests, hills, wetlands, and wildlife." }
+    ],
+
+    "Unique Facts 🌟": [
+      { "text": "Kaziranga has the world’s highest density of one-horned rhinoceroses." },
+      { "text": "India’s first oil refinery was established in Digboi in 1901." },
+      { "text": "Bihu – A vibrant folk dance performed during the Rongali Bihu festival." },
+      { "text": "Kamakhya Temple is unique for its menstruating goddess legend." },
+      { "text": "Majuli Island is gradually shrinking due to Brahmaputra-induced erosion." }
+    ],
+
+    "State Symbols": {
+      "State Animal 🐾": { "text": "Indian Rhinoceros (Rhinoceros unicornis)",
+        "image": "images/Assam/Rhinoceros.jpg"},
+      "State Bird 🐦": {"text": "White-winged Wood Duck (Asarcornis scutulata)",
+        "image": "images/Assam/White duck.jpg"},
+      "State Tree 🌳": {"text": "Hollong (Dipterocarpus macrocarpus)",
+        "image": "images/Assam/hollong.jpg"},
+      "State Flower 🌸": {"text": "Foxtail Orchid (Rhynchostylis retusa)",
+        "image": "images/Assam/foxtail orchid.jpg"}
+    }
+  },
+  "Bihar": {
+      "tagline": "The Land of Ancient Civilizations and Spirituality 🏛️🌿",
+      "Capital City 🏛️": [
+        "Patna, formerly known as Pataliputra, is one of the world’s oldest continuously inhabited cities.",
+        "Capital of ancient Magadha, rich in historical and political significance.",
+        "Famous landmarks include Golghar, Patna Sahib Gurudwara, and the Kumhrar ruins."
+      ],
+      "National Importance & Famous Landmarks 🏔️": [
+        { "text":"Mahabodhi Temple (Bodh Gaya) – UNESCO World Heritage Site where Buddha attained enlightenment.",
+          "image": "images/Bihar/bodhgya.jpg"},
+        { "text":"Nalanda University – Among the world’s oldest universities, a beacon of ancient learning.",
+          "image": "images/Bihar/Nalanda.jpg"},
+        { "text":"Vikramshila University – Major Buddhist learning center from the 8th century."},
+        { "text":"Rajgir – Historical site with connections to Buddha and Mahavira; home to the Vishwa Shanti Stupa."},
+        { "text":"Vaishali – Birthplace of Lord Mahavira and among the earliest republics in the world."},
+        { "text":"Kesaria Stupa – One of the largest Buddhist stupas globally."},
+        { "text":"Madhubani – Known for the world-famous Madhubani folk art."}
+      ],
+      "Core Production & Economic Focus 🏭": [
+        "Agriculture Hub – Top producer of rice, wheat, sugarcane, and maize.",
+        "Litchi & Mango Production – Muzaffarpur for litchis; Bhagalpur for Jardalu mangoes.",
+        "Silk Industry – Bhagalpur is renowned for Tussar silk, earning the title 'Silk City of India'.",
+        "Tourism & Handicrafts – Strong presence in Buddhist and Jain tourism, along with folk arts like Madhubani and terracotta.",
+        "Industrial Growth – Emerging industries include textiles, leather, and dairy."
+      ],
+      "Native People & Languages 🗣️": [
+        "Official language: Hindi. Other major languages: Bhojpuri, Maithili, Magahi, and Angika.",
+        "Rich literary tradition with poets like Vidyaapati in Maithili literature.",
+        "Historically ruled by the Maurya and Gupta dynasties, key to India’s ancient legacy."
+      ],
+      "Area & Geography 🌍": [
+        "Area: 94,163 sq. km – located in the fertile Gangetic plains.",
+        "Major rivers: Ganga, Gandak, Kosi, and Son provide water for agriculture.",
+        "Kosi River is called the 'Sorrow of Bihar' due to its flooding tendencies."
+      ],
+      "Unique Facts 🌟": [
+        "Nalanda University was one of the world’s first residential universities.",
+        "Bodh Gaya is Buddhism’s holiest pilgrimage destination.",
+        "Bihar is the birthplace of Buddhism and Jainism.",
+        "Chhath Puja, a sun worship festival, is one of the grandest in Bihar.",
+        "Notable historical figures include Chanakya, Emperor Ashoka, and Dr. Rajendra Prasad, India’s first President."
+      ],
+    "State Symbols": {
+      "State Animal 🐾": { "text":"Gaur (Bos gaurus)",
+        "image": "images/Bihar/gaur.jpg"},
+      "State Bird 🐦": { "text":"House Sparrow (Passer domesticus)",
+        "image": "images/Bihar/sparrow.jpg"},
+      "State Tree 🌳": { "text":"Sacred Fig (Ficus religiosa)",
+        "image": "images/Bihar/peepal.jpg"},
+      "State Flower 🌸": { "text":"Marigold (Tagetes)",
+        "image": "images/Bihar/Marigold.jpg"}
+    }
+  },
+  "Chhattisgarh": {
+    "tagline": "The Tribal Heart of India 🌿🛖",
+    "Capital City 🏛️": [
+      "Raipur is the largest city and administrative capital of Chhattisgarh.",
+      "It is an emerging industrial and educational hub, home to premier institutions like IIM Raipur and NIT Raipur.",
+      "The city is also known for its steel industries and growing urban infrastructure."
+    ],
+
+    "National Importance & Famous Landmarks 🏔️": [
+      {"text": "Chitrakote Waterfall – India’s widest waterfall, often called the 'Niagara Falls of India.'", 
+        "image": "images/Chhattisgarh/chitrakote.jpg"},
+      {"text": "Bastar & Dantewada – Known for tribal culture, folk art, and traditional handicrafts."},
+      {"text": "Barnawapara Wildlife Sanctuary – A haven for tigers, leopards, and elephants."},
+      {"text": "Sirpur – A historical town with ancient Buddhist monasteries and temples."},
+      {"text": "Bhoramdeo Temple – The Khajuraho of Chhattisgarh, famous for its intricate sculptures.", 
+        "image": "images/Chhattisgarh/bhoramdeo temple.jpg"}
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "Steel & Mineral Hub – Chhattisgarh is India’s largest producer of iron ore, and a major supplier of coal, dolomite, and bauxite.",
+      "Agriculture – The state is a key producer of rice, earning it the title 'Rice Bowl of India.'",
+      "Handicrafts & Tribes – Traditional handicrafts, including bell metal art, terracotta, and tribal jewelry, contribute to the rural economy.",
+      "Power Generation – The state supplies electricity to many parts of India due to its large coal reserves."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "Chhattisgarh has a rich tribal heritage, with over 30% of its population belonging to indigenous communities like the Gond, Halba, and Baiga tribes.",
+      "The official language is Chhattisgarhi, a dialect of Hindi, while Hindi is widely spoken.",
+      "The state celebrates vibrant tribal festivals like Bastar Dussehra, one of the longest festivals in the world (lasting 75 days!)."
+    ],
+
+    "Area & Geography 🌍": [
+      "Covers 135,192 sq. km, making it the ninth-largest state in India.",
+      "Dense forests (44% of total area) – Chhattisgarh has large forest reserves, home to tigers, leopards, and elephants.",
+      "The Mahanadi and Indravati Rivers flow through the state, making it rich in natural resources."
+    ],
+
+    "Unique Facts 🌟": [
+      "Chitrakote Waterfall changes colors based on the season! 🌊",
+      "The Bastar region has some of the oldest tribal communities in India, preserving centuries-old traditions.",
+      "Chhattisgarh has Asia’s largest man-made forest, Jungle Safari in Naya Raipur."
+    ],
+
+    "State Symbols": {
+      "State Animal 🐾": {"text": "Wild Buffalo (Bubalus arnee)",
+        "image": "images/Chhattisgarh/ban baisa.jpg"},
+      "State Bird 🐦": {"text": "Hill myna (Gracula religiosa)",
+        "image": "images/Chhattisgarh/hill mayna.jpg"},
+      "State Tree 🌳": {"text": "Sal (Shorea robusta)",
+        "image": "images/Chhattisgarh/sal.jpg"},
+      "State Flower 🌸": {"text": "Marigold (Tagetes patula)",
+        "image": "images/Chhattisgarh/French_Marigold.jpg"}
+    }
+  },
+  "Goa": {
+    "tagline": "The Pearl of the Indian Ocean 🏝️🌊",
+
+    "Capital City 🏛️": [
+      "Panaji, located on the banks of the Mandovi River, is Goa’s capital, known for its Portuguese-style architecture, charming streets, and vibrant nightlife.",
+      "Margao and Vasco da Gama are other important cities with a mix of colonial and modern influences."
+    ],
+
+    "National Importance & Famous Landmarks 🏔️": [
+      {
+        "text": "Beaches – Goa is famous for its golden beaches, including Baga, Calangute, Anjuna, Palolem, Vagator, and Colva."},
+      {
+        "text": "Basilica of Bom Jesus – A UNESCO World Heritage Site housing the mortal remains of St. Francis Xavier."},
+      {
+        "text": "Dudhsagar Waterfalls – One of India’s tallest waterfalls, resembling a cascade of milk.",
+        "image": "images/Goa/dudhsagar.jpeg"
+      },
+      {
+        "text": "Aguada & Chapora Forts – Iconic Portuguese-era forts offering breathtaking views of the sea."},
+      {
+        "text": "Dona Paula – A picturesque coastal area linked to a tragic love legend."
+      },
+      {
+        "text": "Old Goa – The former capital with stunning Portuguese churches, cathedrals, and heritage sites."
+      },
+      {
+        "text": "Naval Aviation Museum – One of the only two naval aviation museums in India.",
+        "image": "images/Goa/aircraft.jpeg"
+      }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "Tourism – Goa’s economy thrives on domestic and international tourism, with visitors drawn to its beaches, nightlife, casinos, and water sports.",
+      "Cashew & Coconut Farming – Goa is a major producer of cashew nuts, feni (local liquor), and coconut-based products.",
+      "Fishing Industry – The coastal state has a strong fishing economy, exporting seafood worldwide.",
+      "Iron Ore Mining – Goa has rich iron ore deposits, though mining regulations have fluctuated over the years."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "The official language is Konkani, but Marathi, English, Hindi, and Portuguese are also widely spoken.",
+      "Goans have a unique Indo-Portuguese culture, influenced by centuries of Portuguese rule.",
+      "The Goan Carnival, inherited from the Portuguese, is a major festival celebrated with music, dance, and colorful parades."
+    ],
+
+    "Area & Geography 🌍": [
+      "Covers 3,702 sq. km, making it India’s smallest state by area.",
+      "Bordered by Maharashtra and Karnataka, with a long coastline along the Arabian Sea.",
+      "The Mandovi, Zuari, and Sal Rivers are the major water bodies flowing through Goa."
+    ],
+
+    "Unique Facts 🌟": [
+      "Goa was a Portuguese colony for 450 years until it became part of India in 1961.",
+      "Goa has India’s highest per capita income, driven by tourism, mining, and trade.",
+      "The Basilica of Bom Jesus is over 400 years old and a significant site for Catholic pilgrims.",
+      "Feni, a traditional Goan liquor made from cashew apples, has a GI tag and is unique to the state.",
+      "Goa has Asia’s only Naval Aviation Museum, showcasing India’s maritime heritage."
+    ],
+
+    "State Symbols": {
+      "State Animal 🐾": {
+        "text": "Gaur (Bos gaurus)",
+        "image": "images/Goa/gaur.jpg"
+      },
+      "State Bird 🐦": {
+        "text": "Ruby-throated Yellow Bulbul (Pycnonotus gularis)",
+        "image": "images/Goa/bulbul.jpg"
+      },
+      "State Tree 🌳": {
+        "text": "Crocodile Bark Tree (Terminalia tomentosa)",
+        "image": "images/Goa/matti.jpg"
+      },
+      "State Flower 🌸": {
+        "text": "Red Jasmine (Plumeria rubra)",
+        "image": "images/Goa/jasmine.jpg"
+      }
+    }
+  },
+  "Gujarat": {
+    "tagline": "The Land of the Lions and Legends 🦁🏛️",
+
+    "Capital City 🏛️": [
+      "Gandhinagar is Gujarat’s capital, named after Mahatma Gandhi. It is one of the greenest cities in Asia.",
+      "Ahmedabad, the largest city, is the economic and cultural capital, known for its heritage sites, textile industry, and street food."
+    ],
+
+    "National Importance & Famous Landmarks 🏔️": [
+      {
+        "text": "Statue of Unity – The world’s tallest statue (182m), dedicated to Sardar Vallabhbhai Patel.",
+        "image": "images/Gujarat/unity.jpg"
+      },
+      {
+        "text": "Gir National Park – The only place in the world where Asiatic lions roam freely."
+      },
+      {
+        "text": "Rann of Kutch – The largest salt desert in the world, famous for the Rann Utsav (White Desert Festival)."
+      },
+      {
+        "text": "Somnath Temple – One of the 12 Jyotirlingas of Lord Shiva, with a history of destruction and rebuilding.",
+        "image": "images/Gujarat/somnath.jpg"
+      },
+      {
+        "text": "Dwarka – A sacred Hindu city, believed to be the ancient kingdom of Lord Krishna."
+      },
+      {
+        "text": "Champaner-Pavagadh Archaeological Park – A UNESCO World Heritage Site showcasing medieval forts, mosques, and temples."
+      },
+      {
+        "text": "Sabarmati Ashram – The home of Mahatma Gandhi, a key site in India’s freedom struggle.",
+        "image": "images/Gujarat/ashram.jpg"
+      },
+      {
+        "text": "Modhera Sun Temple – An ancient temple dedicated to Surya (the Sun God), known for its stunning architecture."
+      }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "Industrial & Business Hub – Gujarat contributes 8% of India’s GDP, being a leader in petrochemicals, textiles, and automobile industries.",
+      "Diamond & Jewelry Hub – Surat is the world’s largest diamond-cutting and polishing center, processing over 90% of the world’s diamonds.",
+      "Dairy Industry – Gujarat is the home of Amul, India’s largest dairy cooperative.",
+      "Salt & Marine Industry – Gujarat produces 76% of India’s salt, mainly from the Rann of Kutch.",
+      "Tourism – Festivals like Navratri, Rann Utsav, and religious tourism boost Gujarat’s economy."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "Gujarati is the official language, spoken by the majority of the population.",
+      "The state has a mix of Hindu, Jain, Parsi, and Muslim communities, each contributing to Gujarat’s rich culture.",
+      "Garba and Dandiya Raas, the traditional Navratri dances, originate from Gujarat."
+    ],
+
+    "Area & Geography 🌍": [
+      "Covers 196,024 sq km, making it the fifth-largest state in India.",
+      "Bordered by Rajasthan, Maharashtra, Madhya Pradesh, and Pakistan, with a 1,600 km coastline along the Arabian Sea.",
+      "The Narmada, Tapi, and Sabarmati Rivers provide water for agriculture and industries."
+    ],
+
+    "Unique Facts 🌟": [
+      "Gujarat is the birthplace of Mahatma Gandhi and Sardar Patel, two of India’s greatest leaders.",
+      "The Gir Forest is the only home of Asiatic lions in the wild.",
+      "The Gujarat International Finance Tec-City (GIFT City) is India’s first smart city and global financial hub.",
+      "Surat is one of the world’s fastest-growing cities, due to its booming diamond and textile industries.",
+      "Dwarka is considered one of the oldest cities in India, mentioned in the Mahabharata."
+    ],
+
+    "State Symbols": {
+      "State Animal 🐾": {
+        "text": "Asiatic Lion (Panthera leo persica)",
+        "image": "images/Gujarat/Lion.jpg"
+      },
+      "State Bird 🐦": {
+        "text": "Greater Flamingo (Phoenicopterus roseus)",
+        "image": "images/Gujarat/flamingo.jpg"
+      },
+      "State Tree 🌳": {
+        "text": "Banyan (Ficus benghalensis)",
+        "image": "images/Gujarat/Banyan.jpeg"
+      },
+      "State Flower 🌸": {
+        "text": "Marigold (Tagetes erecta)",
+        "image": "images/Gujarat/Marigold.jpg"
+      }
+    }
+  },
+  "Haryana": {
+    "tagline": "The Land of Champions and Ancient Battles 🏆⚔️",
+
+    "Capital City 🏛️": [
+      "Chandigarh, India's first planned city, serves as the capital of both Haryana and Punjab.",
+      "Gurugram, a major financial and IT hub, is home to Fortune 500 companies and skyscrapers.",
+      "Faridabad, another key city, is an industrial powerhouse in North India."
+    ],
+
+    "National Importance & Famous Landmarks 🏔️": [
+      {
+        "text": "Kurukshetra – The legendary battlefield of the Mahabharata, where Lord Krishna gave the Bhagavad Gita sermon.",
+        "image": "images/Haryana/kuk.jpg"
+      },
+      {
+        "text": "Sultanpur Bird Sanctuary – A paradise for bird watchers, home to migratory birds from across the world."
+      },
+      {
+        "text": "Kingdom of Dreams (Gurugram) – India’s first live entertainment and Bollywood theme park."
+      },
+      {
+        "text": "Brahma Sarovar – A sacred water body in Kurukshetra, believed to be one of the largest man-made tanks in India."
+      },
+      {
+        "text": "Morni Hills – Haryana’s only hill station, a perfect spot for trekking and adventure sports."
+      },
+      {
+        "text": "Panipat – The site of three historic battles that shaped Indian history."
+      },
+      {
+        "text": "Surajkund – Famous for its Surajkund International Crafts Mela, showcasing traditional Indian handicrafts."
+      }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "Agriculture Powerhouse – Haryana is known as the \"Breadbasket of India,\" producing wheat, rice, sugarcane, and mustard.",
+      "Automobile & Manufacturing Hub – Maruti Suzuki, Hero MotoCorp, and many other car manufacturers have their headquarters in Haryana.",
+      "IT & Startups – Gurugram is India’s second-largest IT hub, after Bangalore, with global companies like Google, Microsoft, and Accenture.",
+      "Dairy & Milk Production – Haryana ranks among India’s top milk-producing states and is known for Murrah buffaloes.",
+      "Handloom & Handicrafts – Haryana is famous for Phulkari embroidery, pottery, and woodwork."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "The official language is Hindi, but Haryanvi, Punjabi, and English are also widely spoken.",
+      "Haryana is known for its bold and straightforward people, with a strong sense of community and valor.",
+      {"text":"Wrestling and Kabaddi are deeply embedded in Haryana’s culture, producing Olympic champions like Bajrang Punia and Sakshi Malik.",
+        "image": "images/Haryana/sports.jpg"}
+    ],
+
+    "Area & Geography 🌍": [
+      "Covers 44,212 sq km, located in North India, surrounding Delhi on three sides.",
+      "Bordered by Punjab, Himachal Pradesh, Rajasthan, and Uttar Pradesh, making it a gateway to North India.",
+      "The Yamuna River is Haryana’s lifeline, while its western region has semi-arid conditions."
+    ],
+
+    "Unique Facts 🌟": [
+      "Haryana has the highest number of Olympic medalists in India, excelling in wrestling, boxing, and shooting.",
+      "The first war of Indian independence (1857) began in Ambala, Haryana.",
+      "Kurukshetra University is one of India’s oldest universities, named after the sacred land of the Mahabharata.",
+      "Gurugram has the third-highest number of startups in India, after Bangalore and Delhi-NCR.",
+      "Haryana has India’s first solar-powered airport in Chandigarh."
+    ],
+
+    "State Symbols": {
+      "State Animal 🐾": {
+        "text": "Blackbuck (Antilope cervicapra)",
+        "image": "images/Haryana/Black buck.jpg"
+      },
+      "State Bird 🐦": {
+        "text": "Black Francolin (Francolinus francolinus)",
+        "image": "images/Haryana/Black francolin.jpg"
+      },
+      "State Tree 🌳": {
+        "text": "Peepal (Ficus religiosa)",
+        "image": "images/Haryana/Peepal.jpg"
+      },
+      "State Flower 🌸": {
+        "text": "Lotus (Nelumbo nucifera)",
+        "image": "images/Haryana/Lotus.jpg"
+      }
+    }
+  },
+  "Himachal Pradesh": {
+    "tagline": "The Land of Gods and Snowy Peaks 🏔️❄️",
+
+    "Capital City 🏛️": [
+      "Shimla, the Queen of Hills, was the summer capital of British India and is now a top tourist destination.",
+      "Dharamshala, the winter capital, is the headquarters of the Tibetan government-in-exile and home to the Dalai Lama."
+    ],
+
+    "National Importance & Famous Landmarks 🏔️": [
+      {
+        "text": "Shimla Ridge & Mall Road – The heart of Shimla, known for colonial architecture and scenic views."
+      },
+      {
+        "text": "Manali & Rohtang Pass – A paradise for snow lovers, adventure seekers, and honeymooners."
+      },
+      {
+        "text": "Spiti Valley – A high-altitude desert known for its Tibetan monasteries, rugged mountains, and breathtaking landscapes."
+      },
+      {
+        "text": "Dalhousie & Khajjiar – Often called the Mini Switzerland of India due to its lush meadows and pine forests.",
+        "image": "images/Himachal_Pradesh/dalhousie.jpg"
+      },
+      {
+        "text": "McLeod Ganj – Home to the Dalai Lama and the Tibetan spiritual center, also known for Buddhist monasteries."
+      },
+      {
+        "text": "Kullu & Parvati Valley – Famous for its scenic beauty, adventure sports, and vibrant backpacking culture."
+      },
+      {
+        "text": "Chitkul – The last inhabited village near the Indo-Tibetan border, known for its untouched beauty."
+      },
+      {
+        "text": "Kinnaur & Kalpa – Famous for apple orchards, wooden temples, and views of the Kinner Kailash peak."
+      }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "Tourism – The backbone of the economy, attracting millions of domestic and international tourists.",
+      {"text":"Apple & Fruit Farming – Himachal is India’s largest producer of apples, with orchards in Shimla, Kinnaur, and Manali.",
+        "image": "images/Himachal_Pradesh/apple.jpeg"},
+      "Handicrafts & Wool Industry – Famous for Kullu shawls, Chamba rumals, and Kangra paintings.",
+      "Hydropower Generation – The state produces a significant portion of India’s hydroelectricity from rivers like the Sutlej, Beas, Ravi, and Chenab.",
+      "Herbal & Ayurvedic Industry – Home to Himalayan medicinal herbs, used in Ayurvedic products and essential oils."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "The official language is Hindi, but Pahari, Kinnauri, Lahauli, and Tibetan are widely spoken in different regions.",
+      "The people of Himachal are known for their hospitality, rich folk traditions, and deep-rooted religious beliefs.",
+      {"text":"Nati, a traditional folk dance, is popular during festivals and fairs.",
+        "image": "images/Himachal_Pradesh/natti.jpg"},
+      "The culture is a mix of Hinduism and Tibetan Buddhism, especially in Lahaul-Spiti and Kinnaur."
+    ],
+
+    "Area & Geography 🌍": [
+      "Covers 55,673 sq km, with over 90% of its area covered by mountains and forests.",
+      "Bordered by Punjab, Haryana, Uttarakhand, and Jammu & Kashmir, with Tibet (China) to the east.",
+      "The Dhauladhar, Pir Panjal, and Great Himalayan ranges dominate the landscape.",
+      "Home to snow-fed rivers, valleys, and high-altitude lakes like Rewalsar and Chandra Taal."
+    ],
+
+    "Unique Facts 🌟": [
+      "Himachal is the second-least urbanized state in India, with more than 85% of the population living in villages.",
+      "Kangra Tea, grown in Himachal, is internationally recognized for its unique flavor.",
+      "Asia’s oldest democracy exists in Himachal Pradesh – the Malana village, where locals follow an ancient system of governance.",
+      "The Great Himalayan National Park (GHNP) is a UNESCO World Heritage Site known for its biodiversity.",
+      "Himachal Pradesh has one of the highest literacy rates in India."
+    ],
+
+    "State Symbols": {
+      "State Animal 🐾": {
+        "text": "Snow Leopard (Panthera uncia)",
+        "image": "images/Himachal_Pradesh/snow leopard.jpg"
+      },
+      "State Bird 🐦": {
+        "text": "Western Tragopan (Tragopan melanocephalus)",
+        "image": "images/Himachal_Pradesh/Mahseer.jpg"
+      },
+      "State Tree 🌳": {
+        "text": "Deodar Cedar (Cedrus deodara)",
+        "image": "images/Himachal_Pradesh/deodar.jpg"
+      },
+      "State Flower 🌸": {
+        "text": "Pink Rhododendron (Rhododendron campanulatum)",
+        "image": "images/Himachal_Pradesh/pink.jpg"
+      }
+    }
+  },
+  "Jharkhand": {
+    "tagline": "The Land of Forests and Minerals",
+
+    "Capital City 🏛️": [
+      "Ranchi is known as the \"City of Waterfalls\" due to its numerous scenic waterfalls.",
+      "It is also an emerging industrial and educational hub, home to institutions like IIM Ranchi and BIT Mesra."
+    ],
+
+    "National Importance & Famous Landmarks 🏔️": [
+      {
+        "text": "Dassam, Hundru, and Jonha Falls – Spectacular waterfalls near Ranchi, making it a nature lover’s paradise."
+      },
+      {
+        "text": "Parasnath Hill – A major pilgrimage site for Jains, where 20 of Jainism’s 24 Tirthankaras attained Nirvana."
+      },
+      {
+        "text": "Baidyanath Dham (Deoghar) – One of the 12 Jyotirlingas, a sacred Shiva temple attracting millions of devotees.",
+        "image": "images/Jharkhand/Baidyanath.jpg"
+      },
+      {
+        "text": "Betla National Park – One of India’s first tiger reserves, home to elephants, leopards, and sloth bears."
+      },
+      {
+        "text": "Patratu Valley – A picturesque valley with lush greenery and winding roads, perfect for road trips."
+      },
+      {
+        "text": "Netarhat – A hill station known as the Queen of Chotanagpur, famous for its breathtaking sunrise and sunset views."
+      },
+      {
+        "text": "Tagore Hill – A historical site linked to Rabindranath Tagore, offering panoramic views of Ranchi."
+      }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "Mineral-Rich State – Jharkhand produces 40% of India’s minerals, including coal, iron ore, copper, mica, and uranium.",
+      "Steel & Heavy Industries – Home to Tata Steel (Jamshedpur), Bokaro Steel Plant, and Dhanbad coal mines.",
+      "Forestry & Handicrafts – The state is known for lac bangles, tribal handicrafts, and bamboo products.",
+      "Agriculture – Major crops include paddy, pulses, maize, and oilseeds, along with silk farming (Tussar silk).",
+      "Energy Hub – The Damodar Valley Corporation (DVC) is a major hydroelectric power producer in the region."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "The official language is Hindi, but Santhali, Ho, Mundari, Khortha, and Nagpuri are widely spoken among tribal communities.",
+      "Jharkhand is home to over 30 tribal groups, including Santhals, Oraons, Mundas, and Ho tribes.",
+      "The state celebrates Sarhul, Karma, and Sohrai festivals, which are deeply connected to nature and harvest cycles."
+    ],
+
+    "Area & Geography 🌍": [
+      "Covers 79,716 sq km, with dense forests covering over 29% of its land.",
+      "Bordered by Bihar, West Bengal, Odisha, Chhattisgarh, and Uttar Pradesh.",
+      "The Chotanagpur Plateau dominates its landscape, making it rich in minerals and waterfalls.",
+      "Major rivers include the Damodar, Subarnarekha, Koel, and Barakar."
+    ],
+
+    "Unique Facts 🌟": [
+      "Jamshedpur is India’s first planned industrial city, founded by Jamsetji Tata.",
+      "Dhanbad is known as the \"Coal Capital of India\", contributing significantly to India’s energy sector.",
+      "Jharkhand has one of India’s largest tribal populations, preserving ancient traditions and languages.",
+      "The Paitkar paintings of Jharkhand are among India’s oldest tribal art forms, resembling ancient scroll paintings.",
+      "The Saranda Forest is Asia’s largest Sal forest, home to elephants and rare wildlife."
+    ],
+
+    "State Symbols": {
+      "State Animal 🐘": {
+        "text": "Indian Elephant (Elephas maximus indicus)",
+        "image": "images/Jharkhand/Elephant.jpg"
+      },
+      "State Bird 🐦": {
+        "text": "Asian Koel (Eudynamys scolopaceus)",
+        "image": "images/Jharkhand/Asian Koel.jpg"
+      },
+      "State Tree 🌳": {
+        "text": "Sal (Shorea robusta)",
+        "image": "images/Jharkhand/Sal.jpg"
+      },
+      "State Flower 🌸": {
+        "text": "Palash (Butea monosperma)",
+        "image": "images/Jharkhand/Palash.jpg"
+      }
+    }
+  },
+  "Karnataka": {
+    "tagline": "The Land of Heritage, Technology & Nature",
+
+    "Capital City 🏛️": [
+      "Bengaluru, known as the \"Silicon Valley of India\", is the country’s IT and startup hub.",
+      "It is also famous for its pleasant climate, gardens, and thriving nightlife.",
+      "Other major cities include Mysuru (Mysore), Mangaluru (Mangalore), Hubballi, Belagavi, and Shivamogga."
+    ],
+
+    "National Importance & Famous Landmarks 🏔️": [
+      {
+        "text": "Hampi – A UNESCO World Heritage Site and the ruins of the Vijayanagara Empire, famous for stone temples and carvings."
+      },
+      {
+        "text": "Mysore Palace – One of India’s most magnificent palaces, known for Dussehra celebrations.",
+        "image": "images/Karnataka/mysore palace.jpg"
+      },
+      {
+        "text": "Jog Falls – One of the tallest waterfalls in India, located in the Western Ghats."
+      },
+      {
+        "text": "Gokarna – A serene coastal town, famous for its beaches and Mahabaleshwar Temple.",
+        "image": "images/Karnataka/mahabaleshwar.jpg"
+      },
+      {
+        "text": "Coorg (Kodagu) – The \"Scotland of India\", known for its coffee plantations, misty hills, and waterfalls.",
+        "image": "images/Karnataka/coorg.jpg"
+      },
+      {
+        "text": "Badami, Aihole & Pattadakal – Home to ancient rock-cut temples and cave sculptures from the Chalukya dynasty."
+      },
+      {
+        "text": "Bannerghatta National Park – A wildlife sanctuary near Bengaluru, known for tigers, elephants, and butterflies."
+      },
+      {
+        "text": "Belur & Halebidu – Exquisite Hoysala-era temples, known for their intricate carvings."
+      }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "IT & Technology Hub – Karnataka contributes over 40% of India’s IT exports, with companies like Infosys, Wipro, and Flipkart.",
+      "Silk & Textile Industry – Mysore Silk is world-famous for its high-quality sarees.",
+      "Coffee Production – Karnataka produces over 70% of India’s coffee, especially in Coorg and Chikmagalur.",
+      "Aerospace & Defense – Bengaluru is home to HAL, ISRO, and DRDO, making it India’s aerospace capital.",
+      "Manufacturing & Automotive – Hubballi, Belagavi, and Dharwad are known for engineering, machine tools, and automobile industries.",
+      "Gold Mining – Kolar Gold Fields (KGF) is one of the oldest gold mines in India."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "The official language is Kannada, but Tulu, Konkani, Kodava, and English are also spoken in different regions.",
+      "Karnataka has a rich classical music and dance tradition, with renowned forms like Yakshagana and Carnatic music.",
+      "Mysore Dasara is celebrated as South India’s grandest festival, featuring royal processions."
+    ],
+
+    "Area & Geography 🌍": [
+      "Covers 191,791 sq km, making it India’s sixth-largest state.",
+      "Bordered by Maharashtra, Goa, Kerala, Tamil Nadu, Andhra Pradesh, and Telangana, with a coastline along the Arabian Sea.",
+      "The Western Ghats (a UNESCO Biosphere Reserve) run through Karnataka, making it one of India’s biodiversity hotspots.",
+      "Major rivers include the Kaveri, Tungabhadra, Krishna, and Sharavathi."
+    ],
+
+    "Unique Facts 🌟": [
+      "Karnataka is home to India’s oldest Sanskrit college (Sanskrit University, Melkote).",
+      "Bengaluru has India’s highest number of startups, making it the startup capital of India.",
+      "The Indian Space Research Organization (ISRO) was founded in Bengaluru.",
+      "The Mysore Palace is the second most visited monument in India, after the Taj Mahal.",
+      {"text":"Rani Chennamma of Kittur was one of the first queens to fight against British rule, even before Rani Lakshmibai.",
+        "image": "images/Karnataka/rani.jpg"}
+    ],
+
+    "State Symbols": {
+      "State Animal 🐘": {
+        "text": "Indian Elephant (Elephas maximus)",
+        "image": "images/Karnataka/elephant.jpg"
+      },
+      "State Bird 🐦": {
+        "text": "Indian Roller (Coracias indica)",
+        "image": "images/Karnataka/indian roller.jpg"
+      },
+      "State Tree 🌳": {
+        "text": "Sandalwood (Santalum album)",
+        "image": "images/Karnataka/sandalwood.jpg"
+      },
+      "State Flower 🌸": {
+        "text": "Lotus (Nymphaea nouchali)",
+        "image": "images/Karnataka/lotus.jpg"
+      }
+    }
+  },
+  "Kerala": {
+    "tagline": "God’s Own Country",
+
+    "Capital City 🏛️": [
+      "Thiruvananthapuram (Trivandrum) is the political and cultural hub of Kerala, home to Padmanabhaswamy Temple and renowned institutions like ISRO’s Vikram Sarabhai Space Centre.",
+      "Other major cities include Kochi (Cochin), Kozhikode (Calicut), Thrissur, and Alappuzha (Alleppey)."
+    ],
+
+    "National Importance & Famous Landmarks 🏔️": [
+      {
+        "text": "Backwaters of Kerala – A unique network of lagoons and lakes, with houseboat cruises in Alleppey and Kumarakom.",
+        "image": "images/Kerala/backwater.jpg"
+      },
+      {
+        "text": "Munnar & Wayanad – Hill stations famous for tea plantations, waterfalls, and wildlife."
+      },
+      {
+        "text": "Kochi (Cochin) – A historic port city known for its Chinese fishing nets, Jewish Synagogue, and Fort Kochi."
+      },
+      {
+        "text": "Padmanabhaswamy Temple – One of the richest temples in the world, dedicated to Lord Vishnu.",
+        "image": "images/Kerala/temple.jpg"
+      },
+      {
+        "text": "Athirappilly Waterfalls – The Niagara of India, featured in movies like Baahubali.",
+        "image": "images/Kerala/waterfall.jpg"
+      },
+      {
+        "text": "Periyar Wildlife Sanctuary – A tiger and elephant reserve in Thekkady, known for boat safaris."
+      },
+      {
+        "text": "Varkala & Kovalam Beaches – Stunning beaches with golden sands, cliffs, and Ayurvedic resorts."
+      },
+      {
+        "text": "Sabarimala Temple – One of the largest pilgrimage sites in the world, dedicated to Lord Ayyappa.",
+        "image": "images/Kerala/Sabarimala.jpg"
+      },
+      {
+        "text": "Beypore & Kasaragod – Known for handmade Uru boats and historic forts."
+      }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "Spice Capital of India – Kerala produces the finest quality black pepper, cardamom, cinnamon, and cloves.",
+      "Tourism Industry – Kerala’s eco-tourism, Ayurveda retreats, and houseboat stays attract millions of tourists.",
+      "Coir & Handicrafts – Kerala is the largest producer of coir (coconut fiber) products.",
+      "Fisheries & Marine Industry – The Arabian Sea coastline makes Kerala a major seafood exporter.",
+      "IT & Technology Hub – Technopark (Trivandrum) and Infopark (Kochi) are among India’s leading IT parks.",
+      "Rubber & Tea Plantations – Kerala is one of India’s largest rubber-producing states, with tea estates in Munnar and Wayanad."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "The official language is Malayalam, with Tamil, Tulu, and English also spoken.",
+      "Kerala has a 100% literacy rate, making it India’s most literate state.",
+      "The people celebrate Onam, Kerala’s biggest festival, with Vallam Kali (boat races), Pulikali (tiger dance), and the grand Onam Sadhya feast.",
+      {"text":"Kathakali and Mohiniyattam are famous classical dance forms of Kerala.",
+        "image": "images/Kerala/Kathakali.jpg"}
+    ],
+
+    "Area & Geography 🌍": [
+      "Covers 38,863 sq km, making it one of India’s smallest states but rich in biodiversity.",
+      "Bordered by Tamil Nadu, Karnataka, and the Arabian Sea, with a 600 km-long coastline.",
+      "Home to Western Ghats (a UNESCO World Heritage Site), rich in tropical rainforests, wildlife, and waterfalls.",
+      "Major rivers include the Periyar, Pamba, and Bharathapuzha."
+    ],
+
+    "Unique Facts 🌟": [
+      "Kerala is the only Indian state with 100% primary education.",
+      "The first Indian church (St. Thomas Church, 52 AD) and the first mosque (Cheraman Juma Masjid, 629 AD) are in Kerala.",
+      "Kochi is called the \"Queen of the Arabian Sea\", due to its historic spice trade with Europe.",
+      {"text":"The Nehru Trophy Boat Race is one of the largest snake boat races in the world.",
+        "image": "images/Kerala/boat.jpg"},
+      "Kerala is known for Ayurveda, attracting global tourists for natural healing and wellness retreats."
+    ],
+
+    "State Symbols": {
+      "State Animal 🐘": {
+        "text": "Indian Elephant (Elephas maximus)",
+        "image": "images/Kerala/elephant.jpg"
+      },
+      "State Bird 🐦": {
+        "text": "Great Hornbill (Buceros bicornis)",
+        "image": "images/Kerala/hornbill.jpg"
+      },
+      "State Tree 🌳": {
+        "text": "Coconut Palm (Cocos nucifera)",
+        "image": "images/Kerala/coconut tree.jpeg"
+      },
+      "State Flower 🌸": {
+        "text": "Golden Shower Tree (Cassia fistula)",
+        "image": "images/Kerala/golden shower.jpg"
+      }
+    }
+  },
+  "Madhya Pradesh": {
+    "tagline": "The Heart of India ❤️🏹🏛️",
+
+    "Capital City 🏛️": [
+      "Bhopal, known as the 'City of Lakes', is famous for its natural and artificial lakes, as well as its rich heritage and modern infrastructure.",
+      "Other major cities include Indore (commercial capital), Gwalior (historical city), Jabalpur (marble city), and Ujjain (spiritual hub)."
+    ],
+
+    "National Importance & Famous Landmarks 🏔️": [
+      {
+        "text": "Khajuraho Temples – A UNESCO World Heritage Site, famous for its intricate and erotic sculptures from the Chandela dynasty.",
+        "image": "images/MadhyaPradesh/Khajuraho.jpg"
+      },
+      {
+        "text": "Sanchi Stupa – One of the oldest Buddhist stupas in the world, built by Emperor Ashoka in the 3rd century BCE.",
+        "image": "images/MadhyaPradesh/sanchi stupa.jpg"
+      },
+      {
+        "text": "Bhimbetka Rock Shelters – Prehistoric caves with 30,000-year-old cave paintings, showing early human life."
+      },
+      {
+        "text": "Ujjain (Mahakaleshwar Temple) – One of the 12 Jyotirlingas, a major center for the Kumbh Mela.",
+        "image": "images/MadhyaPradesh/mahakal temple.jpg"
+      },
+      {
+        "text": "Gwalior Fort – A magnificent hilltop fort, known as the 'Gibraltar of India'."
+      },
+      {
+        "text": "Kanha & Bandhavgarh National Parks – Among India’s best tiger reserves, with a high tiger population."
+      },
+      {
+        "text": "Pachmarhi Hill Station – The only hill station in MP, known for lush forests and waterfalls."
+      },
+      {
+        "text": "Omkareshwar & Maheshwar – Sacred towns on the Narmada River, famous for Jyotirlinga temples and handloom sarees."
+      }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "Agriculture Hub – MP is India’s largest producer of soybeans, pulses, garlic, and oranges.",
+      "Textiles & Handicrafts – Chanderi and Maheshwari sarees are famous worldwide.",
+      "Mining & Mineral Resources – MP has large reserves of diamonds, coal, limestone, and copper.",
+      "Tourism & Wildlife – National parks, historical sites, and spiritual centers drive the economy.",
+      "Industrial & Automobile Sector – Indore and Pithampur are key manufacturing and automobile hubs."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "The official language is Hindi, but Bundeli, Malwi, Nimadi, and Gondi are spoken across different regions.",
+      "MP is home to several tribal communities, including Gonds, Bhils, and Baigas, known for their rich cultural traditions.",
+      "Folk music and dances like Rai, Karma, and Saila are an integral part of Madhya Pradesh’s cultural identity."
+    ],
+
+    "Area & Geography 🌍": [
+      "Covers 308,252 sq km, making it India’s second-largest state.",
+      "Bordered by Uttar Pradesh, Rajasthan, Maharashtra, Gujarat, and Chhattisgarh, making it a strategic center.",
+      "The Narmada River, considered the lifeline of MP, flows through the state.",
+      "Vindhya and Satpura ranges create a diverse landscape of forests, plateaus, and valleys."
+    ],
+
+    "Unique Facts 🌟": [
+      "MP has the highest number of tiger reserves in India, including Pench, Panna, Satpura, Kanha, and Bandhavgarh.",
+      "India’s only active diamond mine (Panna Mines) is in Madhya Pradesh.",
+      "Indore has been ranked India’s cleanest city for several years in a row.",
+      "Bhedaghat (near Jabalpur) is famous for its Marble Rocks, where the Narmada River cuts through white marble cliffs.",
+      "MP is called the 'Tiger State of India' due to its high tiger population."
+    ],
+
+    "State Symbols": {
+      "State Animal 🦌": {
+        "text": "Barasingha (Rucervus duvaucelii)",
+        "image": "images/MadhyaPradesh/barasingha.jpg"
+      },
+      "State Bird 🐦": {
+        "text": "Indian Paradise Flycatcher (Terpsiphone paradisi)",
+        "image": "images/MadhyaPradesh/indian paradise flycatcher.jpg"
+      },
+      "State Tree 🌳": {
+        "text": "Banyan (Ficus benghalensis)",
+        "image": "images/MadhyaPradesh/banyan tree.jpg"
+      },
+      "State Flower 🌸": {
+        "text": "White Lily (Lilium candidum)",
+        "image": "images/MadhyaPradesh/white lily.jpg"
+      }
+    }
+  },
+  "Maharashtra": {
+    "tagline": "The Land of Forts, Bollywood, and Financial Powerhouse 🏰🎬💰",
+
+    "Capital City 🏛️": [
+      "Mumbai, the financial capital of India, is home to the Bombay Stock Exchange (BSE), Reserve Bank of India (RBI), and major corporations.",
+      "It is also the heart of Bollywood, the biggest film industry in India.",
+      "Other major cities include Pune (educational & IT hub), Nashik (wine capital), Nagpur (orange city), Aurangabad (historical city), and Kolhapur (known for wrestling and chappals)."
+    ],
+
+    "National Importance & Famous Landmarks 🏔️": [
+      {
+        "text": "Gateway of India – Mumbai’s iconic landmark, built during the British era.",
+        "image": "images/Maharashtra/gateway of india.jpg"
+      },
+      {
+        "text": "Ajanta & Ellora Caves – UNESCO World Heritage Sites featuring ancient Buddhist, Hindu, and Jain rock-cut caves.",
+        "image": "images/Maharashtra/Ellora.jpg"
+      },
+      {
+        "text": "Chhatrapati Shivaji Terminus (CST) – A historic railway station in Mumbai and a UNESCO World Heritage Site.",
+        "image": "images/Maharashtra/cst.jpg"
+      },
+      {
+        "text": "Shirdi (Sai Baba Temple) – One of India’s most visited pilgrimage sites.",
+        "image": "images/Maharashtra/shirdi.jpg"
+      },
+      {
+        "text": "Elephanta Caves – Rock-cut cave temples dedicated to Lord Shiva, located near Mumbai."
+      },
+      {
+        "text": "Marine Drive & Juhu Beach – Mumbai’s famous seafront attractions."
+      },
+      {
+        "text": "Lonavala & Khandala – Scenic hill stations known for monsoon beauty, forts, and chikki (sweet snack)."
+      },
+      {
+        "text": "Tadoba & Pench Tiger Reserves – Among India’s best wildlife destinations for spotting Bengal tigers."
+      },
+      {
+        "text": "Raigad, Rajgad, and Sinhagad Forts – Famous forts built by Chhatrapati Shivaji Maharaj, symbolizing Maratha pride."
+      }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "Financial & Business Hub – Mumbai is home to India’s biggest banks, stock market, and multinational companies.",
+      "Bollywood & Entertainment Industry – Mumbai is the center of Indian cinema, producing thousands of movies annually.",
+      "IT & Automotive Industry – Pune, Mumbai, and Nashik house major IT companies, automobile industries (Tata, Bajaj, Mahindra), and start-ups.",
+      "Agriculture & Wine Production – Nashik is India’s 'Wine Capital', famous for grape farming and wineries.",
+      {"text":"Textile & Handicrafts – Paithani sarees, Kolhapuri chappals, and Warli paintings are internationally renowned.",
+        "image": "images/Maharashtra/warli.jpg"},
+      "Port & Shipping Industry – Jawaharlal Nehru Port Trust (JNPT) is India’s largest container port."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "The official language is Marathi, but Hindi, English, and Konkani are widely spoken.",
+      "Maharashtra has a strong Maratha heritage, with festivals like Ganesh Chaturthi celebrated grandly.",
+      "Lavani and Tamasha are famous folk dance and theater art forms.",
+      "The state is also home to tribal communities like Warli, Gond, and Bhil, known for their unique cultural traditions."
+    ],
+
+    "Area & Geography 🌍": [
+      "Covers 307,713 sq km, making it India’s third-largest state.",
+      "Bordered by Gujarat, Madhya Pradesh, Chhattisgarh, Telangana, Karnataka, and Goa, with a 720 km-long Arabian Sea coastline.",
+      "Major rivers include the Godavari, Krishna, and Tapi.",
+      "Sahyadri Hills (Western Ghats) run through the state, making it a biodiversity hotspot."
+    ],
+
+    "Unique Facts 🌟": [
+      "Mumbai is India’s wealthiest city, contributing to over 6% of India’s GDP.",
+      "India’s first train (1853) ran from Mumbai to Thane.",
+      "Nashik Kumbh Mela is one of the largest religious gatherings in the world.",
+      "India’s oldest national park, Sanjay Gandhi National Park, is inside Mumbai, home to leopards.",
+      "The Kaas Plateau (Maharashtra’s Valley of Flowers) is a UNESCO Biosphere Reserve."
+    ],
+
+    "State Symbols": {
+      "State Animal 🐿️": {
+        "text": "Indian Giant Squirrel (Ratufa indica)",
+        "image": "images/Maharashtra/indian giant squirrel.jpg"
+      },
+      "State Bird 🐦": {
+        "text": "Yellow-footed Green Pigeon (Treron phoenicopterus)",
+        "image": "images/Maharashtra/Pigeon.jpg"
+      },
+      "State Tree 🌳": {
+        "text": "Mango (Mangifera indica)",
+        "image": "images/Maharashtra/Mango tree.jpg"
+      },
+      "State Flower 🌸": {
+        "text": "Jarul (Lagerstroemia speciosa)",
+        "image": "images/Maharashtra/Jarul.jpg"
+      }
+    }
+  },
+  "Manipur": {
+    "tagline": "The Jewel of India 💎🏞️🎭",
+
+    "Capital City 🏛️": [
+      "Imphal, the capital of Manipur, is known for its scenic beauty, historic importance, and vibrant culture.",
+      "The city played a significant role in World War II, with the famous Battle of Imphal fought here.",
+      "It is home to the world’s only floating national park, Keibul Lamjao National Park."
+    ],
+
+    "National Importance & Famous Landmarks 🏔️": [
+      {
+        "text": "Loktak Lake & Keibul Lamjao National Park – The largest freshwater lake in Northeast India, home to the rare Sangai deer.",
+        "image": "images/Manipur/loktak.jpeg"
+      },
+      {
+        "text": "Kangla Fort – A historic fort and a symbol of Manipuri heritage and royalty.",
+        "image": "images/Manipur/kangal.jpg"
+      },
+      {
+        "text": "Ima Keithel (Mother’s Market) – Asia’s largest all-women-run market, a unique cultural landmark."
+      },
+      {
+        "text": "Shirui Hills – Famous for the Shirui Lily, a rare flower found only in Manipur."
+      },
+      {
+        "text": "Andro Village – A center for traditional pottery and indigenous customs."
+      },
+      {
+        "text": "Dzuko Valley – A mesmerizing valley with rare flowers and trekking routes, shared with Nagaland."
+      },
+      {
+        "text": "Khongjom War Memorial – A tribute to Manipuri warriors who fought the British.",
+        "image": "images/Manipur/war.jpg"
+      },
+      {
+        "text": "Sirohi National Park – A lesser-known but beautiful national park rich in biodiversity."
+      }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "Handloom & Handicrafts – Manipur is known for intricate textiles, bamboo crafts, and black pottery.",
+      "Agriculture & Horticulture – The state grows organic fruits, vegetables, and medicinal plants, including black rice.",
+      "Tourism – Manipur’s natural beauty, adventure tourism, and cultural heritage attract visitors.",
+      "Sports Industry – Manipur is a powerhouse of Indian sports, producing Olympic athletes in boxing, weightlifting, and hockey.",
+      "Traditional Martial Arts (Thang-Ta) – The state has preserved its ancient martial art form, Thang-Ta."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "The official language is Manipuri (Meiteilon), with Tangkhul, Hmar, Mao, and other tribal languages spoken.",
+      "The people of Manipur include Meitei, Naga, Kuki, and other indigenous tribes, each with unique customs.",
+      "Manipuri culture is known for Ras Lila dance, which narrates stories of Lord Krishna and Radha.",
+      "Festivals like Yaoshang (Holi), Ningol Chakouba (a festival celebrating women), and Lai Haraoba (worship of deities) are widely celebrated."
+    ],
+
+    "Area & Geography 🌍": [
+      "Covers 22,327 sq km, making it one of India’s smaller states.",
+      "Bordered by Nagaland, Mizoram, Assam, and Myanmar, making it an important trade gateway to Southeast Asia.",
+      "The landscape consists of hills, valleys, forests, and rivers, with a moderate climate throughout the year."
+    ],
+
+    "Unique Facts 🌟": [
+      "Manipur is called the 'Switzerland of India' due to its picturesque landscapes.",
+      "Polo originated in Manipur and was later introduced to the British.",
+      {"text":"Mary Kom, the world-renowned boxer, hails from Manipur.",
+        "image": "images/Manipur/mary.jpg"},
+      "Manipur has India’s highest number of female entrepreneurs, with women actively running markets like Ima Keithel.",
+      "The Shirui Lily Festival celebrates Manipur’s unique biodiversity."
+    ],
+
+    "State Symbols": {
+      "State Animal 🦌": {
+        "text": "Sangai (Brow-antlered deer) (Rucervus eldii eldii)",
+        "image": "images/Manipur/sangai.jpg"
+      },
+      "State Bird 🐦": {
+        "text": "Nongin (Mrs. Hume's Pheasant) (Syrmaticus humiae)",
+        "image": "images/Manipur/nongin.jpg"
+      },
+      "State Tree 🌳": {
+        "text": "Uningthou (Phoebe hainesiana)",
+        "image": "images/Manipur/uningthou.jpg"
+      },
+      "State Flower 🌸": {
+        "text": "Shirui Lily (Lilium mackliniae)",
+        "image": "images/Manipur/siroi.jpg"
+      }
+    }
+  },
+  "Meghalaya": {
+    "tagline": "The Abode of Clouds ☁️🏞️🎶",
+
+    "Capital City 🏛️": [
+      "Shillong, known as the 'Scotland of the East,' is a charming hill station famous for its colonial-era architecture, pleasant climate, and vibrant music scene.",
+      "It is a hub for education and tourism, housing North-Eastern Hill University (NEHU).",
+      "Shillong is also the rock music capital of India, hosting multiple music festivals."
+    ],
+
+    "National Importance & Famous Landmarks 🏔️": [
+      {
+        "text": "Cherrapunji & Mawsynram – Among the wettest places on Earth, famous for living root bridges and waterfalls."
+      },
+      {
+        "text": "Double Decker Living Root Bridge – A UNESCO-listed handmade bridge made from tree roots in Nongriat village.",
+        "image": "images/Meghalaya/Double decker.jpg"
+      },
+      {
+        "text": "Umiam Lake – A scenic man-made lake near Shillong, perfect for boating and adventure sports."
+      },
+      {
+        "text": "Nohkalikai Falls – India’s tallest plunge waterfall at 1,115 ft.",
+        "image": "images/Meghalaya/Nohkalikai.jpg"
+      },
+      {
+        "text": "Mawlynnong Village – Known as the cleanest village in Asia, showcasing sustainable living."
+      },
+      {
+        "text": "Dawki River – Crystal-clear river on the India-Bangladesh border, ideal for boating."
+      },
+      {
+        "text": "Laitlum Canyons – A breathtaking viewpoint offering panoramic views of the green hills."
+      },
+      {
+        "text": "Sacred Forests of Mawphlang – A protected forest where locals preserve ancient Khasi traditions."
+      }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "Agriculture & Horticulture – Meghalaya produces oranges, pineapples, black pepper, and medicinal plants.",
+      "Mining & Natural Resources – The state is rich in coal, limestone, and uranium deposits.",
+      "Handicrafts & Weaving – Famous for bamboo crafts, cane furniture, and traditional Khasi shawls.",
+      "Tourism – The state’s pristine nature, adventure tourism, and indigenous culture attract visitors worldwide.",
+      "Music & Arts – Shillong is home to famous rock bands, making it India’s music capital."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "The official language is English, with Khasi, Garo, and Jaintia spoken by different tribes.",
+      "The three major tribes are the Khasi, Garo, and Jaintia, each with their distinct customs, attire, and traditions.",
+      "Festivals like Shad Suk Mynsiem (Khasi harvest dance), Wangala (Garo post-harvest festival), and Behdeinkhlam (Jaintia rain festival) are widely celebrated."
+    ],
+
+    "Area & Geography 🌍": [
+      "Covers 22,429 sq km, with over 70% of the land covered in lush forests.",
+      "Bordered by Assam and Bangladesh, making it an important trade and cultural link.",
+      "Part of the Shillong Plateau, with rolling hills, valleys, waterfalls, and caves.",
+      "Meghalaya has some of India’s longest and deepest caves, including Siju, Mawsmai, and Liat Prah caves."
+    ],
+
+    "Unique Facts 🌟": [
+      "Mawsynram receives the highest rainfall in the world, earning Meghalaya the name 'Abode of Clouds'.",
+      "The Living Root Bridges take decades to grow and can last for centuries.",
+      "The Khasi matrilineal society follows a tradition where property is inherited by the youngest daughter.",
+      "Meghalaya has the cleanest air in India, with its untouched forests acting as natural carbon sinks.",
+      "Shillong was the former capital of Assam before Meghalaya became a separate state in 1972."
+    ],
+
+    "State Symbols": {
+      "State Animal 🐆": {
+        "text": "Clouded Leopard (Neofelis nebulosa)",
+        "image": "images/Meghalaya/leopard.jpg"
+      },
+      "State Bird 🐦": {
+        "text": "Hill Myna (Gracula religiosa)",
+        "image": "images/Meghalaya/hill myna.jpg"
+      },
+      "State Tree 🌳": {
+        "text": "Gamhar (Gmelina arborea)",
+        "image": "images/Meghalaya/gamhar.jpg"
+      },
+      "State Flower 🌸": {
+        "text": "Lady's Slipper Orchid (Paphiopedilum insigne)",
+        "image": "images/Meghalaya/lady.jpg"
+      }
+    }
+  },
+  "Mizoram": {
+    "tagline": "The Land of the Hill People 🏞️🎶🎋",
+
+    "Capital City 🏛️": [
+      "Aizawl, the capital of Mizoram, is a serene hill station known for its breathtaking views, vibrant Mizo culture, and lively markets.",
+      "It is home to important institutions like Mizoram University and Synod Presbyterian Church.",
+      "The city is also famous for its bamboo handicrafts, traditional festivals, and scenic landscapes."
+    ],
+
+    "National Importance & Famous Landmarks 🏔️": [
+      {
+        "text": "Reiek Tlang – A beautiful hilltop viewpoint offering a panoramic view of Aizawl and the surrounding valleys."
+      },
+      {
+        "text": "Phawngpui (Blue Mountain National Park) – The highest peak in Mizoram, home to rare clouded leopards and orchids."
+      },
+      {
+        "text": "Vantawng Falls – The highest waterfall in Mizoram, surrounded by lush forests."
+      },
+      {
+        "text": "Tamdil Lake – A peaceful natural lake, perfect for boating and picnics."
+      },
+      {
+        "text": "Lamsial Puk & Pukzing Cave – Mysterious caves associated with local legends and history.",
+        "image": "images/Mizoram/Pukzing Puk.jpg"
+      },
+      {
+        "text": "Hmuifang Hill & Falkawn Village – Showcases Mizo tribal heritage, traditional huts, and folk music."
+      },
+      {
+        "text": "Chapchar Kut Festival – The biggest festival in Mizoram, celebrated with traditional dances and feasts."
+      }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "Agriculture & Bamboo Industry – Mizoram is a major producer of bamboo, ginger, turmeric, and passion fruit.",
+      "Handloom & Handicrafts – The state is known for its Mizo Puan (traditional shawls), bamboo furniture, and cane crafts.",
+      "Horticulture & Floriculture – Mizoram exports exotic flowers like orchids, anthuriums, and lilies.",
+      "Tourism & Eco-tourism – The state’s untouched natural beauty, trekking trails, and wildlife sanctuaries attract visitors.",
+      "Music & Fashion – Mizoram has a thriving rock music culture and modern fashion industry, influenced by global trends."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "The official language is Mizo (Lushai), with English and Hindi widely spoken.",
+      "The people of Mizoram, called Mizos, are warm, friendly, and deeply connected to their tribal traditions.",
+      "Mizoram has a 100% tribal population, with subgroups like Lushai, Mara, Hmar, and Paite.",
+      "The state follows a unique matrilineal social system, where women play a key role in family decisions.",
+      {"text":"Traditional Mizo dance forms like Cheraw (bamboo dance) and Khuallam are famous worldwide.",
+        "image": "images/Mizoram/cheraw.jpg"}
+    ],
+
+    "Area & Geography 🌍": [
+      "Covers 21,081 sq km, making it one of India’s smallest and least populated states.",
+      "Bordered by Myanmar, Bangladesh, Assam, Tripura, and Manipur, giving it a strategic trade location.",
+      "The entire state is mountainous, with lush green forests, rivers, and valleys.",
+      "The Tlawng, Tiau, and Chhimtuipui rivers are the major water sources."
+    ],
+
+    "Unique Facts 🌟": [
+      "Mizoram has the highest literacy rate in Northeast India (91%), second only to Kerala.",
+      "Mizo society is one of the most progressive in India, with high gender equality and minimal caste discrimination.",
+      {"text":"Mizoram is India's 'Bamboo State', with over 30% of its land covered in bamboo forests.",
+        "image": "images/Mizoram/bamboo forest.jpg"},
+      "The world’s largest family (Ziona Chana, with 38 wives and 94 children) lived in Mizoram.",
+      "Mizo youth are passionate about music, with rock bands and gospel choirs being very popular."
+    ],
+
+    "State Symbols": {
+      "State Animal 🐐": {
+        "text": "Serow (Capricornis sumatraensis)",
+        "image": "images/Mizoram/serow.jpg"
+      },
+      "State Bird 🐦": {
+        "text": "Mrs. Hume's Pheasant (Syrmaticus humiae)",
+        "image": "images/Mizoram/Nongin.jpg"
+      },
+      "State Tree 🌳": {
+        "text": "Indian Rose Chestnut (Ironwood)",
+        "image": "images/Mizoram/chestnute tree.jpg"
+      },
+      "State Flower 🌸": {
+        "text": "Red Vanda (Renanthera imschootiana)",
+        "image": "images/Mizoram/red vanda.jpg"
+      }
+    }
+  },
+  "Nagaland": {
+      "tagline": "The Land of Festivals and Warriors 🏔️🎭🔥",
+
+      "Capital City 🏛️": [
+        "Kohima, the capital of Nagaland, is a picturesque hill station known for its rich tribal culture, World War II history, and breathtaking landscapes.",
+        "The city played a crucial role in World War II, with the famous Battle of Kohima fought here.",
+        "Other major cities include Dimapur (commercial hub) and Mokokchung (cultural capital of the Ao tribe)."
+      ],
+
+      "National Importance & Famous Landmarks 🏔️": [
+        {
+          "text": "Hornbill Festival (Kisama Heritage Village) – The biggest tribal festival in Northeast India, showcasing Naga traditions, dance, music, and food."
+        },
+        {
+          "text": "Dzukou Valley – A paradise for trekkers, famous for its Dzukou lilies and lush green landscapes."
+        },
+        {
+          "text": "Kohima War Cemetery – A memorial for soldiers who fought in the Battle of Kohima during World War II.",
+          "image": "images/Nagaland/kohima.jpg"
+        },
+        {
+          "text": "Khonoma Green Village – India’s first green village, promoting sustainable living and eco-tourism."
+        },
+        {
+          "text": "Mount Saramati – The highest peak in Nagaland, offering stunning trekking trails and views."
+        },
+        {
+          "text": "Shilloi Lake – A beautiful serene lake with local legends surrounding its mysterious depth."
+        },
+        {
+          "text": "Tuophema Village – A cultural heritage site that provides an authentic experience of Naga life."
+        },
+        {
+          "text": "Mon & Longwa Village – The home of the famous Konyak warrior tribe, known for their headhunting history and unique facial tattoos."
+        }
+      ],
+
+      "Core Production & Economic Focus 🏭": [
+        "Agriculture & Organic Farming – Nagaland produces pineapples, oranges, ginger, cardamom, and Naga chilies.",
+        "Handloom & Handicrafts – Naga shawls, bamboo crafts, wood carvings, and tribal jewelry are famous worldwide.",
+        "Tourism & Adventure Sports – Trekking, wildlife tourism, and tribal cultural experiences attract visitors.",
+        "Music & Rock Culture – Nagaland has a thriving rock music scene, with Dimapur known as India’s 'Rock Capital'.",
+        "Horticulture & Floriculture – The state is known for its exotic flowers, orchids, and medicinal plants."
+      ],
+
+      "Native People & Languages 🗣️": [
+        "The official language is English, but the state has over 16 major tribal languages, including Ao, Angami, Lotha, Sumi, and Konyak.",
+        "The Naga people consist of 16 major tribes, each with its own unique customs, attire, and traditions.",
+        "The Nagas are known for their warrior history, colorful festivals, and strong community bonds.",
+        "Christianity is the dominant religion, with over 90% of Nagaland’s population being Christian.",
+        "The traditional headhunting culture (now discontinued) was an important part of Naga history."
+      ],
+
+      "Area & Geography 🌍": [
+        "Covers 16,579 sq km, making it one of India’s smallest states.",
+        "Bordered by Assam, Arunachal Pradesh, Manipur, and Myanmar, making it a key trade and cultural hub.",
+        "The terrain is hilly and mountainous, with dense forests and rivers.",
+        "The Doyang River and Zungki River are the major rivers of Nagaland."
+      ],
+
+      "Unique Facts 🌟": [
+        "Nagaland is known as the 'Land of Festivals,' as each tribe celebrates unique harvest and cultural festivals.",
+        "The Hornbill Festival is called the 'Festival of Festivals', attracting tourists from all over the world.",
+        "Nagaland’s Morung (traditional tribal dormitories) were once used for educating young warriors.",
+        "Dimapur was once the capital of the Kachari kingdom, with ancient monoliths still visible today.",
+        "Nagaland is one of the most musically talented states in India, with rock bands and gospel choirs being very popular."
+      ],
+
+      "State Symbols": {
+        "State Animal 🐃": {
+          "text": "Mithun (Bos frontalis)",
+          "image": "images/Nagaland/Mithun.jpg"
+        },
+        "State Bird 🐦": {
+          "text": "Blyth’s Tragopan (Tragopan blythii)",
+          "image": "images/Nagaland/blyth.jpg"
+        },
+        "State Tree 🌳": {
+          "text": "Alder (Alnus nepalensis)",
+          "image": "images/Nagaland/alder tree.jpg"
+        },
+        "State Flower 🌸": {
+          "text": "Rhododendron (Rhododendron arboreum)",
+          "image": "images/Nagaland/rhodo.jpg"
+        }
+      }
+    },
+  "Odisha": {
+    "tagline": "The Land of Temples and Culture 🏯🌊🎭",
+
+    "Capital City 🏛️": [
+      "Bhubaneswar, known as the 'Temple City of India,' is famous for its ancient temples, urban planning, and growing IT industry.",
+      "Along with Puri and Konark, it forms Odisha’s Golden Triangle, a major pilgrimage and tourism circuit.",
+      "Other major cities include Cuttack (business hub), Rourkela (steel city), and Sambalpur (known for Sambalpuri sarees and folk music)."
+    ],
+
+    "National Importance & Famous Landmarks 🏔️": [
+      {
+        "text": "Jagannath Temple (Puri) – One of the four Char Dham pilgrimage sites, famous for the Rath Yatra (Chariot Festival).",
+        "image": "images/Odisha/jagannath.jpg"
+      },
+      {
+        "text": "Konark Sun Temple – A UNESCO World Heritage Site, this stunning 13th-century temple is shaped like a giant chariot.",
+        "image": "images/Odisha/konark.jpg"
+      },
+      {
+        "text": "Chilika Lake – India’s largest coastal lagoon, a paradise for migratory birds and Irrawaddy dolphins."
+      },
+      {
+        "text": "Lingaraj Temple (Bhubaneswar) – One of the oldest and grandest temples of Lord Shiva.",
+        "image": "images/Odisha/lingraj.jpg"
+      },
+      {
+        "text": "Similipal National Park – A tiger reserve and biosphere reserve, home to elephants, tigers, and waterfalls."
+      },
+      {
+        "text": "Hirakud Dam – One of the longest dams in the world, built across the Mahanadi River."
+      },
+      {
+        "text": "Dhauli Hills – The site where Emperor Ashoka adopted Buddhism after the Kalinga War."
+      },
+      {
+        "text": "Chandipur Beach – Known for its 'vanishing sea' phenomenon, where the water recedes up to 5 km during low tide."
+      }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "Steel & Mining Industry – Odisha is India’s largest producer of steel, iron ore, bauxite, and chromite.",
+      "Agriculture & Seafood – Odisha produces rice, pulses, coconut, cashew, and seafood (especially prawns and crabs).",
+      "Handloom & Handicrafts – Famous for Sambalpuri sarees, Pattachitra paintings, stone carvings, and silver filigree work.",
+      "IT & Infrastructure Growth – Bhubaneswar is emerging as an IT and startup hub, attracting tech investments.",
+      "Tourism & Cultural Economy – Odisha is a key spiritual, eco-tourism, and heritage tourism destination."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "The official language is Odia, one of India’s oldest languages, with a rich literary tradition.",
+      "Odisha is home to 62 tribal communities, including Santals, Bonda, Gond, and Dongria Kondh, each with distinct customs.",
+      "Odissi dance, one of the oldest classical dance forms, originated in Odisha.",
+      "Festivals like Rath Yatra, Chhau Dance Festival, and Durga Puja are widely celebrated."
+    ],
+
+    "Area & Geography 🌍": [
+      "Covers 155,707 sq km, making it India’s 8th largest state.",
+      "Bordered by West Bengal, Jharkhand, Chhattisgarh, and Andhra Pradesh, with a long coastline along the Bay of Bengal.",
+      "Major rivers include the Mahanadi, Brahmani, and Baitarani.",
+      "The state has plains, hills, forests, and a 485 km-long coastline, making it rich in biodiversity."
+    ],
+
+    "Unique Facts 🌟": [
+      "Odisha is the birthplace of Rasgulla, a popular Indian sweet, recognized with a GI tag.",
+      "The Puri Jagannath Temple’s flag always flutters in the opposite direction of the wind, and no birds fly above it.",
+      "Chilika Lake is the largest wintering ground for migratory birds in Asia, hosting flamingos, pelicans, and rare species.",
+      "The Kalinga War (261 BCE) led to Emperor Ashoka embracing Buddhism, marking a turning point in world history.",
+      "Odisha’s Gahirmatha Beach is the world’s largest nesting site for Olive Ridley turtles."
+    ],
+
+    "State Symbols": {
+      "State Animal 🐾": {
+        "text": "Sambar Deer (Rusa unicolor)",
+        "image": "images/Odisha/Sambhar Deer.jpg"
+      },
+      "State Bird 🐦": {
+        "text": "Indian Roller (Coracias benghalensis)",
+        "image": "images/Odisha/Indian Roller.jpg"
+      },
+      "State Tree 🌳": {
+        "text": "Sacred Fig (Ficus religiosa)",
+        "image": "images/Odisha/peepal.jpg"
+      },
+      "State Flower 🌸": {
+        "text": "Ashoka Tree Flower (Saraca asoca)",
+        "image": "images/Odisha/Ashoka.jpg"
+      }
+    }
+  },
+  "Punjab": {
+      "tagline": "The Land of Five Rivers and Vibrant Culture 🌾🎶🛕",
+
+      "Capital City 🏛️": [
+        "Chandigarh, the joint capital of Punjab and Haryana, is India’s first planned city, designed by French architect Le Corbusier.",
+        "It is known for its modern infrastructure, Rock Garden, Sukhna Lake, and vibrant nightlife.",
+        "Major cities include Amritsar (spiritual and cultural hub), Ludhiana (industrial city), and Jalandhar (sports and media hub)."
+      ],
+
+      "National Importance & Famous Landmarks 🏔️": [
+        {
+          "text": "Golden Temple (Amritsar) – The holiest shrine of Sikhism, famous for its serene beauty and community kitchen (Langar).",
+          "image": "images/Punjab/golden temple.jpg"
+        },
+        {
+          "text": "Wagah Border – A famous India-Pakistan border ceremony known for its patriotic fervor.",
+          "image": "images/Punjab/Wagah border.jpg"
+        },
+        {
+          "text": "Jallianwala Bagh – A historic site of the 1919 massacre, symbolizing India’s freedom struggle."
+        },
+        {
+          "text": "Anandpur Sahib – The birthplace of Khalsa (Sikh warrior tradition) and an important Sikh pilgrimage site."
+        },
+        {
+          "text": "Sheesh Mahal (Patiala) – A stunning mirror palace showcasing Punjab’s royal history."
+        },
+        {
+          "text": "Ranjit Sagar Dam – One of Punjab’s largest hydroelectric projects, offering scenic views."
+        },
+        {
+          "text": "Harike Wetland & Bird Sanctuary – A major biodiversity hotspot for migratory birds."
+        },
+        {
+          "text": "Kila Raipur Sports Festival (Rural Olympics) – A unique event featuring bullock cart races, kabaddi, and traditional sports."
+        }
+      ],
+
+      "Core Production & Economic Focus 🏭": [
+        "Agriculture & Green Revolution – Punjab is India’s food bowl, leading in wheat, rice, and dairy production.",
+        "Textiles & Hosiery – Ludhiana is known as the Manchester of India for its woolen and sportswear industry.",
+        "Automobile & Manufacturing – The state is a hub for tractor and bicycle production.",
+        "Tourism & Spiritual Economy – Amritsar and Anandpur Sahib attract millions of pilgrims.",
+        "Music & Film Industry – Punjab has a booming Punjabi music and cinema industry, famous for Bhangra and Punjabi pop."
+      ],
+
+      "Native People & Languages 🗣️": [
+        "The official language is Punjabi, written in the Gurmukhi script.",
+        "The people of Punjab, called Punjabis, are known for their warmth, hospitality, and warrior spirit.",
+        "Sikhism, founded by Guru Nanak, originated in Punjab, and most Sikhs worldwide trace their roots to the state.",
+        {"text":"Punjabi folk music, Bhangra, and Giddha dance forms are famous worldwide.",
+          "image": "images/Punjab/Giddha.jpg"},
+        "Festivals like Lohri, Baisakhi (harvest festival), and Gurpurabs are celebrated with grandeur."
+      ],
+
+      "Area & Geography 🌍": [
+        "Covers 50,362 sq km, making it one of India’s smaller states by area.",
+        "Bordered by Jammu & Kashmir, Himachal Pradesh, Haryana, Rajasthan, and Pakistan, making it a key trade and defense region.",
+        "The five rivers (Beas, Ravi, Sutlej, Chenab, and Jhelum) give Punjab its name, meaning 'Land of Five Rivers'.",
+        "The land is fertile, flat, and highly irrigated, making it ideal for agriculture."
+      ],
+
+      "Unique Facts 🌟": [
+        "Punjab was the center of India’s Green Revolution (1960s), making the country self-sufficient in food grain production.",
+        "The Golden Temple serves free meals (Langar) to over 50,000 people daily, regardless of religion or background.",
+        "Punjab is home to some of India’s greatest freedom fighters, including Bhagat Singh, Udham Singh, and Kartar Singh Sarabha.",
+        "Amritsar’s Guru Ram Das Ji International Airport connects Punjab to major global cities, especially Canada and the UK.",
+        "Punjabi cuisine, including Butter Chicken, Sarson da Saag & Makki di Roti, and Lassi, is loved worldwide."
+      ],
+
+      "State Symbols": {
+        "State Animal 🐃": {
+          "text": "Blackbuck (Antilope cervicapra)",
+          "image": "images/Punjab/blackback.jpg"
+        },
+        "State Bird 🐦": {
+          "text": "Northern Goshawk (Accipiter gentilis)",
+          "image": "images/Punjab/baaz.jpg"
+        },
+        "State Tree 🌳": {
+          "text": "Sheesham (Dalbergia sissoo)",
+          "image": "images/Punjab/sheesham.jpg"
+        },
+        "State Flower 🌸": {
+          "text": "Gladiolus (Gladiolus hortulanus)",
+          "image": "images/Punjab/gladiolus.jpg"
+        }
+      }
+    },
+  "Rajasthan": {
+      "tagline": "The Land of Kings and Timeless Heritage",
+
+      "Capital City 🏛️": [
+        "Jaipur, also known as the Pink City, is famous for its palaces, forts, and royal heritage.",
+        "It is part of India’s Golden Triangle tourism circuit along with Delhi and Agra.",
+        "Other major cities include Jodhpur (Blue City), Udaipur (City of Lakes), Jaisalmer (Golden City), and Bikaner (Famous for Snacks and Camels)."
+      ],
+
+      "National Importance & Famous Landmarks 🏔️": [
+        {
+          "text": "Hawa Mahal (Jaipur) – A palace with 953 windows, built for royal women to observe street festivals.",
+          "image": "images/Rajasthan/Hawa mahal.jpg"
+        },
+        {
+          "text": "Amer Fort (Jaipur) – A magnificent Rajput fortress with stunning architecture and history."
+        },
+        {
+          "text": "Mehrangarh Fort (Jodhpur) – A majestic fort offering panoramic views of the Blue City.",
+          "image": "images/Rajasthan/mehrangarh.jpg"
+        },
+        {
+          "text": "Lake Pichola (Udaipur) – Home to Jag Mandir and Lake Palace, offering romantic boat rides."
+        },
+        {
+          "text": "Jaisalmer Fort – A living fort, where people still reside within its golden sandstone walls."
+        },
+        {
+          "text": "Ranthambore National Park – One of India’s best tiger reserves, popular for wildlife safaris."
+        },
+        {
+          "text": "Pushkar Lake & Brahma Temple – One of the few temples dedicated to Lord Brahma.",
+          "image": "images/Rajasthan/brahma.jpg"
+        },
+        {
+          "text": "Chittorgarh Fort – The largest fort in India, known for the legend of Rani Padmini."
+        },
+        {
+          "text": "Keoladeo National Park (Bharatpur Bird Sanctuary) – A UNESCO-listed bird sanctuary famous for migratory birds."
+        },
+        {
+          "text": "Thar Desert & Sand Dunes (Jaisalmer & Bikaner) – Offers camel safaris, cultural performances, and stargazing."
+        }
+      ],
+
+      "Core Production & Economic Focus 🏭": [
+        "Tourism Industry – Rajasthan is one of India’s top tourist destinations, known for heritage, wildlife, and adventure tourism.",
+        "Handicrafts & Textiles – The state produces bandhani (tie-dye), block printing, blue pottery, and Pichwai paintings.",
+        "Jewelry & Gems – Jaipur is a global hub for gemstones, Kundan-Meenakari jewelry, and silverware.",
+        "Marble & Sandstone Industry – Rajasthan supplies high-quality marble (Makrana used in Taj Mahal) and sandstone.",
+        "Agriculture & Dairy – A leading producer of wheat, barley, pulses, mustard, and camel milk.",
+        "Mining & Minerals – Rajasthan is India’s largest producer of zinc, copper, and marble."
+      ],
+
+      "Native People & Languages 🗣️": [
+        "The official language is Hindi, with Rajasthani dialects like Marwari, Mewari, and Dhundhari widely spoken.",
+        "The people, known as Rajasthanis, are famous for their colorful attire, folk music, and warrior spirit.",
+        {"text":"Traditional Ghoomar and Kalbelia dances are famous worldwide.",
+          "image": "images/Rajasthan/ghoomar.jpg"},
+        "Festivals like Pushkar Camel Fair, Gangaur, Teej, and Desert Festival showcase Rajasthan’s vibrant culture."
+      ],
+
+      "Area & Geography 🌍": [
+        "Covers 342,239 sq km, making it India’s largest state by area.",
+        "Bordered by Punjab, Haryana, Uttar Pradesh, Madhya Pradesh, Gujarat, and Pakistan.",
+        "The Thar Desert dominates the western region, while Aravalli Hills run through the state.",
+        "Major rivers include the Chambal, Banas, and Luni."
+      ],
+
+      "Unique Facts 🌟": [
+        "Rajasthan has more than 70% of India’s desert land, making it the driest state.",
+        "The Karni Mata Temple (Bikaner) is home to thousands of holy rats, worshipped by devotees.",
+        "Mehrangarh Fort was featured in Hollywood’s \"The Dark Knight Rises\" movie.",
+        "Rajasthan has India’s largest solar energy projects, leading in renewable energy production.",
+        "The Kumbhalgarh Fort wall is the second longest in the world (after the Great Wall of China)."
+      ],
+
+      "State Symbols": {
+        "State Animal 🐪": {
+          "text": "Chinkara (Indian Gazelle)",
+          "image": "images/Rajasthan/Chinkara.jpg"
+        },
+        "State Bird 🐦": {
+          "text": "Great Indian Bustard (Ardeotis nigriceps)",
+          "image": "images/Rajasthan/bustard.jpg"
+        },
+        "State Tree 🌳": {
+          "text": "Khejri (Prosopis cineraria)",
+          "image": "images/Rajasthan/Khejari tree.jpg"
+        },
+        "State Flower 🌸": {
+          "text": "Rohida (Tecomella undulata)",
+          "image": "images/Rajasthan/Rohida.jpg"
+        }
+      }
+    },
+  "Sikkim": {
+      "tagline": "The Land of Mystical Mountains and Monasteries",
+
+      "Capital City 🏛️": [
+        "Gangtok, the capital of Sikkim, is a stunning hill city known for its Buddhist monasteries, adventure tourism, and breathtaking views of Mount Kanchenjunga.",
+        "It is a well-planned, clean city with vibrant markets like MG Marg, lively cafes, and beautiful gardens.",
+        "Other important towns include Pelling (scenic views), Namchi (Buddha Park), and Ravangla (Buddhist retreats)."
+      ],
+
+      "National Importance & Famous Landmarks 🏔️": [
+        {
+          "text": "Kanchenjunga (Khangchendzonga) National Park – A UNESCO World Heritage Site and home to India’s highest mountain, Mt. Kanchenjunga (8,586 m)."
+        },
+        {
+          "text": "Tsomgo Lake – A mesmerizing glacial lake surrounded by snow-capped mountains, changing colors with seasons."
+        },
+        {
+          "text": "Nathula Pass – A historic India-China border pass, once part of the ancient Silk Route."
+        },
+        {
+          "text": "Rumtek Monastery – The largest monastery in Sikkim, an important Tibetan Buddhist center.",
+          "image": "images/Sikkim/rumtek.jpg"
+        },
+        {
+          "text": "Yumthang Valley (Valley of Flowers) – Famous for blooming rhododendrons, hot springs, and yak pastures."
+        },
+        {
+          "text": "Lachung & Lachen – Scenic villages leading to Gurudongmar Lake, one of the highest lakes in the world (17,800 ft)."
+        },
+        {
+          "text": "Zero Point – The last civilian point near India’s border, covered in snow throughout the year."
+        },
+        {
+          "text": "Namchi Char Dham – A pilgrimage site with replicas of four sacred Hindu shrines."
+        },
+        {
+          "text": "Pelling Skywalk – India’s first glass skywalk, offering panoramic views of mountains and the Chenrezig statue.",
+          "image": "images/Sikkim/sky walk.jpg"
+        }
+      ],
+
+      "Core Production & Economic Focus 🏭": [
+        "Organic Farming – Sikkim is India’s first fully organic state, producing cardamom, ginger, oranges, and tea.",
+        "Tourism Industry – Adventure tourism (trekking, mountaineering), pilgrimage tourism, and nature tourism drive the economy.",
+        "Handicrafts & Weaving – Famous for traditional carpets, woolen shawls, and Thangka paintings.",
+        "Hydroelectric Power – The state generates renewable energy from rivers like Teesta and Rangit.",
+        "Dairy & Livestock Farming – Yak and cow dairy farming is an important rural industry."
+      ],
+
+      "Native People & Languages 🗣️": [
+        "Official languages include English, Nepali, Sikkimese (Bhutia), and Lepcha.",
+        "The three main ethnic communities are Lepchas (indigenous people), Bhutias (Tibetan origin), and Nepalis.",
+        "Sikkim is a Buddhist-majority state, with strong influences of Tibetan culture.",
+        "Traditional Cham dances, Bhutia music, and Lepcha folk tales are an integral part of the culture.",
+        "Festivals like Losar (Tibetan New Year), Pang Lhabsol, and Maghe Sankranti are widely celebrated."
+      ],
+
+      "Area & Geography 🌍": [
+        "Covers 7,096 sq km, making it India’s second smallest state.",
+        "Bordered by Tibet (China), Bhutan, Nepal, and West Bengal, making it strategically important.",
+        "The terrain is hilly and mountainous, with rivers, forests, and glaciers.",
+        "The Teesta River is the lifeline of Sikkim.",
+        "Kanchenjunga (8,586 m), the third-highest peak in the world, dominates the landscape."
+      ],
+
+      "Unique Facts 🌟": [
+        "Sikkim is the only state in India with no airport or railway station; the nearest airport is in Bagdogra, West Bengal.",
+        "It became part of India in 1975, making it the last princely state to merge with the country.",
+        "Sikkim is the first 100% organic state in the world, recognized by the UN.",
+        "The Himalayan Yak Cheese and Butter Tea are unique local delicacies.",
+        "Kanchenjunga is worshipped as a sacred deity by the people of Sikkim."
+      ],
+
+      "State Symbols": {
+        "State Animal 🐾": {
+          "text": "Red Panda (Ailurus fulgens)",
+          "image": "images/Sikkim/RedPanda.jpg"
+        },
+        "State Bird 🐦": {
+          "text": "Blood Pheasant (Ithaginis cruentus)",
+          "image": "images/Sikkim/Pheasant.jpg"
+        },
+        "State Tree 🌳": {
+          "text": "Rhododendron (Rhododendron niveum)",
+          "image": "images/Sikkim/Rhododendron tree.jpg"
+        },
+        "State Flower 🌸": {
+          "text": "Noble Orchid (Dendrobium nobile)",
+          "image": "images/Sikkim/noble.jpg"
+        }
+      }
+    },
+  "Tamil Nadu": {
+      "tagline": "The Land of Temples, Culture & Heritage",
+
+      "Capital City 🏛️": [
+        "Chennai, formerly known as Madras, is a major cultural, economic, and educational hub of South India.",
+        "It is famous for its beaches, classical music, Carnatic dance, and Tamil cinema (Kollywood).",
+        "Other major cities include Coimbatore (Manchester of South India), Madurai (Temple City), Tiruchirappalli (Rockfort City), Salem (Steel City), and Tirunelveli (Halwa City)."
+      ],
+
+      "National Importance & Famous Landmarks 🏔️": [
+        {
+          "text": "Meenakshi Temple (Madurai) – A stunning Dravidian temple dedicated to Goddess Meenakshi, known for its massive gopurams (towers).",
+          "image": "images/TamilNadu/meenakshi.jpg"
+        },
+        {
+          "text": "Brihadeeswarar Temple (Thanjavur) – A UNESCO World Heritage Site, built by the Chola dynasty, showcasing brilliant architecture."
+        },
+        {
+          "text": "Mahabalipuram Shore Temple – A UNESCO-listed rock-cut temple, famous for ancient Pallava sculptures.",
+          "image": "images/TamilNadu/shore.jpg"
+        },
+        {
+          "text": "Marina Beach (Chennai) – India’s longest urban beach, a popular tourist spot."
+        },
+        {
+          "text": "Rameswaram Temple – One of the Char Dham pilgrimage sites, believed to have been built by Lord Rama.",
+          "image": "images/TamilNadu/rameswaram.jpg"
+        },
+        {
+          "text": "Kanyakumari – The southernmost tip of India, famous for the Vivekananda Rock Memorial and Triveni Sangam."
+        },
+        {
+          "text": "Nilgiri Hills & Ooty – A popular hill station with lush tea gardens, toy train rides, and waterfalls."
+        },
+        {
+          "text": "Kodaikanal (Princess of Hill Stations) – Known for misty landscapes, lakes, and rich biodiversity."
+        },
+        {
+          "text": "Vellore Golden Temple – A unique golden-covered temple, attracting thousands of devotees."
+        },
+        {
+          "text": "Chettinad Palaces – Showcasing grand mansions, unique architecture, and heritage of the Chettiar community."
+        }
+      ],
+
+      "Core Production & Economic Focus 🏭": [
+        "IT & Automobile Industry – Chennai is called \"The Detroit of India\", home to major automobile manufacturing plants.",
+        "Textiles & Handlooms – Tamil Nadu is India’s largest producer of cotton textiles and silk sarees (Kanchipuram, Madurai, and Chettinad sarees).",
+        "Agriculture & Horticulture – Leading in paddy, coconut, banana, turmeric, and coffee production.",
+        "Wind & Solar Energy – One of India’s largest producers of renewable energy.",
+        "Film Industry (Kollywood) – Tamil Nadu is home to one of India’s biggest film industries, producing blockbuster Tamil films.",
+        "Spices & Leather Exports – Tamil Nadu is a leader in spice cultivation and leather exports."
+      ],
+
+      "Native People & Languages 🗣️": [
+        "The official language is Tamil, one of the oldest languages in the world (over 2,000 years old).",
+        "The people of Tamil Nadu are called Tamilians and are known for their rich cultural heritage, devotion to literature, and traditional music & dance.",
+        {"text":"Classical dance forms like Bharatanatyam, folk arts like Karagattam and Kummi, and music like Carnatic classical music originated here.",
+          "image": "images/TamilNadu/bharatanatyam.jpg"},
+        "Festivals like Pongal (harvest festival), Karthigai Deepam, and Tamil New Year (Puthandu) are widely celebrated."
+      ],
+
+      "Area & Geography 🌍": [
+        "Covers 130,058 sq km, making it India’s 10th largest state.",
+        "Bordered by Andhra Pradesh, Karnataka, Kerala, and the Bay of Bengal, Tamil Nadu has a long coastline (over 1,000 km).",
+        "The Eastern Ghats, Western Ghats, Nilgiris, and Palani Hills shape the landscape.",
+        "Major rivers include the Cauvery, Vaigai, and Palar, which are essential for agriculture."
+      ],
+
+      "Unique Facts 🌟": [
+        "Tamil is the only Indian language to be recognized as a classical language worldwide.",
+        "Tamil Nadu has the highest number of temples in India, some dating back over 1,000 years.",
+        "Brihadeeswarar Temple has the world’s tallest temple tower and is built without using binding materials like cement.",
+        "Marina Beach is the second-longest urban beach in the world.",
+        "Tamil Nadu produces the most wind energy in India.",
+        "Kanchipuram is famous for its exquisite silk sarees, handwoven with gold threads."
+      ],
+
+      "State Symbols": {
+        "State Animal 🐾": {
+          "text": "Nilgiri Tahr (Nilgiritragus hylocrius)",
+          "image": "images/TamilNadu/nilgiri.jpg"
+        },
+        "State Bird 🐦": {
+          "text": "Emerald Dove (Chalcophaps indica)",
+          "image": "images/TamilNadu/dove.jpg"
+        },
+        "State Tree 🌳": {
+          "text": "Palmyra Palm (Borassus flabellifer)",
+          "image": "images/TamilNadu/palm tree.jpg"
+        },
+        "State Flower 🌸": {
+          "text": "Gloriosa Lily (Gloriosa superba)",
+          "image": "images/TamilNadu/Flame_Lily.jpg"
+        }
+      }
+    },
+  "Telangana": {
+    "tagline": "The Land of Nizams, IT, and Rich Heritage 🏰🌆🍛",
+
+    "Capital City 🏛️": [
+      "Hyderabad, the capital of Telangana, is famous for its historic monuments, IT industry, pearls, and Hyderabadi Biryani.",
+      "It is known as Cyberabad due to its rapidly growing IT sector and startup ecosystem.",
+      "Other major cities include Warangal (Heritage City), Karimnagar (Textile Hub), Nizamabad (Agricultural Center), and Khammam (Coal Mining Hub)."
+    ],
+
+    "National Importance & Famous Landmarks 🏔️": [
+      {
+        "text": "Charminar (Hyderabad) – The iconic four-minaret structure, a symbol of Hyderabad’s rich past.",
+        "image": "images/Telangana/charminar.jpg"
+      },
+      {
+        "text": "Golconda Fort – A magnificent medieval fort, famous for its acoustic engineering and diamond trade (home to Kohinoor Diamond)."
+      },
+      {
+        "text": "Ramoji Film City – The world’s largest film studio complex, a major tourist attraction."
+      },
+      {
+        "text": "Hussain Sagar Lake & Buddha Statue – A scenic lake with a towering Buddha statue on an island."
+      },
+      {
+        "text": "Birla Mandir – A stunning white marble temple dedicated to Lord Venkateswara."
+      },
+      {
+        "text": "Chowmahalla Palace – The former residence of the Nizams, showcasing grand architecture."
+      },
+      {
+        "text": "Kakatiya Kala Thoranam (Warangal Fort) – A historic gateway and UNESCO heritage site from the Kakatiya dynasty.",
+        "image": "images/Telangana/Warangal fort.jpg"
+      },
+      {
+        "text": "Thousand Pillar Temple (Warangal) – An intricately carved Hindu temple, showcasing Kakatiya-era architecture."
+      },
+      {
+        "text": "Bhadrakali Temple (Warangal) – One of the oldest temples dedicated to Goddess Bhadrakali."
+      },
+      {
+        "text": "Nagarjuna Sagar Dam – One of India’s largest dams, providing irrigation and hydroelectric power."
+      },
+      {
+        "text": "Medak Church – The largest church in South India, built during British rule."
+      }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "IT & Software Industry – Hyderabad is a major IT hub, home to tech giants like Microsoft, Google, Amazon, and Facebook.",
+      "Pharmaceutical & Biotech Industry – Known as 'The Pharma Capital of India', producing life-saving drugs.",
+      "Pearl & Jewelry Industry – Hyderabad is called the 'City of Pearls', famous for fine pearl craftsmanship.",
+      "Agriculture & Irrigation – Telangana grows rice, cotton, maize, turmeric, and mangoes, supported by Kaleshwaram Lift Irrigation Project.",
+      "Handicrafts & Textile Industry – Warangal and Gadwal are famous for handwoven sarees.",
+      "Mining & Energy – Telangana has coal, limestone, and thermal power plants.",
+      "Film Industry (Tollywood) – The Telugu film industry (Tollywood) is one of India’s biggest film industries."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "The official language is Telugu, while Urdu is also widely spoken due to Hyderabad’s Nizam heritage.",
+      "The people of Telangana are called Telanganites, known for their cultural pride, folk traditions, and festivals.",
+      "Traditional folk dances include Perini Shivatandavam, Lambadi, and Bonalu dance.",
+      "Major festivals include Bathukamma (floral festival), Bonalu, Ugadi (Telugu New Year), and Ramzan (widely celebrated in Hyderabad)."
+    ],
+
+    "Area & Geography 🌍": [
+      "Covers 112,077 sq km, making it India’s 12th largest state.",
+      "Bordered by Maharashtra, Chhattisgarh, Karnataka, and Andhra Pradesh, with no coastline.",
+      "The Godavari and Krishna Rivers are lifelines for irrigation and drinking water.",
+      "The Deccan Plateau dominates the geography, making the land semi-arid but fertile."
+    ],
+
+    "Unique Facts 🌟": [
+      "Hyderabad’s Biryani (Paradise, Bawarchi, Shah Ghouse) is world-famous.",
+      "HITEC City in Hyderabad is India’s fastest-growing IT hub, attracting global investors.",
+      "The Kohinoor Diamond was originally discovered in Golconda mines.",
+      "Telangana was the youngest state in India (until Jammu & Kashmir was bifurcated in 2019), formed on June 2, 2014.",
+      "Warangal’s Kakatiya Thoranam is Telangana’s state emblem and is a UNESCO World Heritage Site.",
+      "Kaleshwaram Lift Irrigation Project is the world’s largest multi-stage lift irrigation system."
+    ],
+
+    "State Symbols": {
+      "State Animal 🐾": {
+        "text": "Spotted Deer (Axis axis)",
+        "image": "images/Telangana/spotted deer.jpg"
+      },
+      "State Bird 🐦": {
+        "text": "Indian Roller (Paalapitta)",
+        "image": "images/Telangana/IndianRoller.jpg"
+      },
+      "State Tree 🌳": {
+        "text": "Jammi Chettu (Prosopis cineraria)",
+        "image": "images/Telangana/jammi.jpg"
+      },
+      "State Flower 🌸": {
+        "text": "Tanner’s Cassia (Senna auriculata)",
+        "image": "images/Telangana/tangidi.jpg"
+      }
+    }
+  },
+  "Tripura": {
+    "tagline": "The Land of Palaces, Lakes & Bamboo Culture",
+
+    "Capital City 🏛️": [
+      "Agartala, the capital of Tripura, is a vibrant city known for its royal heritage, temples, and natural beauty.",
+      "It is one of the fastest-growing cities in Northeast India and serves as a major commercial hub.",
+      "Other major towns include Udaipur (City of Temples), Dharmanagar, and Kailashahar."
+    ],
+
+    "National Importance & Famous Landmarks 🏔️": [
+      {
+        "text": "Ujjayanta Palace (Agartala) – A grand royal palace built by the Manikya dynasty, now a museum."
+      },
+      {
+        "text": "Neermahal (Lake Palace) – India’s only water palace, located in the middle of Rudrasagar Lake.",
+        "image": "images/Tripura/Neermahal.jpg"
+      },
+      {
+        "text": "Unakoti Rock Carvings – A UNESCO-listed site, featuring thousands of ancient Shaivite rock sculptures."
+      },
+      {
+        "text": "Tripura Sundari Temple (Udaipur) – One of the 51 Shakti Peethas, dedicated to Goddess Kali.",
+        "image": "images/Tripura/sundari.jpg"
+      },
+      {
+        "text": "Sepahijala Wildlife Sanctuary – Home to the rare Spectacled Monkey and beautiful lakes."
+      },
+      {
+        "text": "Jampui Hills – Famous for its orange orchards and breathtaking sunrises."
+      },
+      {
+        "text": "Bhubaneshwari Temple – A famous Hindu temple mentioned in Rabindranath Tagore’s works."
+      },
+      {
+        "text": "Chabimura – A unique place with rock carvings of Hindu deities along the Gomati River."
+      },
+      {
+        "text": "Baramura Eco Park – A beautiful hill station with trekking trails and scenic landscapes."
+      }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "Bamboo & Cane Handicrafts – Tripura is one of the largest producers of bamboo crafts, making furniture, mats, and décor items.",
+      "Rubber & Tea Plantations – A leading producer of natural rubber and high-quality organic tea.",
+      "Agriculture & Horticulture – Major crops include rice, pineapple, jackfruit, and oranges.",
+      "Tourism & Eco-tourism – The state is investing in heritage tourism, wildlife tourism, and adventure tourism.",
+      "Oil & Natural Gas – ONGC and other companies are exploring Tripura’s natural gas reserves."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "The official language is Bengali & Kokborok (Tripuri language).",
+      "The main ethnic groups are Tripuris, Jamatia, Reang, Noatia, and Bengali settlers.",
+      "Tripura is known for its unique tribal festivals, colorful attire, and folk dances like Hojagiri, Lebang Boomani, and Mamita.",
+      "Major festivals include Kharchi Puja, Garia Puja, and Durga Puja."
+    ],
+
+    "Area & Geography 🌍": [
+      "Covers 10,491 sq km, making it India’s third smallest state.",
+      "Bordered by Bangladesh on three sides, sharing an 856 km international border.",
+      "The state is hilly with dense forests, and rivers like Gomati, Manu, and Haora flow through it.",
+      "Jampui Hills & Baramura Hills add to the scenic beauty."
+    ],
+
+    "Unique Facts 🌟": [
+      "Tripura has the highest percentage of forest cover (over 60%) in India.",
+      "Neermahal is India’s only lake palace, inspired by Rajasthan’s Jal Mahal.",
+      "Unakoti is known as 'Angkor Wat of the Northeast' for its mystical rock carvings.",
+      "Tripura is one of India’s top rubber-producing states.",
+      "Agartala is the second-largest city in Northeast India after Guwahati.",
+      "Tripura Sundari Temple is among India’s holiest Shakti Peethas."
+    ],
+
+    "State Symbols": {
+      "State Animal 🐾": {
+        "text": "Phayre’s Langur (Trachypithecus phayrei)",
+        "image": "images/Tripura/leaf monkey.jpg"
+      },
+      "State Bird 🐦": {
+        "text": "Green Imperial Pigeon (Ducula aenea)",
+        "image": "images/Tripura/green pigeon.jpg"
+      },
+      "State Tree 🌳": {
+        "text": "Agar (Aquilaria malaccensis)",
+        "image": "images/Tripura/agarwood tree.jpg"
+      },
+      "State Flower 🌸": {
+        "text": "Nageshwar (Mesua ferrea)",
+        "image": "images/Tripura/chestnut.jpg"
+      }
+    }
+  },
+  "Uttar Pradesh": {
+    "tagline": "The Heart of India & Land of Heritage 🏰🛕🎭",
+
+    "Capital City 🏛️": [
+      "Lucknow, the capital of Uttar Pradesh, is known as the City of Nawabs, famous for its rich history, Mughlai cuisine, and Chikankari embroidery.",
+      "The city is a major political and cultural center, blending Mughal, British, and Awadhi heritage.",
+      "Other major cities include Varanasi (Spiritual Capital of India), Agra (Taj Mahal City), Kanpur (Leather Hub), Allahabad/Prayagraj (Sangam City), and Noida (IT & Industrial Hub)."
+    ],
+
+    "National Importance & Famous Landmarks 🏔️": [
+      {
+        "text": "Taj Mahal (Agra) – One of the Seven Wonders of the World, a symbol of love built by Emperor Shah Jahan.",
+        "image": "images/UttarPradesh/taj.jpg"
+      },
+      {
+        "text": "Varanasi (Kashi) – The oldest living city in the world, famous for Kashi Vishwanath Temple, Ganga Aarti, and ghats."
+      },
+      {
+        "text": "Prayagraj Sangam (Allahabad) – The holy confluence of Ganga, Yamuna, and Saraswati rivers, where Kumbh Mela, the world’s largest religious gathering, is held."
+      },
+      {
+        "text": "Ayodhya – The birthplace of Lord Rama, home to the Ram Janmabhoomi Temple and Hanuman Garhi.",
+        "image": "images/UttarPradesh/ram mandir.jpg"
+      },
+      {
+        "text": "Mathura & Vrindavan – The birthplace of Lord Krishna, famous for ISKCON temple and Holi celebrations."
+      },
+      {
+        "text": "Fatehpur Sikri – A UNESCO World Heritage Site, built by Emperor Akbar, known for its grand Mughal architecture."
+      },
+      {
+        "text": "Bara Imambara (Lucknow) – A stunning Mughal-era mosque and labyrinth, famous for its unique architecture."
+      },
+      {
+        "text": "Dudhwa National Park – A major tiger reserve and a biodiversity hotspot."
+      },
+      {
+        "text": "Jhansi Fort – Linked to the legendary Rani Lakshmibai and the 1857 revolt."
+      },
+      {
+        "text": "Gorakhpur Gorakhnath Temple – A significant Hindu pilgrimage site."
+      }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "Agriculture – Uttar Pradesh is India’s largest producer of wheat, sugarcane, mangoes, and potatoes.",
+      "Handicrafts & Textiles – Famous for Banarasi silk sarees, Chikankari embroidery (Lucknow), and Moradabad brassware.",
+      "IT & Industrial Development – Noida & Greater Noida are major IT and industrial hubs, home to tech giants and MNCs.",
+      "Leather Industry – Kanpur is called the 'Leather Capital of India', exporting high-quality leather products.",
+      "Tourism & Religious Pilgrimage – Millions of tourists visit Varanasi, Ayodhya, Mathura, and Prayagraj every year.",
+      "Film Industry (Bollywood & Bhojpuri Cinema) – UP has a growing film production industry, with Film City in Noida."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "The official languages are Hindi & Urdu, with regional dialects like Awadhi, Bhojpuri, Braj, and Bundeli.",
+      "The people of Uttar Pradesh are deeply connected to their cultural roots, celebrating festivals like Diwali, Holi, Eid, and Chhath Puja.",
+      "Folk dances like Raslila (Krishna’s divine dance) and Nautanki (folk theater) are widely performed.",
+      "Awadhi, Mughlai, and Bhojpuri cuisines are famous, with dishes like Tunde Kabab, Peda, Bedmi Puri, and Banarasi Paan."
+    ],
+
+    "Area & Geography 🌍": [
+      "Covers 243,286 sq km, making it India’s fourth-largest state.",
+      "Bordered by Nepal, Uttarakhand, Haryana, Delhi, Rajasthan, Madhya Pradesh, Bihar, and Jharkhand.",
+      "Major rivers include Ganga, Yamuna, Sarayu, and Ghaghara, making UP agriculturally rich.",
+      "The state has plains, forests, and parts of the Vindhya and Shivalik Hills."
+    ],
+
+    "Unique Facts 🌟": [
+      "Uttar Pradesh is India’s most populous state, with over 240 million people.",
+      "The Taj Mahal, one of the world’s most visited monuments, attracts millions of tourists yearly.",
+      "The Kumbh Mela in Prayagraj is the world’s largest religious gathering.",
+      "Varanasi’s Banarasi sarees are handwoven with pure gold and silver threads.",
+      "UP has produced several Indian Prime Ministers, including Jawaharlal Nehru, Indira Gandhi, and Atal Bihari Vajpayee.",
+      "The Ayodhya Ram Temple is one of the most awaited and significant Hindu religious sites."
+    ],
+
+    "State Symbols": {
+      "State Animal 🐾": {
+        "text": "Swamp Deer (Rucervus duvaucelii)",
+        "image": "images/UttarPradesh/barasingha.jpg"
+      },
+      "State Bird 🐦": {
+        "text": "Sarus Crane (Grus antigone)",
+        "image": "images/UttarPradesh/crane.jpg"
+      },
+      "State Tree 🌳": {
+        "text": "Ashoka (Saraca asoca)",
+        "image": "images/UttarPradesh/ashoka tree.jpg"
+      },
+      "State Flower 🌸": {
+        "text": "Palash (Butea monosperma)",
+        "image": "images/UttarPradesh/palash.jpg"
+      }
+    }
+  },
+  "Uttarakhand": {
+    "tagline": "The Land of Gods & Himalayan Beauty 🏔️🌿🛕",
+
+    "Capital City 🏛️": [
+      "Dehradun, the capital of Uttarakhand, is known for its prestigious schools, scenic landscapes, and pleasant climate.",
+      "The city serves as the gateway to Mussoorie, Haridwar, and Rishikesh.",
+      "Other major cities include Haridwar (Spiritual Hub), Rishikesh (Yoga Capital of the World), Nainital (Lake City), Almora, and Haldwani."
+    ],
+
+    "National Importance & Famous Landmarks 🏔️": [
+      {
+        "text": "Char Dham Yatra (Badrinath, Kedarnath, Gangotri, Yamunotri) – One of the holiest pilgrimages for Hindus."
+      },
+      {
+        "text": "Haridwar (Ganga Aarti at Har Ki Pauri) – A spiritual center where millions take a dip in the Ganga for purification."
+      },
+      {
+        "text": "Rishikesh – Famous for yoga, meditation, adventure sports, and the Beatles Ashram."
+      },
+      {
+        "text": "Nainital – A picturesque hill station with the famous Naini Lake."
+      },
+      {
+        "text": "Valley of Flowers (UNESCO World Heritage Site) – A stunning alpine meadow covered with rare Himalayan flowers."
+      },
+      {
+        "text": "Jim Corbett National Park – India’s first and oldest national park, home to Royal Bengal Tigers."
+      },
+      {
+        "text": "Auli – One of India’s best skiing destinations, offering breathtaking Himalayan views."
+      },
+      {
+        "text": "Mussoorie – The Queen of Hills, popular for Mall Road, Kempty Falls, and Camel’s Back Road."
+      },
+      {
+        "text": "Tungnath Temple – The highest Shiva temple in the world, part of the Panch Kedar pilgrimage.",
+        "image": "images/Uttarakhand/Tungnath.jpg"
+      },
+      {
+        "text": "Hemkund Sahib – A sacred Sikh pilgrimage site located in the Himalayas."
+      }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "Tourism & Pilgrimage – The biggest contributor to the economy, attracting millions of visitors annually.",
+      "Horticulture & Floriculture – Produces high-quality apples, peaches, plums, and medicinal plants.",
+      "Herbal & Ayurvedic Industry – Haridwar and Rishikesh are centers for yoga, Ayurveda, and wellness tourism.",
+      "Hydropower & Energy Production – Major hydropower projects harness rivers like Ganga, Yamuna, and Bhagirathi.",
+      "Handicrafts & Wool Products – Famous for Pashmina shawls, wooden carvings, and woolen clothing.",
+      "Military & Defense – Home to the Indian Military Academy (IMA) in Dehradun, training future Army officers."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "The official language is Hindi, with Garhwali, Kumaoni, and Jaunsari widely spoken.",
+      "The people of Uttarakhand are called Pahadis, known for their hospitality, simplicity, and devotion to nature.",
+      "Folk dances like Chholiya and Langvir Nritya are performed during festivals and weddings.",
+      "Festivals like Makar Sankranti (Uttarayani), Harela, and Nanda Devi Mela are unique to the state."
+    ],
+
+    "Area & Geography 🌍": [
+      "Covers 53,483 sq km, making it India’s 19th largest state.",
+      "Bordered by Tibet (China) and Nepal, along with Himachal Pradesh and Uttar Pradesh.",
+      "The state is divided into two regions – Garhwal and Kumaon, both rich in history and culture.",
+      "The Himalayas dominate the landscape, with peaks like Nanda Devi, Trishul, and Kedarnath.",
+      "Glaciers like Gangotri and Yamunotri are the source of the Ganga and Yamuna rivers."
+    ],
+
+    "Unique Facts 🌟": [
+      "Uttarakhand is known as 'Devbhoomi' (Land of Gods) due to its many Hindu pilgrimage sites.",
+      "Rishikesh is the Yoga Capital of the World, attracting spiritual seekers from around the globe.",
+      "Jim Corbett National Park was the first national park established in India (1936).",
+      "Auli is India’s best skiing destination and hosts international ski competitions.",
+      "The state has over 70% forest cover, making it one of India’s greenest states.",
+      {"text":"Kedarnath Temple survived the 2013 floods, standing as a symbol of resilience.",
+        "image": "images/Uttarakhand/kedarnath.jpg"}
+    ],
+
+    "State Symbols": {
+      "State Animal 🐾": {
+        "text": "Musk Deer (Moschus leucogaster)",
+        "image": "images/Uttarakhand/muskdeer.jpg"
+      },
+      "State Bird 🐦": {
+        "text": "Himalayan Monal (Lophophorus impejanus)",
+        "image": "images/Uttarakhand/monal.jpg"
+      },
+      "State Tree 🌳": {
+        "text": "Buransh (Rhododendron arboreum)",
+        "image": "images/Uttarakhand/burans.jpg"
+      },
+      "State Flower 🌸": {
+        "text": "Brahma Kamal (Saussurea obvallata)",
+        "image": "images/Uttarakhand/kamal.jpg"
+      }
+    }
+  },
+  "West Bengal": {
+    "tagline": "The Land of Culture, Festivals & Literature 🏰🎭🌊",
+
+    "Capital City 🏛️": [
+      "Kolkata, the capital of West Bengal, is known as the 'City of Joy', famous for its colonial heritage, arts, and Bengali culture.",
+      "It is the cultural capital of India, home to Rabindranath Tagore, Satyajit Ray, and Subhash Chandra Bose.",
+      "Other major cities include Darjeeling (Queen of the Hills), Siliguri (Gateway to the Northeast), Durgapur (Industrial Hub), and Howrah (Transport Hub)."
+    ],
+
+    "National Importance & Famous Landmarks 🏔️": [
+      {
+        "text": "Victoria Memorial (Kolkata) – A magnificent marble monument built in memory of Queen Victoria."
+      },
+      {
+        "text": "Howrah Bridge – An iconic cantilever bridge over the Hooghly River, connecting Kolkata and Howrah."
+      },
+      {
+        "text": "Sundarbans (UNESCO World Heritage Site) – Home to the Royal Bengal Tiger and the largest mangrove forest in the world.",
+        "image": "images/WestBengal/sundarban.jpg"
+      },
+      {
+        "text": "Dakshineswar Kali Temple – A famous temple dedicated to Goddess Kali, associated with Ramakrishna Paramahamsa."
+      },
+      {
+        "text": "Belur Math – The headquarters of Ramakrishna Mission, symbolizing harmony between religions."
+      },
+      {
+        "text": "Darjeeling (Himalayan Hill Station) – Famous for Darjeeling Tea, Toy Train (UNESCO site), and stunning views of Kanchenjunga."
+      },
+      {
+        "text": "Shantiniketan – Founded by Rabindranath Tagore, known for Visva-Bharati University and cultural heritage."
+      },
+      {
+        "text": "Jorasanko Thakur Bari – The ancestral home of Rabindranath Tagore, now a museum."
+      },
+      {
+        "text": "Kolkata’s Tram System – India’s only operational tram service, a colonial-era legacy."
+      },
+      {
+        "text": "Eden Gardens – One of the largest and oldest cricket stadiums in the world."
+      }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "Tea Industry – Darjeeling produces world-famous Darjeeling Tea, known for its distinct aroma.",
+      "Jute Industry – Kolkata is a global hub for jute production, with major mills along the Hooghly River.",
+      "IT & Software Industry – Salt Lake Sector V and Rajarhat are emerging as tech hubs.",
+      "Agriculture – A leading producer of rice, fish, sugarcane, and mangoes (Malda Mangoes).",
+      "Textiles & Handicrafts – Famous for Baluchari sarees, Tant sarees, and Dokra metal crafts.",
+      "Film Industry (Tollywood) – The Bengali film industry is known for artistic and parallel cinema, pioneered by Satyajit Ray.",
+      "Ports & Trade – Kolkata Port is India’s oldest port, handling major international trade."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "The official language is Bengali, with Hindi, English, and Nepali spoken in different regions.",
+      "The people of Bengal are known for their artistic mindset, love for literature, and intellectual debates (Adda culture).",
+      "Famous Bengali festivals include Durga Puja (the grandest in India), Poila Baisakh (Bengali New Year), and Kali Puja.",
+      "Bengali folk arts include Baul music, Chhau dance, and Patachitra (scroll painting).",
+      "Bengali sweets like Rasgulla, Mishti Doi, and Sandesh are world-famous."
+    ],
+
+    "Area & Geography 🌍": [
+      "Covers 88,752 sq km, making it India’s 13th largest state.",
+      "Bordered by Bangladesh, Nepal, Bhutan, Assam, Odisha, Bihar, Jharkhand, and Sikkim, with a coastline along the Bay of Bengal.",
+      "The Hooghly River, a distributary of the Ganga, flows through Kolkata.",
+      "The state has diverse landscapes, from the Himalayas in the north (Darjeeling, Kalimpong) to the Sundarbans in the south."
+    ],
+
+    "Unique Facts 🌟": [
+      {"text":"West Bengal has the highest number of Nobel laureates from India, including Rabindranath Tagore and Amartya Sen.",
+        "image": "images/WestBengal/Rabindranath.jpg"},
+      {"text":"Durga Puja celebrations in Kolkata are UNESCO-listed for their cultural significance.",
+        "image": "images/WestBengal/durga pooja.jpg"},
+      "The Royal Bengal Tiger, found in the Sundarbans, is the state animal.",
+      "The Bengal Renaissance played a crucial role in modernizing India in the 19th century.",
+      "Kolkata was the first capital of British India until 1911.",
+      "The famous Bengali sweets, Rasgulla and Mishti Doi, originated here."
+    ],
+
+    "State Symbols": {
+      "State Animal 🐾": {
+        "text": "Fishing Cat (Prionailurus viverrinus)",
+        "image": "images/WestBengal/Fishing Cat.jpg"
+      },
+      "State Bird 🐦": {
+        "text": "White-throated Kingfisher (Halcyon smyrnensis)",
+        "image": "images/WestBengal/kingfisher.jpg"
+      },
+      "State Tree 🌳": {
+        "text": "Devil Tree (Alstonia scholaris)",
+        "image": "images/WestBengal/blackboard.jpg"
+      },
+      "State Flower 🌸": {
+        "text": "Sheuli (Night Jasmine) (Nyctanthes arbor-tristis)",
+        "image": "images/WestBengal/jasmine.jpg"
+      }
+    }
+  },
+  "Jammu and Kashmir": {
+    "tagline": "The Crown of India 🏔️🌿🕌",
+
+    "Capital Cities 🏛️": [
+      "Srinagar (Summer Capital) – Known as the 'Paradise on Earth', famous for its Dal Lake, Mughal Gardens, and Kashmiri handicrafts.",
+      "Jammu (Winter Capital) – Called the 'City of Temples', home to the Vaishno Devi Shrine, one of India’s most visited pilgrimage sites."
+    ],
+
+    "National Importance & Famous Landmarks 🏔️": [
+      {
+        "text": "Dal Lake & Houseboats (Srinagar) – A breathtaking Himalayan lake with floating markets and Shikara boat rides."
+      },
+      {
+        "text": "Vaishno Devi Temple (Jammu) – A highly revered Hindu shrine, attracting millions of devotees every year.",
+        "image": "images/JammuKashmir/Vaishno Devi.jpg"
+      },
+      {
+        "text": "Gulmarg (Snow Paradise) – One of the best skiing destinations in India, offering Asia’s highest cable car (Gondola Ride)."
+      },
+      {
+        "text": "Sonmarg & Pahalgam – Stunning hill stations known for meadows, rivers, and trekking trails."
+      },
+      {
+        "text": "Leh & Ladakh – A high-altitude region famous for Pangong Lake, Magnetic Hill, and monasteries."
+      },
+      {
+        "text": "Shankaracharya Temple & Hazratbal Shrine – Important Hindu and Muslim pilgrimage sites in Srinagar."
+      },
+      {
+        "text": "Aru Valley & Betaab Valley – Scenic locations featured in Bollywood movies."
+      },
+      {
+        "text": "Mughal Gardens – Shalimar Bagh, Nishat Bagh, and Chashme Shahi built by Mughal emperors."
+      },
+      {
+        "text": "Kargil War Memorial – A tribute to the Indian soldiers who fought in the Kargil War (1999).",
+        "image": "images/JammuKashmir/Kargil.jpg"
+      },
+      {
+        "text": "Raghunath Temple & Bahu Fort (Jammu) – A famous temple complex dedicated to Lord Rama."
+      }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "Saffron Cultivation – Pampore (Kashmir) produces the world’s finest saffron, known for its rich aroma and medicinal benefits.",
+      "Handicrafts & Pashmina Wool – Kashmir is famous for Pashmina shawls, Kashmiri carpets, and walnut wood carvings.",
+      "Dry Fruits & Apples – A leading producer of walnuts, almonds, and Kashmiri apples.",
+      "Tourism & Hospitality – The backbone of the economy, with millions of tourists visiting its valleys, lakes, and pilgrimage sites.",
+      "Horticulture & Floriculture – Produces exotic flowers like tulips, roses, and marigolds.",
+      "Hydropower & Energy – Rivers like the Jhelum, Chenab, and Indus generate hydropower for India."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "Official languages include Kashmiri, Dogri, Urdu, and Hindi.",
+      "The people of Kashmir are called Kashmiris, while Dogras are the main ethnic group in Jammu.",
+      "Kashmiri culture is rich in folk music, Sufi traditions, and poetry, especially works of Lal Ded and Habba Khatoon.",
+      "Traditional Kashmiri attire includes Pheran (a long woolen robe) and Kangri (a small fire pot for warmth).",
+      "Major festivals – Eid, Shivratri, Baisakhi, Lohri, and Tulip Festival in Srinagar."
+    ],
+
+    "Area & Geography 🌍": [
+      "Covers 55,538 sq km, making it one of India’s northernmost territories.",
+      "Bordered by Pakistan, China, Himachal Pradesh, and Punjab.",
+      "The Himalayas dominate the landscape, with rivers, glaciers, and beautiful valleys.",
+      "Important rivers – Jhelum, Chenab, Indus, and Tawi.",
+      "The Pir Panjal and Zanskar mountain ranges add to its stunning geography."
+    ],
+
+    "Unique Facts 🌟": [
+      "Jammu & Kashmir is home to the Tulip Garden in Srinagar, the largest in Asia.",
+      "Dal Lake has a floating post office, the only one of its kind in the world.",
+      "Leh is one of the highest inhabited places on Earth (3,500 meters above sea level).",
+      "Kargil is the second coldest inhabited place on Earth after Siberia.",
+      "The Amarnath Yatra, an annual Hindu pilgrimage, is considered one of the toughest treks.",
+      "Gulmarg’s Gondola is the highest cable car in Asia (4,200 meters above sea level)."
+    ],
+
+    "State Symbols": {
+      "State Animal 🐾": {
+        "text": "Kashmir Stag (Cervus hanglu hanglu)",
+        "image": "images/JammuKashmir/stag.jpg"
+      },
+      "State Bird 🐦": {
+        "text": "Black-necked Crane (Grus nigricollis)",
+        "image": "images/JammuKashmir/crane.jpg"
+      },
+      "State Tree 🌳": {
+        "text": "Chinar (Platanus orientalis)",
+        "image": "images/JammuKashmir/chinar.jpg"
+      },
+      "State Flower 🌸": {
+        "text": "Rhododendron",
+        "image": "images/JammuKashmir/rhododendron.jpg"
+      }
+    }
+  },
+  "Chandigarh": {
+    "tagline": "The City Beautiful 🌿🏛️🏙️",
+
+    "Capital City 🏛️": [
+      "Chandigarh serves as the capital of both Punjab and Haryana, yet it is a Union Territory of India.",
+      "Known as 'The City Beautiful', it is India’s first planned city, designed by the famous French architect Le Corbusier.",
+      "It is one of the cleanest, greenest, and most well-organized cities in India."
+    ],
+
+    "National Importance & Famous Landmarks 🏔️": [
+      {
+        "text": "Rock Garden – A unique sculpture garden built entirely from industrial and domestic waste, created by Nek Chand.",
+        "image": "images/Chandigarh/rock garden.jpg"
+      },
+      {
+        "text": "Sukhna Lake – A serene artificial lake, perfect for boating, jogging, and relaxing."
+      },
+      {
+        "text": "Capitol Complex (UNESCO World Heritage Site) – Houses the High Court, Secretariat, and Legislative Assembly, designed by Le Corbusier."
+      },
+      {
+        "text": "Rose Garden (Zakir Hussain Garden) – Asia’s largest rose garden, with over 1,600 varieties of roses."
+      },
+      {
+        "text": "Elante Mall – One of North India’s largest malls, a major shopping and entertainment hub."
+      },
+      {
+        "text": "Sector 17 Plaza – The heart of Chandigarh, known for high-end shopping, cafes, and nightlife."
+      },
+      {
+        "text": "Pinjore Gardens – A historic Mughal garden located near Chandigarh."
+      },
+      {
+        "text": "Government Museum & Art Gallery – Showcases artifacts from the Harappan Civilization and Gandhara art."
+      },
+      {
+        "text": "Chattbir Zoo – A major zoological park, home to the Royal Bengal Tiger and other exotic animals."
+      }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "IT & Technology – Chandigarh is a growing IT hub, with companies in Rajiv Gandhi IT Park.",
+      "Education & Research – Home to Panjab University, PGIMER (Medical Research Institute), and PEC University of Technology.",
+      "Real Estate & Urban Development – Chandigarh’s planned infrastructure makes it a real estate hotspot.",
+      "Tourism & Hospitality – A major tourist destination due to its gardens, modern architecture, and nightlife.",
+      "Retail & Shopping – A center for luxury brands, malls, and local Punjabi markets."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "The main languages spoken are Hindi, Punjabi, and English.",
+      "The people of Chandigarh enjoy a modern and urban lifestyle, influenced by both Punjabi and Haryanvi cultures.",
+      "Chandigarh is famous for its café culture, street food, and lively nightlife.",
+      "Festivals like Baisakhi, Diwali, and Lohri are celebrated with enthusiasm.",
+      "Bhangra and Giddha dance forms are popular in Chandigarh’s cultural events."
+    ],
+
+    "Area & Geography 🌍": [
+      "Covers 114 sq km, making it one of India’s smallest Union Territories.",
+      "Located near the foothills of the Shivalik range, offering a mix of urban and natural beauty.",
+      "Well-connected by road, rail, and air, with an international airport."
+    ],
+
+    "Unique Facts 🌟": [
+      "Chandigarh is the cleanest and most well-planned city in India.",
+      "It has the highest per capita income in India among Union Territories.",
+      "Sector planning makes navigation easy – the city is divided into sectors with green belts and open spaces.",
+      "There are no statues in Chandigarh, as per Le Corbusier’s design philosophy.",
+      "It is India’s first smoke-free city, promoting a healthy environment."
+    ],
+
+    "State Symbols": {
+      "State Animal 🐾": {
+        "text": "Indian Grey Mongoose (Herpestes edwardsii)",
+        "image": "images/Chandigarh/mongoose.jpg"
+      },
+      "State Bird 🐦": {
+        "text": "Indian Grey Hornbill (Ocyceros birostris)",
+        "image": "images/Chandigarh/hornbill.jpg"
+      },
+      "State Tree 🌳": {
+        "text": "Mango (Mangifera indica)",
+        "image": "images/Chandigarh/mango tree.jpg"
+      },
+      "State Flower 🌸": {
+        "text": "Dhak Flower (Butea monosperma)",
+        "image": "images/Chandigarh/dhak.jpg"
+      }
+    }
+  },
+  "Dadra and Nagar Haveli and Daman and Diu": {
+    "tagline": "The Coastal and Tribal Gem",
+
+    "Capital City 🏛️": [
+      "Daman serves as the capital of this Union Territory, formed in 2020 after merging Dadra & Nagar Haveli with Daman & Diu.",
+      "The territory consists of four districts: Dadra, Nagar Haveli, Daman, and Diu.",
+      "Daman is a coastal city, while Silvassa (the largest city) is the administrative center."
+    ],
+
+    "National Importance & Famous Landmarks 🏝️": [
+      {
+        "text": "Jampore Beach & Devka Beach (Daman) – Known for black sand, peaceful shores, and beachside shacks."
+      },
+      {
+        "text": "Diu Fort – A massive Portuguese-built fort with stunning sea views and historical significance.",
+        "image": "images/DadraNagarHaveliDamanDiu/Diu fort.jpg"
+      },
+      {
+        "text": "Naida Caves (Diu) – Natural rock formations with tunnels, creating a mysterious and scenic attraction."
+      },
+      {
+        "text": "St. Paul’s Church (Diu) – A 17th-century Baroque-style church, a masterpiece of Portuguese architecture.",
+        "image": "images/DadraNagarHaveliDamanDiu/St paul.jpg"
+      },
+      {
+        "text": "Silvassa Tribal Museum – Showcases the culture and traditions of indigenous tribal communities."
+      },
+      {
+        "text": "Vanganga Lake Garden (Silvassa) – A beautiful lake garden with boating and lush greenery."
+      },
+      {
+        "text": "Hirwa Van Garden (Silvassa) – A man-made forest garden, perfect for picnics and relaxation."
+      },
+      {
+        "text": "Gangeshwar Temple (Diu) – Ancient Shiva temples located near the Arabian Sea."
+      },
+      {
+        "text": "Portuguese Colonial Architecture – Daman & Diu still retain the charm of old Portuguese settlements."
+      }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "Tourism & Hospitality – The biggest revenue source, attracting visitors with beaches, heritage sites, and adventure sports.",
+      "Liquor & Beverage Industry – Daman & Diu have lower alcohol taxes, making them a liquor hub for neighboring Gujarat and Maharashtra.",
+      "Manufacturing & Small Industries – Silvassa is an industrial hub, home to textile, plastics, and electronics industries.",
+      "Agriculture – Rice, mangoes, coconuts, and bananas are widely grown.",
+      "Fishing Industry – The coastal economy thrives on fishing, seafood processing, and exports."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "Official languages: Gujarati, Marathi, Hindi, and English.",
+      "Home to indigenous tribes like Warlis and Dhodias, known for their Warli art and folk music.",
+      "The people celebrate Portuguese-influenced festivals, including Christmas, Carnival, and Nariyal Purnima (Coconut Festival).",
+      "Traditional Warli painting and bamboo handicrafts are unique to the region."
+    ],
+
+    "Area & Geography 🌍": [
+      "Covers 603 sq km, making it one of India’s smallest Union Territories.",
+      "Daman & Diu are coastal regions, while Dadra & Nagar Haveli are landlocked, covered with forests and hills.",
+      "Surrounded by Gujarat and Maharashtra, with easy access from Mumbai and Surat."
+    ],
+
+    "Unique Facts 🌟": [
+      "Daman & Diu were under Portuguese rule for over 450 years until 1961.",
+      "Diu has one of India’s longest beaches, Nagoa Beach, known for adventure sports.",
+      "Silvassa has one of the highest per capita incomes in India due to its industrial growth.",
+      "Diu is the only place in Gujarat’s vicinity where alcohol is legally available.",
+      "Warli art, one of India’s oldest tribal art forms, originates from Dadra & Nagar Haveli."
+    ]
+  },
+  "Lakshadweep": {
+    "tagline": "India’s Tropical Paradise 🌊🌴🐠",
+
+    "Capital City 🏛️": [
+      "Kavaratti is the capital of Lakshadweep, serving as the administrative and cultural center of this beautiful island territory.",
+      "Lakshadweep is India’s smallest Union Territory, consisting of 36 coral islands, atolls, and reefs, with only 10 inhabited islands.",
+      "It is a tropical paradise with pristine beaches, turquoise waters, and exotic marine life."
+    ],
+
+    "National Importance & Famous Landmarks 🏝️": [
+      {
+        "text": "Agatti Island – The gateway to Lakshadweep, known for its crystal-clear waters, snorkeling, and scuba diving."
+      },
+      {
+        "text": "Bangaram Island – A luxury island destination with untouched beaches and a serene lagoon."
+      },
+      {
+        "text": "Minicoy Island – Famous for its Maldivian cultural influence, lighthouse, and tuna fishing."
+      },
+      {
+        "text": "Kavaratti Island – The capital island, known for mosques, coconut palms, and lagoons."
+      },
+      {
+        "text": "Kalpeni Island – A great spot for kayaking, reef walking, and coral exploration."
+      },
+      {
+        "text": "Marine Museum (Kavaratti) – Displays the rich marine biodiversity of Lakshadweep."
+      },
+      {
+        "text": "Pitti Bird Sanctuary – A protected bird nesting site, home to seabirds like terns and frigate birds."
+      },
+      {
+        "text": "Scuba Diving & Snorkeling – Lakshadweep offers some of India’s best diving spots, with colorful coral reefs and diverse marine life."
+      }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "Fisheries & Seafood Exports – Lakshadweep is famous for its tuna fishing industry, with exports of dried and processed tuna.",
+      "Coconut & Coir Products – The islands produce high-quality coconuts, used for copra, coir mats, and handicrafts.",
+      "Tourism & Water Sports – The UT is developing eco-tourism with a focus on sustainable beach resorts and marine activities.",
+      "Boat Building & Navigation – Traditional Uru (wooden boats) and fishing vessels are crafted here.",
+      "Coral & Marine Conservation – Due to its fragile ecosystem, conservation projects focus on protecting coral reefs and marine biodiversity."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "The main language spoken is Malayalam, with influences of Jeseri (a local dialect) and Mahl (spoken in Minicoy Island).",
+      "The people are mainly Muslim, following an Islamic way of life with cultural ties to Kerala and Maldives.",
+      "Traditional houses are made of coconut wood and coral stones.",
+      "Lava Dance and Kolkali are popular folk dances performed during celebrations.",
+      "The islands have a rich boat-building tradition, with expertise in crafting wooden fishing boats."
+    ],
+
+    "Area & Geography 🌍": [
+      "Covers 32 sq km, making it India’s smallest Union Territory.",
+      "Located in the Arabian Sea, about 400 km from Kerala, it consists of atolls, reefs, and 36 small islands.",
+      "Only 10 islands are inhabited, while others remain pristine and protected for conservation.",
+      "The region has a warm tropical climate, with monsoons influencing travel and tourism."
+    ],
+
+    "Unique Facts 🌟": [
+      "Lakshadweep is India’s only coral atoll group, making it ecologically unique.",
+      "Minicoy Island follows Maldivian traditions, with cultural similarities to the Maldives.",
+      "Alcohol is banned in Lakshadweep except on Bangaram Island.",
+      "Pitti Island is a bird sanctuary where thousands of seabirds nest annually.",
+      "Tourism is highly restricted, and visitors require a special permit to enter.",
+      "The islands are at risk due to climate change and rising sea levels."
+    ],
+
+    "State Symbols": {
+      "State Animal 🐠": {
+        "text": "Butterfly Fish",
+        "image": "images/Lakshadweep/butterfly fish.jpg"
+      },
+      "State Bird 🐦": {
+        "text": "Sooty Tern (Onychoprion fuscatus)",
+        "image": "images/Lakshadweep/sooty.jpg"
+      },
+      "State Tree 🌳": {
+        "text": "Breadfruit Tree (Artocarpus altilis)",
+        "image": "images/Lakshadweep/breadtree.jpg"
+      },
+      "State Flower 🌸": {
+        "text": "Neelakurinji",
+        "image": "images/Lakshadweep/neelakurinji.jpg"
+      }
+    }
+  },
+  "Delhi": {
+    "tagline": "The Capital of India 🇮🇳🏛️🌆",
+
+    "Capital City 🏛️": [
+      "New Delhi is the capital of India and part of the larger Delhi Union Territory.",
+      "It is the political, cultural, and economic hub of India, home to major government institutions, embassies, and historical landmarks.",
+      "Delhi is known as “Dilli” or “Dilwalon Ki Dilli” (City of the Big-Hearted) due to its vibrant culture and diverse population."
+    ],
+
+    "National Importance & Famous Landmarks 🏰": [
+      {
+        "text": "India Gate – A war memorial dedicated to Indian soldiers of World War I, a symbol of national pride.",
+        "image": "images/Delhi/India gate.jpg"
+      },
+      {
+        "text": "Red Fort – A UNESCO World Heritage Site, this Mughal fort was the seat of power for emperors and now hosts Independence Day celebrations.",
+        "image": "images/Delhi/Red Fort.jpg"
+      },
+      {
+        "text": "Qutub Minar – The tallest brick minaret in the world, built in the 12th century by Qutb-ud-din Aibak.",
+        "image": "images/Delhi/qutb minar.jpg"
+      },
+      {
+        "text": "Rashtrapati Bhavan – The official residence of the President of India, an architectural marvel."
+      },
+      {
+        "text": "Lotus Temple – A Bahá'í house of worship, known for its stunning lotus-shaped design."
+      },
+      {
+        "text": "Akshardham Temple – A Hindu temple complex, showcasing intricate carvings, cultural exhibitions, and a mesmerizing light show."
+      },
+      {
+        "text": "Jama Masjid – One of India’s largest mosques, built by Mughal Emperor Shah Jahan."
+      },
+      {
+        "text": "Chandni Chowk & Old Delhi – The bustling historical market, famous for street food, jewelry, and textiles."
+      },
+      {
+        "text": "Humayun’s Tomb – A UNESCO World Heritage Site, an architectural inspiration for the Taj Mahal."
+      },
+      {
+        "text": "Connaught Place (CP) – The commercial and nightlife hub, with cafes, bars, and shopping centers."
+      }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "Political & Government Administration – Delhi houses Parliament, Supreme Court, Ministries, and embassies.",
+      "IT & Tech Industry – Home to several tech parks, startups, and corporate headquarters.",
+      "Education & Research – Houses Delhi University (DU), Jawaharlal Nehru University (JNU), IIT Delhi, AIIMS, and IIM Rohtak.",
+      "Tourism & Hospitality – One of India’s top tourist destinations, with a thriving hotel, travel, and food industry.",
+      "Textiles & Handicrafts – Famous for Zardozi embroidery, leather goods, and carpets.",
+      "Retail & Wholesale Markets – Karol Bagh, Sarojini Nagar, and Chandni Chowk are known for shopping.",
+      "Real Estate & Infrastructure – Delhi is continuously growing with new metro lines, highways, and urban projects."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "Languages Spoken: Hindi, Punjabi, Urdu, and English.",
+      "Delhi is home to people from all parts of India, creating a melting pot of cultures.",
+      "Festivals like Diwali, Holi, Eid, and Christmas are celebrated grandly.",
+      "The city is known for street food like Chole Bhature, Parathas, and Momos.",
+      "Art, theatre, and music thrive in Delhi, with famous venues like NSD (National School of Drama) and India Habitat Centre."
+    ],
+
+    "Area & Geography 🌍": [
+      "Covers 1,484 sq km, making it one of India’s largest metropolitan regions.",
+      "Situated on the banks of the Yamuna River, surrounded by Uttar Pradesh and Haryana.",
+      "Extreme climate, with hot summers (up to 45°C) and cold winters (as low as 3°C)."
+    ],
+
+    "Unique Facts 🌟": [
+      "Delhi Metro is India’s largest and busiest metro network, easing urban transportation.",
+      "The Delhi Ridge is one of the largest green belts in a metro city, balancing pollution.",
+      "It has three UNESCO World Heritage Sites – Red Fort, Qutub Minar, and Humayun’s Tomb.",
+      "Delhi has the highest number of registered vehicles in India, leading to traffic congestion.",
+      "Chandni Chowk was designed by Shah Jahan’s daughter, Jahanara Begum.",
+      "It is one of the world’s most populated cities, with over 32 million residents."
+    ],
+
+    "State Symbols": {
+      "State Animal 🐃": {
+        "text": "Nilgai (Boselaphus tragocamelus)",
+        "image": "images/Delhi/nilgai.jpg"
+      },
+      "State Bird 🐦": {
+        "text": "House Sparrow (Passer domesticus)",
+        "image": "images/Delhi/sparrow.jpg"
+      },
+      "State Tree 🌳": {
+        "text": "Gulmohar",
+        "image": "images/Delhi/gulmohar.jpg"
+      },
+      "State Flower 🌸": {
+        "text": "Alfalfa (Medicago sativa)",
+        "image": "images/Delhi/alfaalfa.jpg"
+      }
+    }
+  },
+  "Ladakh": {
+    "tagline": "The Land of High Passes 🏔️❄️",
+
+    "Capital City 🏛️": [
+      "Leh (Summer Capital) and Kargil (Winter Capital) are the two administrative centers of Ladakh, India’s newest Union Territory (formed in 2019 after separation from Jammu & Kashmir).",
+      "Leh is the cultural and tourism hub, while Kargil is known for its strategic location near the India-Pakistan border."
+    ],
+
+    "National Importance & Famous Landmarks 🏔️": [
+      {
+        "text": "Pangong Lake – A stunning blue lake that changes colors and extends into China.",
+        "image": "images/Ladakh/Pangong Lake.jpg"
+      },
+      {
+        "text": "Nubra Valley – A cold desert valley famous for its Bactrian camels and sand dunes."
+      },
+      {
+        "text": "Magnetic Hill – A mysterious spot where vehicles appear to roll uphill against gravity."
+      },
+      {
+        "text": "Khardung La Pass – One of the world’s highest motorable roads at 5,359 meters (17,582 ft)."
+      },
+      {
+        "text": "Zanskar Valley – Known for its frozen river trek (Chadar Trek) during winters."
+      },
+      {
+        "text": "Hemis Monastery – The largest and richest Buddhist monastery in Ladakh, famous for its Hemis Festival."
+      },
+      {
+        "text": "Kargil War Memorial – A tribute to the Indian soldiers who fought in the 1999 Kargil War."
+      },
+      {
+        "text": "Tso Moriri Lake – A lesser-known but breathtaking high-altitude lake, a paradise for bird watchers."
+      },
+      {
+        "text": "Spituk Monastery & Thiksey Monastery – Iconic Buddhist monasteries, known for their serene environment and architecture."
+      }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "Tourism & Adventure Sports – Ladakh is a dream destination for bikers, trekkers, and photographers.",
+      "Handicrafts & Pashmina Wool – The region produces world-famous Pashmina shawls, Tibetan carpets, and handicrafts.",
+      "Agriculture & Horticulture – Apricots, apples, barley, and wheat are grown in the valleys.",
+      "Defense & Border Security – Ladakh has a strong military presence due to its strategic location near China and Pakistan.",
+      "Solar & Hydropower Energy – Ladakh is developing into a major hub for renewable energy projects."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "Ladakhi (Bhoti), Hindi, and English are the main languages.",
+      "Ladakhis are closely related to Tibetan culture, and Buddhism plays a significant role in their daily lives.",
+      "Festivals like Losar, Hemis Festival, and Ladakh Festival are celebrated with great enthusiasm.",
+      "Traditional clothing includes gonchas (woolen robes) and vibrant headgear.",
+      "Butter tea (Po Cha) and Thukpa (noodle soup) are staple foods."
+    ],
+
+    "Area & Geography 🌍": [
+      "59,146 sq km, making it one of India’s largest UTs by area but with a very low population.",
+      "Ladakh is a cold desert, with temperatures dropping to -30°C in winters.",
+      "It has barren landscapes, high mountain ranges, and river valleys.",
+      "The Indus River flows through Ladakh, providing water to the region."
+    ],
+
+    "Unique Facts 🌟": [
+      "Ladakh has the highest motorable roads in the world, making it a biker’s paradise.",
+      "Pangong Lake was featured in Bollywood movies like '3 Idiots' and 'Jab Tak Hai Jaan'.",
+      "It is the only place in India where double-humped Bactrian camels are found.",
+      "The Hemis Festival is one of the most colorful Buddhist festivals in the world.",
+      "The Chadar Trek on the frozen Zanskar River is one of the toughest treks in India.",
+      "Ladakh has some of the clearest night skies, making it perfect for stargazing."
+    ],
+
+    "State Symbols": {
+      "State Animal 🐆": {
+        "text": "Snow Leopard (Panthera uncia)",
+        "image": "images/Ladakh/snow leopard.jpg"
+      },
+      "State Bird 🐦": {
+        "text": "Black-necked Crane (Grus nigricollis)",
+        "image": "images/Ladakh/crane.jpg"
+      }
+    }
+  },
+  "Puducherry": {
+    "tagline": "The French Riviera of India 🇫🇷🏖️🌊",
+
+    "Capital City 🏛️": [
+      "Puducherry (Pondicherry) is the capital of the Union Territory of Puducherry, which consists of four districts:",
+      "Puducherry (mainland, Tamil Nadu)",
+      "Karaikal (Tamil Nadu)",
+      "Mahe (Kerala)",
+      "Yanam (Andhra Pradesh)",
+      "It was a former French colony and retains a strong French cultural influence."
+    ],
+
+    "National Importance & Famous Landmarks 🏝️": [
+      {
+        "text": "Promenade Beach – A beautiful rocky beach along the Bay of Bengal, perfect for evening walks."
+      },
+      {
+        "text": "Auroville – An experimental township founded by Sri Aurobindo’s followers, symbolizing unity and harmony."
+      },
+      {
+        "text": "Sri Aurobindo Ashram – A spiritual center attracting visitors worldwide for meditation and yoga."
+      },
+      {
+        "text": "French Quarter (White Town) – Lined with quaint colonial buildings, cafes, and vibrant street art, offering a European feel."
+      },
+      {
+        "text": "Paradise Beach – A secluded golden sand beach, perfect for relaxation and water sports."
+      },
+      {
+        "text": "Arikamedu – An ancient Roman trading settlement, showcasing Indo-Roman trade history."
+      },
+      {
+        "text": "Basilica of the Sacred Heart of Jesus – A stunning Gothic-style church with beautiful stained glass windows."
+      },
+      {
+        "text": "Gingee Fort – A historic fort near Puducherry, known as the Troy of the East."
+      },
+      {
+        "text": "Matrimandir – A golden meditation dome in Auroville, a must-visit for seekers of peace."
+      }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "Tourism & Hospitality – A popular beach and heritage destination, known for cafés, resorts, and yoga retreats.",
+      "Handicrafts & Textiles – Famous for handmade paper, cotton textiles, pottery, and leather products.",
+      "Education & Research – Home to Pondicherry University, JIPMER (top medical institute), and Auroville research centers.",
+      "Agriculture & Fisheries – Major production of rice, coconuts, and seafood.",
+      "Alcohol & Liquor Industry – Puducherry has low alcohol taxes, making it a popular destination for tourists."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "Official languages: Tamil, Telugu, Malayalam, French, and English.",
+      "The region has a multicultural identity, influenced by Tamil traditions and French heritage.",
+      "People celebrate Tamil festivals like Pongal, as well as Bastille Day (French National Day).",
+      "Franco-Tamil cuisine is unique, combining French techniques with Indian spices.",
+      "The city is known for yoga, meditation, and organic living."
+    ],
+
+    "Area & Geography 🌍": [
+      "Covers 492 sq km, spread across four unconnected districts.",
+      "Located on the southeastern coast of India, along the Bay of Bengal.",
+      "Tropical climate with humid summers and pleasant winters."
+    ],
+
+    "Unique Facts 🌟": [
+      "Puducherry was under French rule for 138 years (until 1954), unlike most of India, which was under British rule.",
+      "French is still spoken by some locals, and many street names are in French.",
+      "It is one of the cleanest cities in India, promoting eco-tourism.",
+      "Auroville is an international township where people from 50+ countries live together.",
+      "Sri Aurobindo Ashram is one of India’s most famous spiritual centers.",
+      "Puducherry has duty-free liquor, attracting tourists from neighboring states."
+    ],
+
+    "State Symbols": {
+      "State Animal 🐿️": {
+        "text": "Indian Palm Squirrel (Funambulus palmarum)",
+        "image": "images/Puducherry/squirrel.jpg"
+      },
+      "State Bird 🐦": {
+        "text": "Koel (Eudynamys scolopaceus)",
+        "image": "images/Puducherry/koel.jpg"
+      },
+      "State Tree 🌳": {
+        "text": "Bael (Aegle marmelos)",
+        "image": "images/Puducherry/Bael.jpg"
+      },
+      "State Flower 🌸": {
+        "text": "Cannonball Tree Flower (Couroupita guianensis)",
+        "image": "images/Puducherry/cannonball.jpg"
+      }
+    }
+  },
+  "Andaman and Nicobar Islands": {
+    "tagline": "The Emerald Jewels of India",
+
+    "Capital City 🏛️": [
+      "Port Blair is the capital of the Andaman and Nicobar Islands, serving as the administrative, cultural, and tourism hub of the Union Territory.",
+      "It is home to Cellular Jail, a historic landmark from India’s struggle for independence.",
+      "The Union Territory consists of 572 islands, of which around 38 are inhabited."
+    ],
+
+    "National Importance & Famous Landmarks 🏝️": [
+      {
+        "text": "Radhanagar Beach (Havelock Island) – Ranked among the best beaches in Asia, known for its pristine white sands and turquoise waters."
+      },
+      {
+        "text": "Cellular Jail (Kala Pani) – A colonial-era prison used by the British to exile Indian freedom fighters."
+      },
+      {
+        "text": "Ross Island – Once the British administrative capital, now in ruins, showcasing historical architecture."
+      },
+      {
+        "text": "Baratang Island – Famous for its limestone caves, mangrove creeks, and mud volcanoes."
+      },
+      {
+        "text": "Havelock Island (Swaraj Dweep) – A paradise for scuba diving, snorkeling, and beach lovers."
+      },
+      {
+        "text": "Neil Island (Shaheed Dweep) – A serene island with stunning coral reefs and natural bridges."
+      },
+      {
+        "text": "Viper Island – Known for its historical ruins and gallows used by the British."
+      },
+      {
+        "text": "Barren Island – Home to India’s only active volcano."
+      },
+      {
+        "text": "Mahatma Gandhi Marine National Park – A protected marine area with coral reefs, turtles, and exotic marine species."
+      },
+      {
+        "text": "Great Nicobar Biosphere Reserve – A UNESCO-listed biosphere reserve with rare flora and fauna."
+      }
+    ],
+
+    "Core Production & Economic Focus 🏭": [
+      "Tourism & Eco-Tourism – One of India’s top island tourism destinations, famous for beach resorts, scuba diving, and snorkeling.",
+      "Fisheries & Seafood Industry – Major production of tuna, lobsters, crabs, and other seafood.",
+      "Coconut & Betel Nut Cultivation – The islands grow high-quality coconuts and betel nuts.",
+      "Timber & Handicrafts – Famous for wood carvings, shell crafts, and cane furniture.",
+      "Defense & Naval Base – Andaman & Nicobar is a strategic military base, hosting the Indian Navy, Air Force, and Coast Guard."
+    ],
+
+    "Native People & Languages 🗣️": [
+      "Major languages spoken include Hindi, Bengali, Tamil, Telugu, and Nicobarese.",
+      "The islands are home to six indigenous tribes, including the Great Andamanese, Onges, Sentinalese, and Nicobarese.",
+      "The Sentinelese people are one of the last uncontacted tribes in the world, living in complete isolation on North Sentinel Island.",
+      "The culture is a blend of South Indian, Bengali, and tribal influences.",
+      "Traditional dances like Nicobari Dance are performed during festivals."
+    ],
+
+    "Area & Geography 🌍": [
+      "Covers 8,249 sq km, spread over 572 islands in the Bay of Bengal.",
+      "The islands are located 1,200 km from mainland India, closer to Thailand and Myanmar.",
+      "Tropical rainforest climate, with lush mangroves, coral reefs, and marine biodiversity.",
+      "Barren Island is India’s only active volcano."
+    ],
+
+    "Unique Facts 🌟": [
+      "The Andaman Sea is one of the best places for scuba diving in India, with rich coral reefs and marine life.",
+      "Indira Point in Nicobar is India’s southernmost point.",
+      "The Great Andamanese, Onge, Jarwa, and Sentinelese tribes have lived here for thousands of years.",
+      "North Sentinel Island is completely off-limits, as its inhabitants reject outside contact.",
+      "Andaman has India’s only active volcano on Barren Island.",
+      "The Cellular Jail (Kala Pani) was one of the most feared colonial prisons in British India.",
+      "The Ross & Smith Islands are connected by a natural sandbar, visible during low tide."
+    ],
+
+    "State Symbols": {
+      "State Animal 🐋": {
+        "text": "Dugong (Dugong dugon)",
+        "image": "images/Andaman/seacow.jpg"
+      },
+      "State Bird 🐦": {
+        "text": "Andaman Wood Pigeon (Columba palumboides)",
+        "image": "images/Andaman/woodpigeon.jpg"
+      },
+      "State Tree 🌳": {
+        "text": "Andaman Padauk (Pterocarpus dalbergioides)",
+        "image": "images/Andaman/redwood tree.jpg"
+      },
+      "State Flower 🌸": {
+        "text": "Andaman Pyinma (Lagerstroemia hypoleuca)",
+        "image": "images/Andaman/pyinma.jpg"
+      }
+    }
+  }
+}

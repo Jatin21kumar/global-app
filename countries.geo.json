@@ -1,0 +1,1 @@
+{"type": "FeatureCollection", "features": [{"type": "Feature", "properties": {"ADMIN": "France", "ISO_A2": "FR"}, "geometry": {"type": "Polygon", "coordinates": [[[2.0, 51.0], [3.0, 51.0], [3.0, 50.0], [2.0, 50.0], [2.0, 51.0]]]}}]}
