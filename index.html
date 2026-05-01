@@ -32,6 +32,8 @@
       padding: 18px;
       border-radius: 16px;
       max-width: 420px;
+      max-height: calc(100vh - 40px);
+      overflow-y: auto;
       font-size: 14px;
       z-index: 999;
       display: flex;
@@ -39,6 +41,7 @@
       align-items: center;
       box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
       border: 2px dashed #ffd369;
+      overscroll-behavior: contain;
     }
 
     #infoContent {
@@ -112,6 +115,40 @@
       display: none;
     }
 
+    #zoomControls {
+      position: fixed;
+      bottom: 30px;
+      right: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      z-index: 99999;
+      pointer-events: auto;
+    }
+
+    #zoomControls button {
+      width: 40px;
+      height: 40px;
+      font-size: 22px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.92);
+      color: #444;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      user-select: none;
+    }
+
+    #zoomControls button:hover {
+      background: #fff;
+      color: #ff914d;
+    }
+
     @media (max-width: 600px) {
       #infoBox {
         top: 0;
@@ -161,6 +198,11 @@
   <div id="infoBox" style="display: none;">
     <button id="closeInfoBox">×</button>
     <div id="infoContent">Click anywhere on the globe 🌍</div>
+  </div>
+
+  <div id="zoomControls">
+    <button id="zoomIn" title="Zoom In">+</button>
+    <button id="zoomOut" title="Zoom Out">−</button>
   </div>
 
   <script src="config.js"></script>
