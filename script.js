@@ -13,6 +13,18 @@ window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("closeInfoBox").addEventListener("click", () => {
     document.getElementById("infoBox").style.display = "none";
   });
+
+  document.getElementById("zoomIn").addEventListener("click", () => {
+    if (!window.cesiumViewer) return;
+    const camera = window.cesiumViewer.camera;
+    camera.zoomIn(camera.positionCartographic.height * 0.4);
+  });
+
+  document.getElementById("zoomOut").addEventListener("click", () => {
+    if (!window.cesiumViewer) return;
+    const camera = window.cesiumViewer.camera;
+    camera.zoomOut(camera.positionCartographic.height * 0.6);
+  });
 });
 
 async function initGlobe() {
@@ -46,14 +58,70 @@ async function initGlobe() {
     destination: Cesium.Cartesian3.fromDegrees(78.9629, 22.5937, 3000000)
   });
 
-  viewer.screenSpaceEventHandler.setInputAction(async function onClick(event) {
-    const ray = viewer.camera.getPickRay(event.position);
-    const position = viewer.scene.globe.pick(ray, viewer.scene);
-    if (!position) return;
+  window.cesiumViewer = viewer;
 
-    const cartographic = Cesium.Cartographic.fromCartesian(position);
+  // --- Gesture zoom support (wheel + pinch) ---
+  // Override wheel events so they always zoom the globe even inside an iframe,
+  // preventing the parent page from swallowing scroll gestures.
+  const canvas = viewer.canvas;
+
+  canvas.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const camera = viewer.camera;
+    const amount = camera.positionCartographic.height * 0.04;
+    if (e.deltaY > 0) {
+      camera.zoomOut(amount);
+    } else {
+      camera.zoomIn(amount);
+    }
+  }, { passive: false });
+
+  // Pinch-to-zoom on touch devices
+  let lastPinchDist = null;
+  canvas.addEventListener("touchstart", (e) => {
+    if (e.touches.length === 2) {
+      const dx = e.touches[0].clientX - e.touches[1].clientX;
+      const dy = e.touches[0].clientY - e.touches[1].clientY;
+      lastPinchDist = Math.hypot(dx, dy);
+    } else {
+      lastPinchDist = null;
+    }
+  }, { passive: true });
+
+  canvas.addEventListener("touchmove", (e) => {
+    if (e.touches.length === 2 && lastPinchDist !== null) {
+      e.preventDefault();
+      const dx = e.touches[0].clientX - e.touches[1].clientX;
+      const dy = e.touches[0].clientY - e.touches[1].clientY;
+      const newDist = Math.hypot(dx, dy);
+      const delta = lastPinchDist - newDist;
+      lastPinchDist = newDist;
+      const camera = viewer.camera;
+      const zoomAmount = camera.positionCartographic.height * Math.abs(delta) * 0.002;
+      if (delta > 0) {
+        camera.zoomOut(zoomAmount);
+      } else {
+        camera.zoomIn(zoomAmount);
+      }
+    }
+  }, { passive: false });
+
+  canvas.addEventListener("touchend", () => { lastPinchDist = null; }, { passive: true });
+  // --- End gesture zoom ---
+
+  viewer.screenSpaceEventHandler.setInputAction(async function onClick(event) {
+    const cartesian = viewer.camera.pickEllipsoid(event.position, viewer.scene.globe.ellipsoid);
+    if (!cartesian) return;
+
+    const cartographic = Cesium.Cartographic.fromCartesian(cartesian);
     const lat = Cesium.Math.toDegrees(cartographic.latitude);
     const lon = Cesium.Math.toDegrees(cartographic.longitude);
+
+    viewer.camera.flyTo({
+      destination: Cesium.Cartesian3.fromDegrees(lon, lat, 600000),
+      duration: 1.5
+    });
 
     const infoContent = document.getElementById("infoContent");
     const infoBox = document.getElementById("infoBox");
