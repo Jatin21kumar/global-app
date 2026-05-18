@@ -1,9 +1,16 @@
 let STATE_INFO = {};
+let CONTINENT_INFO = {};
 
 fetch('data/indian_states_data.json')
   .then(res => res.json())
   .then(data => {
     STATE_INFO = data;
+  });
+
+fetch('data/continents.json')
+  .then(res => res.json())
+  .then(data => {
+    CONTINENT_INFO = data;
   });
 
 Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJkOTliMzlhMi00YjM3LTQ5YzgtYjQ3Yy0yMzAyNzdkZmJkZjAiLCJpZCI6MjkxMjYwLCJpYXQiOjE3NDM5MjIxMjd9.F6e2OH8LUMPgc8m89UP5jcINYGXIqBfY0XsvCrxmd5g';
@@ -132,13 +139,30 @@ async function initGlobe() {
 
     const osmInfo = await getLocationFromOSM(lat, lon);
     const stateName = osmInfo?.state || "";
-    const matchedKey = Object.keys(STATE_INFO).find(key =>
+    const matchedStateKey = Object.keys(STATE_INFO).find(key =>
       key.toLowerCase().includes(stateName.toLowerCase())
     );
-
-    if (!matchedKey) {
-      infoContent.innerHTML = `⚠️ No data available for <b>${stateName}</b>`;
-      return;
+    
+    if (matchedStateKey) {
+      stateData = STATE_INFO[matchedStateKey];
+    } else {
+      const countryName = osmInfo?.country || "";
+    
+      let foundCountry = null;
+    
+      for (const continent in CONTINENT_INFO) {
+        if (CONTINENT_INFO[continent][countryName]) {
+          foundCountry = CONTINENT_INFO[continent][countryName];
+          break;
+        }
+      }
+    
+      if (!foundCountry) {
+        infoContent.innerHTML = `⚠️ No data available for <b>${stateName || countryName}</b>`;
+        return;
+      }
+    
+      stateData = foundCountry;
     }
 
     const stateData = STATE_INFO[matchedKey];
