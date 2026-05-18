@@ -142,6 +142,8 @@ async function initGlobe() {
     const matchedStateKey = Object.keys(STATE_INFO).find(key =>
       key.toLowerCase().includes(stateName.toLowerCase())
     );
+
+    let stateData;
     
     if (matchedStateKey) {
       stateData = STATE_INFO[matchedStateKey];
@@ -164,8 +166,7 @@ async function initGlobe() {
     
       stateData = foundCountry;
     }
-
-    const stateData = STATE_INFO[matchedKey];
+    
     const image = stateData.image || stateData.Image || null;
     const tagline = stateData.tagline || "";
 
