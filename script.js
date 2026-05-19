@@ -1,6 +1,9 @@
 let STATE_INFO = {};
 let CONTINENT_INFO = {};
 
+const MIN_ZOOM = 200000;
+const MAX_ZOOM = 25000000;
+
 fetch('data/indian_states_data.json')
   .then(res => res.json())
   .then(data => {
@@ -15,8 +18,22 @@ fetch('data/continents.json')
 
 Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJkOTliMzlhMi00YjM3LTQ5YzgtYjQ3Yy0yMzAyNzdkZmJkZjAiLCJpZCI6MjkxMjYwLCJpYXQiOjE3NDM5MjIxMjd9.F6e2OH8LUMPgc8m89UP5jcINYGXIqBfY0XsvCrxmd5g';
 
+function clampedZoom(camera, direction, amount) {
+  const height = camera.positionCartographic.height;
+
+  if (direction === "out") {
+    if (height >= MAX_ZOOM) return;
+    camera.zoomOut(Math.min(amount, MAX_ZOOM - height));
+    return;
+  }
+
+  if (height <= MIN_ZOOM) return;
+  camera.zoomIn(Math.min(amount, height - MIN_ZOOM));
+}
+
 window.addEventListener("DOMContentLoaded", () => {
   initGlobe();
+
   document.getElementById("closeInfoBox").addEventListener("click", () => {
     document.getElementById("infoBox").style.display = "none";
   });
@@ -24,13 +41,13 @@ window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("zoomIn").addEventListener("click", () => {
     if (!window.cesiumViewer) return;
     const camera = window.cesiumViewer.camera;
-    camera.zoomIn(camera.positionCartographic.height * 0.4);
+    clampedZoom(camera, "in", camera.positionCartographic.height * 0.4);
   });
 
   document.getElementById("zoomOut").addEventListener("click", () => {
     if (!window.cesiumViewer) return;
     const camera = window.cesiumViewer.camera;
-    camera.zoomOut(camera.positionCartographic.height * 0.6);
+    clampedZoom(camera, "out", camera.positionCartographic.height * 0.6);
   });
 });
 
@@ -67,9 +84,23 @@ async function initGlobe() {
 
   window.cesiumViewer = viewer;
 
-  // --- Gesture zoom support (wheel + pinch) ---
-  // Override wheel events so they always zoom the globe even inside an iframe,
-  // preventing the parent page from swallowing scroll gestures.
+  // Mobile WebView GPU optimisations.
+  const dpr = window.devicePixelRatio || 1;
+  viewer.resolutionScale = dpr > 1.5 ? 1.5 / dpr : 1;
+  viewer.scene.globe.maximumScreenSpaceError = 4;
+
+  viewer.scene.canvas.addEventListener("webglcontextlost", (e) => {
+    e.preventDefault();
+  }, false);
+
+  viewer.scene.canvas.addEventListener("webglcontextrestored", () => {
+    viewer.scene.requestRender();
+  }, false);
+
+  viewer.scene.screenSpaceCameraController.minimumZoomDistance = MIN_ZOOM;
+  viewer.scene.screenSpaceCameraController.maximumZoomDistance = MAX_ZOOM;
+
+  // Gesture zoom support (wheel + pinch).
   const canvas = viewer.canvas;
 
   canvas.addEventListener("wheel", (e) => {
@@ -77,14 +108,9 @@ async function initGlobe() {
     e.stopPropagation();
     const camera = viewer.camera;
     const amount = camera.positionCartographic.height * 0.04;
-    if (e.deltaY > 0) {
-      camera.zoomOut(amount);
-    } else {
-      camera.zoomIn(amount);
-    }
+    clampedZoom(camera, e.deltaY > 0 ? "out" : "in", amount);
   }, { passive: false });
 
-  // Pinch-to-zoom on touch devices
   let lastPinchDist = null;
   canvas.addEventListener("touchstart", (e) => {
     if (e.touches.length === 2) {
@@ -106,16 +132,11 @@ async function initGlobe() {
       lastPinchDist = newDist;
       const camera = viewer.camera;
       const zoomAmount = camera.positionCartographic.height * Math.abs(delta) * 0.002;
-      if (delta > 0) {
-        camera.zoomOut(zoomAmount);
-      } else {
-        camera.zoomIn(zoomAmount);
-      }
+      clampedZoom(camera, delta > 0 ? "out" : "in", zoomAmount);
     }
   }, { passive: false });
 
   canvas.addEventListener("touchend", () => { lastPinchDist = null; }, { passive: true });
-  // --- End gesture zoom ---
 
   viewer.screenSpaceEventHandler.setInputAction(async function onClick(event) {
     const cartesian = viewer.camera.pickEllipsoid(event.position, viewer.scene.globe.ellipsoid);
@@ -144,29 +165,29 @@ async function initGlobe() {
     );
 
     let stateData;
-    
+
     if (matchedStateKey) {
       stateData = STATE_INFO[matchedStateKey];
     } else {
       const countryName = osmInfo?.country || "";
-    
+
       let foundCountry = null;
-    
+
       for (const continent in CONTINENT_INFO) {
         if (CONTINENT_INFO[continent][countryName]) {
           foundCountry = CONTINENT_INFO[continent][countryName];
           break;
         }
       }
-    
+
       if (!foundCountry) {
         infoContent.innerHTML = `⚠️ No data available for <b>${stateName || countryName}</b>`;
         return;
       }
-    
+
       stateData = foundCountry;
     }
-    
+
     const image = stateData.image || stateData.Image || null;
     const tagline = stateData.tagline || "";
 
@@ -191,9 +212,9 @@ async function initGlobe() {
                 ? `<br><img src="${value.image}" alt="Image" style="width: 100%; max-width: 100%; max-height: 220px; object-fit: contain; margin: 8px auto; border-radius: 8px; display: block;">`
                 : "";
               return `<li><b>${label}</b>: ${text}${img}</li>`;
-            } else {
-              return `<li><b>${label}</b>: ${value}</li>`;
             }
+
+            return `<li><b>${label}</b>: ${value}</li>`;
           }).join("");
         } else {
           bullets = `<li>${content}</li>`;
@@ -213,7 +234,7 @@ async function initGlobe() {
       ${image ? `<img src="${image}" alt="${stateName}" style="width: 100%; max-width: 100%; max-height: 220px; object-fit: contain; margin: 10px auto; border-radius: 8px; display: block;">` : ""}
       ${sections}
     `;
-  }, Cesium.ScreenSpaceEventType.LEFT_CLICK); 
+  }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
 }
 
 // Utility functions (unchanged)
