@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Image unavailable placeholder">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f7d9a8"/>
+      <stop offset="100%" stop-color="#ffd6e7"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" rx="28" fill="url(#g)"/>
+  <rect x="60" y="60" width="520" height="240" rx="22" fill="#ffffff" fill-opacity="0.72" stroke="#f08f5a" stroke-width="6" stroke-dasharray="14 12"/>
+  <circle cx="228" cy="156" r="34" fill="#f08f5a" fill-opacity="0.18"/>
+  <path d="M178 220l92-92 74 74 48-48 70 66" fill="none" stroke="#f08f5a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="320" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#8a4f3a">Image unavailable</text>
+  <text x="320" y="252" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#8a4f3a">Placeholder content</text>
+</svg>

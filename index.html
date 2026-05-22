@@ -14,8 +14,8 @@
     html,
     body,
     #cesiumContainer {
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
       margin: 0;
       padding: 0;
       overflow: hidden;
@@ -78,6 +78,52 @@
       padding: 10px 14px;
       border: 1px solid #ffc93c;
       transition: all 0.3s ease;
+    }
+
+    #infoContent .info-image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    #infoContent .info-image-card {
+      margin: 0;
+      padding: 10px;
+      background: linear-gradient(180deg, #fffdf7 0%, #fff2dc 100%);
+      border: 1px solid #ffd28a;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    #infoContent .info-image-card img {
+      display: block;
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin: 0;
+      box-shadow: none;
+    }
+
+    #infoContent .info-image-card figcaption {
+      margin-top: 8px;
+      font-size: 13px;
+      line-height: 1.35;
+      color: #7a5130;
+      text-align: left;
+      font-style: normal;
+      word-break: break-word;
+    }
+
+    #infoContent li .info-image-card {
+      margin-top: 10px;
+    }
+
+    #infoContent li .info-image-card img {
+      height: 160px;
+      object-fit: cover;
     }
 
     #infoContent summary {

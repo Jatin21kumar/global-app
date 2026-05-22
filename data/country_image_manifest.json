@@ -1,0 +1,566 @@
+﻿{
+    "AFRICA":  {
+                   "continentImages":  null,
+                   "countries":  {
+                                     "ALGERIA":  [
+                                                     "images/continents/AFRICA/ALGERIA/Casbah of Algiers.jpg",
+                                                     "images/continents/AFRICA/ALGERIA/Hoggar Mountains.jpg",
+                                                     "images/continents/AFRICA/ALGERIA/Tassili n\u0027Ajjer.jpg",
+                                                     "images/continents/AFRICA/ALGERIA/Timgad.jpg"
+                                                 ],
+                                     "ANGOLA":  [
+                                                    "images/continents/AFRICA/ANGOLA/Kalandula Falls.jpg",
+                                                    "images/continents/AFRICA/ANGOLA/Tundavala Fissure.jpg"
+                                                ],
+                                     "BENIN":  [
+                                                   "images/continents/AFRICA/BENIN/Pendjari National Park.jpg",
+                                                   "images/continents/AFRICA/BENIN/Route of Slaves.jpg",
+                                                   "images/continents/AFRICA/BENIN/Royal Palaces of Abomey.jpg"
+                                               ],
+                                     "BOTSWANA":  [
+                                                      "images/continents/AFRICA/BOTSWANA/Makgadikgadi Pans.jpg",
+                                                      "images/continents/AFRICA/BOTSWANA/Okavango Delta.jpg"
+                                                  ],
+                                     "BURKINA FASO":  [
+                                                          "images/continents/AFRICA/BURKINA FASO/African Renaissance Monument.jpg",
+                                                          "images/continents/AFRICA/BURKINA FASO/FESPACO Film Festival.jpg",
+                                                          "images/continents/AFRICA/BURKINA FASO/Lake Retba.jpg",
+                                                          "images/continents/AFRICA/BURKINA FASO/Laongo Sculpture Symposium.jpg",
+                                                          "images/continents/AFRICA/BURKINA FASO/Ruins of Loropéni.jpg"
+                                                      ],
+                                     "BURUNDI":  [
+                                                     "images/continents/AFRICA/BURUNDI/Lake Tanganyika.jpg",
+                                                     "images/continents/AFRICA/BURUNDI/Rusizi National Park.jpg"
+                                                 ],
+                                     "CAMEROON":  [
+                                                      "images/continents/AFRICA/CAMEROON/Bamileke Highlands.jpg",
+                                                      "images/continents/AFRICA/CAMEROON/Boali Falls.jpg",
+                                                      "images/continents/AFRICA/CAMEROON/Dja Faunal Reserve.jpg",
+                                                      "images/continents/AFRICA/CAMEROON/Dzanga-Sangha Special Reserve.jpg",
+                                                      "images/continents/AFRICA/CAMEROON/Waza National Park.jpg"
+                                                  ],
+                                     "CAPE VERDE":  [
+                                                        "images/continents/AFRICA/CAPE VERDE/Pico do Fogo.jpg",
+                                                        "images/continents/AFRICA/CAPE VERDE/Sal Island Beaches.jpg",
+                                                        "images/continents/AFRICA/CAPE VERDE/Santo Antão.jpg"
+                                                    ],
+                                     "CHAD":  [
+                                                  "images/continents/AFRICA/CHAD/Ennedi Massif.jpg",
+                                                  "images/continents/AFRICA/CHAD/Lake Chad.jpg",
+                                                  "images/continents/AFRICA/CHAD/Tibesti Mountains.jpg",
+                                                  "images/continents/AFRICA/CHAD/Zakouma National Park.jpg"
+                                              ],
+                                     "COMOROS":  [
+                                                     "images/continents/AFRICA/COMOROS/Chomoni Beach.jpg",
+                                                     "images/continents/AFRICA/COMOROS/Mount Karthala.jpg"
+                                                 ],
+                                     "DEMOCRATIC REPUBLC OF CONGO":  [
+                                                                         "images/continents/AFRICA/DEMOCRATIC REPUBLC OF CONGO/Nyiragongo Volcano.jpg",
+                                                                         "images/continents/AFRICA/DEMOCRATIC REPUBLC OF CONGO/Virunga National Park.jpg"
+                                                                     ],
+                                     "DJIBOUTI":  [
+                                                      "images/continents/AFRICA/DJIBOUTI/Ardoukoba Volcano.jpg",
+                                                      "images/continents/AFRICA/DJIBOUTI/Gulf of Tadjoura.jpg",
+                                                      "images/continents/AFRICA/DJIBOUTI/Lake Abbe.jpg",
+                                                      "images/continents/AFRICA/DJIBOUTI/Lake Assal.jpg"
+                                                  ],
+                                     "EGYPT":  [
+                                                   "images/continents/AFRICA/EGYPT/Abu Simbel.jpg",
+                                                   "images/continents/AFRICA/EGYPT/Luxor Temple.jpg",
+                                                   "images/continents/AFRICA/EGYPT/The Sphinx.jpg",
+                                                   "images/continents/AFRICA/EGYPT/Valley of the Kings.jpg"
+                                               ],
+                                     "EQUATORIAL GUINEA":  [
+                                                               "images/continents/AFRICA/EQUATORIAL GUINEA/Bioko Island Beaches.jpg",
+                                                               "images/continents/AFRICA/EQUATORIAL GUINEA/Monte Alén National Park.jpg",
+                                                               "images/continents/AFRICA/EQUATORIAL GUINEA/Pico Basile.jpg"
+                                                           ],
+                                     "ERITREA":  [
+                                                     "images/continents/AFRICA/ERITREA/Asmara.jpg",
+                                                     "images/continents/AFRICA/ERITREA/Dahlak Archipelago.jpg",
+                                                     "images/continents/AFRICA/ERITREA/Nakfa.jpg",
+                                                     "images/continents/AFRICA/ERITREA/Qohaito.jpg"
+                                                 ],
+                                     "ESWATINI":  [
+                                                      "images/continents/AFRICA/ESWATINI/Mlilwane Wildlife Sanctuary.jpg",
+                                                      "images/continents/AFRICA/ESWATINI/Sibebe Rock.jpg"
+                                                  ],
+                                     "ETHIOPIA":  [
+                                                      "images/continents/AFRICA/ETHIOPIA/Aksum Obelisks.jpg",
+                                                      "images/continents/AFRICA/ETHIOPIA/Blue Nile Falls.jpg",
+                                                      "images/continents/AFRICA/ETHIOPIA/Lalibela Rock-Hewn Churches.jpg",
+                                                      "images/continents/AFRICA/ETHIOPIA/Simien Mountains.jpg"
+                                                  ],
+                                     "GABON":  [
+                                                   "images/continents/AFRICA/GABON/Crystal Mountains.jpg",
+                                                   "images/continents/AFRICA/GABON/Lopé National Park.jpg",
+                                                   "images/continents/AFRICA/GABON/Pongara National Park.jpg"
+                                               ],
+                                     "GAMBIA":  [
+                                                    "images/continents/AFRICA/GAMBIA/Abuko Nature Reserve.jpg",
+                                                    "images/continents/AFRICA/GAMBIA/River Gambia National Park.jpg"
+                                                ],
+                                     "GHANA":  [
+                                                   "images/continents/AFRICA/GHANA/Cape Coast Castle.jpg",
+                                                   "images/continents/AFRICA/GHANA/Kakum National Park.jpg",
+                                                   "images/continents/AFRICA/GHANA/Kwame Nkrumah Memorial Park.jpg"
+                                               ],
+                                     "GUINEA":  [
+                                                    "images/continents/AFRICA/GUINEA/Conakry Grand Mosque.jpg",
+                                                    "images/continents/AFRICA/GUINEA/Fouta Djalon Highlands.jpg"
+                                                ],
+                                     "GUINEA-BISSAU":  [
+                                                           "images/continents/AFRICA/GUINEA-BISSAU/Bijagos Archipelago.jpg",
+                                                           "images/continents/AFRICA/GUINEA-BISSAU/Cacheu River Natural Park.jpg"
+                                                       ],
+                                     "IVORY COAST":  [
+                                                         "images/continents/AFRICA/IVORY COAST/Comoé National Park.jpg",
+                                                         "images/continents/AFRICA/IVORY COAST/Grand-Bassam.jpg",
+                                                         "images/continents/AFRICA/IVORY COAST/Taï National Park.jpg"
+                                                     ],
+                                     "KENYA":  [
+                                                   "images/continents/AFRICA/KENYA/Amboseli National Park.jpg",
+                                                   "images/continents/AFRICA/KENYA/Lake Nakuru.jpg",
+                                                   "images/continents/AFRICA/KENYA/Maasai Mara National Reserve.jpg",
+                                                   "images/continents/AFRICA/KENYA/Mount Kenya.jpg"
+                                               ],
+                                     "LESOTHO":  [
+                                                     "images/continents/AFRICA/LESOTHO/Katse Dam.jpg",
+                                                     "images/continents/AFRICA/LESOTHO/Sani Pass.jpg"
+                                                 ],
+                                     "LIBERIA":  [
+                                                     "images/continents/AFRICA/LIBERIA/Lake Piso.jpg",
+                                                     "images/continents/AFRICA/LIBERIA/Providence Island.jpg",
+                                                     "images/continents/AFRICA/LIBERIA/Sapo National Park.jpg"
+                                                 ],
+                                     "LIBYA":  [
+                                                   "images/continents/AFRICA/LIBYA/Acacus Mountains.jpg",
+                                                   "images/continents/AFRICA/LIBYA/Ghadames Old Town.jpg",
+                                                   "images/continents/AFRICA/LIBYA/Leptis Magna.jpg",
+                                                   "images/continents/AFRICA/LIBYA/Sabratha Roman Theatre.jpg"
+                                               ],
+                                     "MADAGASCAR":  [
+                                                        "images/continents/AFRICA/MADAGASCAR/Avenue of the Baobabs.jpg",
+                                                        "images/continents/AFRICA/MADAGASCAR/Ranomafana National Park.jpg"
+                                                    ],
+                                     "MALAWI":  [
+                                                    "images/continents/AFRICA/MALAWI/Livingstonia.jpg",
+                                                    "images/continents/AFRICA/MALAWI/Mulanje Massif.jpg"
+                                                ],
+                                     "MALI":  [
+                                                  "images/continents/AFRICA/MALI/Djenné.jpg",
+                                                  "images/continents/AFRICA/MALI/Djinguereber Mosque.jpg",
+                                                  "images/continents/AFRICA/MALI/Timbuktu.jpg"
+                                              ],
+                                     "MAROCCO":  [
+                                                     "images/continents/AFRICA/MAROCCO/Atlas Mountains.jpg",
+                                                     "images/continents/AFRICA/MAROCCO/Jemaa el.jpg",
+                                                     "images/continents/AFRICA/MAROCCO/Medina of Fez.jpg",
+                                                     "images/continents/AFRICA/MAROCCO/Sahara Desert.jpg"
+                                                 ],
+                                     "MAURITANIA":  [
+                                                        "images/continents/AFRICA/MAURITANIA/Ancient Ksour.jpg",
+                                                        "images/continents/AFRICA/MAURITANIA/Chinguetti.jpg",
+                                                        "images/continents/AFRICA/MAURITANIA/Richat Structure.jpg"
+                                                    ],
+                                     "MAURITUS":  [
+                                                      "images/continents/AFRICA/MAURITUS/Black River Gorges National Park.jpg",
+                                                      "images/continents/AFRICA/MAURITUS/Blue Bay Marine Park.jpg"
+                                                  ],
+                                     "MOZAMBIQUE":  [
+                                                        "images/continents/AFRICA/MOZAMBIQUE/Gorongosa National Park.jpg",
+                                                        "images/continents/AFRICA/MOZAMBIQUE/Ilha de Moçambique.jpg",
+                                                        "images/continents/AFRICA/MOZAMBIQUE/Quirimbas Archipelago.jpg"
+                                                    ],
+                                     "NAMIBIA":  [
+                                                     "images/continents/AFRICA/NAMIBIA/download.jpg",
+                                                     "images/continents/AFRICA/NAMIBIA/Fish River Canyon.jpg"
+                                                 ],
+                                     "NIGER":  [
+                                                   "images/continents/AFRICA/NIGER/Aïr Mountains.jpg",
+                                                   "images/continents/AFRICA/NIGER/Ténéré Desert.jpg",
+                                                   "images/continents/AFRICA/NIGER/W National Park.jpg"
+                                               ],
+                                     "NIGERIA":  [
+                                                     "images/continents/AFRICA/NIGERIA/Olumo Rock.jpg",
+                                                     "images/continents/AFRICA/NIGERIA/Yankari National Park.jpg",
+                                                     "images/continents/AFRICA/NIGERIA/Zuma Rock.jpg"
+                                                 ],
+                                     "REPUBLIC OF CONGO":  [
+                                                               "images/continents/AFRICA/REPUBLIC OF CONGO/Brazzaville Cathedral.jpg",
+                                                               "images/continents/AFRICA/REPUBLIC OF CONGO/Nouabale-Ndoki National Park.jpg",
+                                                               "images/continents/AFRICA/REPUBLIC OF CONGO/Odzala-Kokoua National Park.jpg"
+                                                           ],
+                                     "SAO TOME AND PRINCIPLE":  [
+                                                                    "images/continents/AFRICA/SAO TOME AND PRINCIPLE/Bom Bom Island Resort.jpg",
+                                                                    "images/continents/AFRICA/SAO TOME AND PRINCIPLE/Rolas Island.jpg"
+                                                                ],
+                                     "SEYCHELLES":  [
+                                                        "images/continents/AFRICA/SEYCHELLES/Aldabra Atoll.jpg",
+                                                        "images/continents/AFRICA/SEYCHELLES/Anse Source d\u0027Argent, La Digue.jpg"
+                                                    ],
+                                     "SIERRA LEONE":  [
+                                                          "images/continents/AFRICA/SIERRA LEONE/Banana Islands.jpg",
+                                                          "images/continents/AFRICA/SIERRA LEONE/Tacugama Chimpanzee Sanctuary.jpg",
+                                                          "images/continents/AFRICA/SIERRA LEONE/Tiwai Island.jpg"
+                                                      ],
+                                     "SOMALIA":  [
+                                                     "images/continents/AFRICA/SOMALIA/Cape Guardafui.jpg",
+                                                     "images/continents/AFRICA/SOMALIA/Laas Geel.jpg",
+                                                     "images/continents/AFRICA/SOMALIA/Liido Beach, Mogadishu.jpg",
+                                                     "images/continents/AFRICA/SOMALIA/Mogadishu Cathedral.jpg"
+                                                 ],
+                                     "SOUTH AFRICA":  [
+                                                          "images/continents/AFRICA/SOUTH AFRICA/Kruger National Park.jpg",
+                                                          "images/continents/AFRICA/SOUTH AFRICA/Robben Island.jpg"
+                                                      ],
+                                     "SOUTH SUDAN":  [
+                                                         "images/continents/AFRICA/SOUTH SUDAN/Boma National Park.jpg",
+                                                         "images/continents/AFRICA/SOUTH SUDAN/Imatong Mountains.jpg",
+                                                         "images/continents/AFRICA/SOUTH SUDAN/Nimule National Park.jpg",
+                                                         "images/continents/AFRICA/SOUTH SUDAN/Sudd Wetlands.jpg"
+                                                     ],
+                                     "SUDAN":  [
+                                                   "images/continents/AFRICA/SUDAN/Jebel Barkal.jpg",
+                                                   "images/continents/AFRICA/SUDAN/Meroe Pyramids.jpg",
+                                                   "images/continents/AFRICA/SUDAN/Nile River.jpg"
+                                               ],
+                                     "TANZANIA":  [
+                                                      "images/continents/AFRICA/TANZANIA/Mount Kilimanjaro.jpg",
+                                                      "images/continents/AFRICA/TANZANIA/Ngorongoro Crater.jpg",
+                                                      "images/continents/AFRICA/TANZANIA/Zanzibar Beaches.jpg"
+                                                  ],
+                                     "TOGO":  [
+                                                  "images/continents/AFRICA/TOGO/Koutammakou.jpg",
+                                                  "images/continents/AFRICA/TOGO/Lomé Cathedral and Central Market.jpg"
+                                              ],
+                                     "TUNISIA":  [
+                                                     "images/continents/AFRICA/TUNISIA/Carthage.jpg",
+                                                     "images/continents/AFRICA/TUNISIA/Dougga.jpg",
+                                                     "images/continents/AFRICA/TUNISIA/Medina of Tunis.jpg",
+                                                     "images/continents/AFRICA/TUNISIA/Sahara Oases.jpg"
+                                                 ],
+                                     "UGANDA":  [
+                                                    "images/continents/AFRICA/UGANDA/Murchison Fall.jpg",
+                                                    "images/continents/AFRICA/UGANDA/Nyungwe Forest.jpg",
+                                                    "images/continents/AFRICA/UGANDA/Queen Elizabeth National Park.jpg",
+                                                    "images/continents/AFRICA/UGANDA/Volcanoes National Park.jpg"
+                                                ],
+                                     "ZAMBIA":  [
+                                                    "images/continents/AFRICA/ZAMBIA/Kafue National Park.jpg",
+                                                    "images/continents/AFRICA/ZAMBIA/South Luangwa National Park.jpg"
+                                                ],
+                                     "ZIMBABWE":  [
+                                                      "images/continents/AFRICA/ZIMBABWE/Hwange National Park.jpg",
+                                                      "images/continents/AFRICA/ZIMBABWE/Matobo Hills.jpg",
+                                                      "images/continents/AFRICA/ZIMBABWE/Victoria Falls.jpg"
+                                                  ]
+                                 }
+               },
+    "ASIA":  {
+                 "continentImages":  null,
+                 "countries":  {
+                                   "AFGANISTAN":  [
+                                                      "images/continents/asia/AFGANISTAN/Bamiyan Valley.jpg",
+                                                      "images/continents/asia/AFGANISTAN/Blue Mosque.jpg",
+                                                      "images/continents/asia/AFGANISTAN/Minaret of Jam.jpg"
+                                                  ],
+                                   "ARMENIA":  [
+                                                   "images/continents/asia/ARMENIA/Garni Temple.jpg",
+                                                   "images/continents/asia/ARMENIA/Geghard Monastery.jpg",
+                                                   "images/continents/asia/ARMENIA/Khor Virap Monastery.jpg",
+                                                   "images/continents/asia/ARMENIA/Lake Sevan.jpg"
+                                               ],
+                                   "AZERBAIJAN":  [
+                                                      "images/continents/asia/AZERBAIJAN/Flame Towers.jpg",
+                                                      "images/continents/asia/AZERBAIJAN/Gobustan Rock Art.jpg",
+                                                      "images/continents/asia/AZERBAIJAN/Old City of Baku.jpg",
+                                                      "images/continents/asia/AZERBAIJAN/Yanar Dag.jpg"
+                                                  ],
+                                   "BAHRAIN":  [
+                                                   "images/continents/asia/BAHRAIN/Al-Fateh Grand Mosque.jpg",
+                                                   "images/continents/asia/BAHRAIN/Bahrain Fort.jpg",
+                                                   "images/continents/asia/BAHRAIN/Bahrain International Circuit.jpg",
+                                                   "images/continents/asia/BAHRAIN/Tree of Life.jpg"
+                                               ],
+                                   "BANGLADESH":  [
+                                                      "images/continents/asia/BANGLADESH/Ahsan Manzil.jpg",
+                                                      "images/continents/asia/BANGLADESH/Cox\u0027s Bazar.jpg",
+                                                      "images/continents/asia/BANGLADESH/Mango Tree.jpg",
+                                                      "images/continents/asia/BANGLADESH/Oriental Magpie-Robin.jpg",
+                                                      "images/continents/asia/BANGLADESH/Royal Bengal Tiger.jpg",
+                                                      "images/continents/asia/BANGLADESH/Shat Gambuj Mosque.jpg",
+                                                      "images/continents/asia/BANGLADESH/Sundarbans.jpg",
+                                                      "images/continents/asia/BANGLADESH/White Water Lily.jpg"
+                                                  ],
+                                   "BHUTAN":  [
+                                                  "images/continents/asia/BHUTAN/Haa Valley.jpg",
+                                                  "images/continents/asia/BHUTAN/Punakha Dzong.jpg",
+                                                  "images/continents/asia/BHUTAN/Tiger\u0027s Nest Monastery.jpg"
+                                              ],
+                                   "BRUNEI":  [
+                                                  "images/continents/asia/BRUNEI/Kampong Ayer.jpg",
+                                                  "images/continents/asia/BRUNEI/Omar Ali Saifuddien Mosque.jpg",
+                                                  "images/continents/asia/BRUNEI/Ulu Temburong National Park.jpg"
+                                              ],
+                                   "CAMBODIA":  [
+                                                    "images/continents/asia/CAMBODIA/Angkor Wat.jpg",
+                                                    "images/continents/asia/CAMBODIA/Bayon Temple.jpg",
+                                                    "images/continents/asia/CAMBODIA/Tonle Sap Lake.jpg"
+                                                ],
+                                   "CHINA":  [
+                                                 "images/continents/asia/china/Ginkgo Tree.jpg",
+                                                 "images/continents/asia/china/Li River \u0026 Karst Mountains.jpg",
+                                                 "images/continents/asia/china/Red-crowned Crane.jpg",
+                                                 "images/continents/asia/china/Shanghai Skyline.jpg"
+                                             ],
+                                   "CYPRUS":  [
+                                                  "images/continents/asia/CYPRUS/Famagusta (Gazimağusa).jpg",
+                                                  "images/continents/asia/CYPRUS/Paphos Mosaics.jpg",
+                                                  "images/continents/asia/CYPRUS/Petra tou Romiou.jpg",
+                                                  "images/continents/asia/CYPRUS/Troodos Mountains.jpg"
+                                              ],
+                                   "EAST TIMOR":  [
+                                                      "images/continents/asia/EAST TIMOR/Cristo Rei of Dili.jpg",
+                                                      "images/continents/asia/EAST TIMOR/Jaco Island.jpg"
+                                                  ],
+                                   "GEORGIA":  [
+                                                   "images/continents/asia/GEORGIA/Gergeti Trinity Church.jpg",
+                                                   "images/continents/asia/GEORGIA/Old Town Tbilisi.jpg",
+                                                   "images/continents/asia/GEORGIA/Uplistsikhe.jpg",
+                                                   "images/continents/asia/GEORGIA/Vardzia Cave Monastery.jpg"
+                                               ],
+                                   "INDIA":  [
+                                                 "images/continents/asia/india/bengal tiger.jpg",
+                                                 "images/continents/asia/india/jaipur.jpg",
+                                                 "images/continents/asia/india/lotus.jpg",
+                                                 "images/continents/asia/india/peacock.jpg",
+                                                 "images/continents/asia/india/varansi ghats.jpg"
+                                             ],
+                                   "INDONESIA":  [
+                                                     "images/continents/asia/INDONESIA/Borobudur Temple.jpg",
+                                                     "images/continents/asia/INDONESIA/Javan Hawk-Eagle.jpg",
+                                                     "images/continents/asia/INDONESIA/Komodo Dragon.jpg",
+                                                     "images/continents/asia/INDONESIA/Komodo Island.jpg",
+                                                     "images/continents/asia/INDONESIA/Moon Orchid.jpg",
+                                                     "images/continents/asia/INDONESIA/Mount Bromo.jpg",
+                                                     "images/continents/asia/INDONESIA/Raja Ampat.jpg",
+                                                     "images/continents/asia/INDONESIA/Teak.jpg"
+                                                 ],
+                                   "IRAN":  [
+                                                "images/continents/asia/IRAN/Golestan Palace.jpg",
+                                                "images/continents/asia/IRAN/Imam Square.jpg",
+                                                "images/continents/asia/IRAN/Nasir al-Mulk Mosque.jpg",
+                                                "images/continents/asia/IRAN/Persepolis.jpg"
+                                            ],
+                                   "IRAQ":  [
+                                                "images/continents/asia/IRAQ/Babylon.jpg",
+                                                "images/continents/asia/IRAQ/Ctesiphon.jpg",
+                                                "images/continents/asia/IRAQ/Marshes of Mesopotamia.jpg",
+                                                "images/continents/asia/IRAQ/UR.jpg"
+                                            ],
+                                   "ISRAEL":  [
+                                                  "images/continents/asia/ISRAEL/Church of the Holy Sepulchre.jpg",
+                                                  "images/continents/asia/ISRAEL/Dead Sea.jpg",
+                                                  "images/continents/asia/ISRAEL/Masada.jpg",
+                                                  "images/continents/asia/ISRAEL/Western Wall (Wailing Wall).jpg"
+                                              ],
+                                   "JAPAN":  [
+                                                 "images/continents/asia/japan/Cherry Blossom.jpg",
+                                                 "images/continents/asia/japan/Fushimi Inari Shrine.jpg",
+                                                 "images/continents/asia/japan/Green Pheasant.jpg",
+                                                 "images/continents/asia/japan/Hiroshima Peace Memorial.jpg",
+                                                 "images/continents/asia/japan/Japanese Macaque.jpg"
+                                             ],
+                                   "JORDAN":  [
+                                                  "images/continents/asia/JORDAN/Dead Sea.jpg",
+                                                  "images/continents/asia/JORDAN/Jerash.jpg",
+                                                  "images/continents/asia/JORDAN/Petra.jpg",
+                                                  "images/continents/asia/JORDAN/Wadi Rum.jpg"
+                                              ],
+                                   "KAZARKHSTAN":  [
+                                                       "images/continents/asia/KAZARKHSTAN/Baikonur Cosmodrome.jpg",
+                                                       "images/continents/asia/KAZARKHSTAN/Big Almaty Lake.jpg",
+                                                       "images/continents/asia/KAZARKHSTAN/Charyn Canyon.jpg"
+                                                   ],
+                                   "KUWAIT":  [
+                                                  "images/continents/asia/KUWAIT/Failaka Island.jpg",
+                                                  "images/continents/asia/KUWAIT/Grand Mosque of Kuwait.jpg",
+                                                  "images/continents/asia/KUWAIT/Kuwait National Museum.jpg",
+                                                  "images/continents/asia/KUWAIT/Kuwait Towers.jpg"
+                                              ],
+                                   "KYRGYZSTAN":  [
+                                                      "images/continents/asia/Kyrgyzstan/Lake Issyk-Kul.jpg",
+                                                      "images/continents/asia/Kyrgyzstan/Song-Köl Lake.jpg"
+                                                  ],
+                                   "LAOS":  [
+                                                "images/continents/asia/LAOS/Kuang Si Waterfalls.jpg",
+                                                "images/continents/asia/LAOS/Luang Prabang.jpg",
+                                                "images/continents/asia/LAOS/Pha That Luang.jpg",
+                                                "images/continents/asia/LAOS/Plain of Jars.jpg"
+                                            ],
+                                   "LEBNON":  [
+                                                  "images/continents/asia/LEBNON/Baalbek.jpg",
+                                                  "images/continents/asia/LEBNON/Byblos.jpg",
+                                                  "images/continents/asia/LEBNON/Cedars of God (Arz el-Rab).jpg",
+                                                  "images/continents/asia/LEBNON/Jeita Grotto.jpg"
+                                              ],
+                                   "MALAYSIA":  [
+                                                    "images/continents/asia/MALAYSIA/Batu Caves.jpg",
+                                                    "images/continents/asia/MALAYSIA/Chengal (Neobalanocarpus heimii).jpg",
+                                                    "images/continents/asia/MALAYSIA/George Town, Penang.jpg",
+                                                    "images/continents/asia/MALAYSIA/Hibiscus (Hibiscus rosa-sinensis).jpg"
+                                                ],
+                                   "MALDIVES":  [
+                                                    "images/continents/asia/MALDIVES/Atolls \u0026 Coral Reefs.jpg",
+                                                    "images/continents/asia/MALDIVES/Male Fish Market.jpg",
+                                                    "images/continents/asia/MALDIVES/Underwater Restaurants \u0026 Hotels.jpg"
+                                                ],
+                                   "MONGOLIA":  [
+                                                    "images/continents/asia/MONGOLIA/Gobi Desert.jpg",
+                                                    "images/continents/asia/MONGOLIA/Gorkhi-Terelj National Park.jpg",
+                                                    "images/continents/asia/MONGOLIA/Karakorum.jpg"
+                                                ],
+                                   "MYANMAR":  [
+                                                   "images/continents/asia/MYANMAR/Bagan.jpg",
+                                                   "images/continents/asia/MYANMAR/Inle Lake.jpg",
+                                                   "images/continents/asia/MYANMAR/Mandalay Royal Palace.jpg",
+                                                   "images/continents/asia/MYANMAR/Shwedagon Pagoda.jpg"
+                                               ],
+                                   "NEPAL":  [
+                                                 "images/continents/asia/NEPAL/Mount Everest.jpg",
+                                                 "images/continents/asia/NEPAL/Pashupatinath Temple.jpg",
+                                                 "images/continents/asia/NEPAL/Pokhara \u0026 Annapurna.jpg"
+                                             ],
+                                   "NORTH KOREA":  [
+                                                       "images/continents/asia/NORTH KOREA/Juche Tower.jpg",
+                                                       "images/continents/asia/NORTH KOREA/Kumsusan Palace of the Sun.jpg",
+                                                       "images/continents/asia/NORTH KOREA/Mount Paektu.jpg",
+                                                       "images/continents/asia/NORTH KOREA/Ryugyong Hotel.jpg"
+                                                   ],
+                                   "OMAN":  [
+                                                "images/continents/asia/OMAN/Musandam Fjords.jpg",
+                                                "images/continents/asia/OMAN/Sultan Qaboos Grand Mosque.jpg",
+                                                "images/continents/asia/OMAN/Wadi Shab.jpg",
+                                                "images/continents/asia/OMAN/Wahiba Sands.jpg"
+                                            ],
+                                   "PAKISTAN":  [
+                                                    "images/continents/asia/PAKISTAN/Badshahi Mosque in Lahore.jpg",
+                                                    "images/continents/asia/PAKISTAN/Chukar Partridge.jpg",
+                                                    "images/continents/asia/PAKISTAN/Jasmine.jpg",
+                                                    "images/continents/asia/PAKISTAN/K2.jpg",
+                                                    "images/continents/asia/PAKISTAN/Karakoram Highway.jpg",
+                                                    "images/continents/asia/PAKISTAN/Lahore Fort.jpg",
+                                                    "images/continents/asia/PAKISTAN/Markhor.jpg",
+                                                    "images/continents/asia/PAKISTAN/Mohenjo-daro.jpg"
+                                                ],
+                                   "PALESTINE":  [
+                                                     "images/continents/asia/PALESTINE/Al-Aqsa Mosque, Jerusalem.jpg",
+                                                     "images/continents/asia/PALESTINE/Church.jpg",
+                                                     "images/continents/asia/PALESTINE/Dome of the Rock, Jerusalem.jpg",
+                                                     "images/continents/asia/PALESTINE/Jericho.jpg"
+                                                 ],
+                                   "PHILIPPINES":  [
+                                                       "images/continents/asia/PHILIPPINES/Carabao.jpg",
+                                                       "images/continents/asia/PHILIPPINES/Chocolate Hills in Bohol.jpg",
+                                                       "images/continents/asia/PHILIPPINES/Intramuros.jpg",
+                                                       "images/continents/asia/PHILIPPINES/Philippine Eagle.jpg",
+                                                       "images/continents/asia/PHILIPPINES/Sampaguita Jasmine.jpg"
+                                                   ],
+                                   "QATAR":  [
+                                                 "images/continents/asia/QATAR/Lusail Stadium.jpg",
+                                                 "images/continents/asia/QATAR/Museum of Islamic Art.jpg",
+                                                 "images/continents/asia/QATAR/Souq Waqif.jpg",
+                                                 "images/continents/asia/QATAR/The Pearl.jpg"
+                                             ],
+                                   "SAUDI ARABIA":  [
+                                                        "images/continents/asia/SAUDI ARABIA/Arabian Camel.jpg",
+                                                        "images/continents/asia/SAUDI ARABIA/Arabian Jasmine.jpg",
+                                                        "images/continents/asia/SAUDI ARABIA/Diriyah.jpg",
+                                                        "images/continents/asia/SAUDI ARABIA/Edge of the World.jpg",
+                                                        "images/continents/asia/SAUDI ARABIA/Mecca.jpg",
+                                                        "images/continents/asia/SAUDI ARABIA/Saker Falcon.jpg"
+                                                    ],
+                                   "SINGAPORE":  [
+                                                     "images/continents/asia/SINGAPORE/Gardens by the Bay.jpg",
+                                                     "images/continents/asia/SINGAPORE/Marina Bay Sands.jpg",
+                                                     "images/continents/asia/SINGAPORE/Sentosa Island.jpg"
+                                                 ],
+                                   "SOUTH KOREA":  [
+                                                       "images/continents/asia/SOUTH KOREA/DMZ (Demilitarized Zone).jpg",
+                                                       "images/continents/asia/SOUTH KOREA/Gyeongbokgung Palace.jpg",
+                                                       "images/continents/asia/SOUTH KOREA/Jeju Island.jpg",
+                                                       "images/continents/asia/SOUTH KOREA/Korean Magpie.jpg",
+                                                       "images/continents/asia/SOUTH KOREA/Korean Pine.jpg",
+                                                       "images/continents/asia/SOUTH KOREA/Mugunghwa.jpg",
+                                                       "images/continents/asia/SOUTH KOREA/N Seoul Tower.jpg"
+                                                   ],
+                                   "SRI LANKA":  [
+                                                     "images/continents/asia/SRI LANKA/Galle Fort.jpg",
+                                                     "images/continents/asia/SRI LANKA/Sigiriya.jpg",
+                                                     "images/continents/asia/SRI LANKA/Yala National Park.jpg"
+                                                 ],
+                                   "SYRIA":  [
+                                                 "images/continents/asia/SYRIA/Krak des Chevaliers.jpg",
+                                                 "images/continents/asia/SYRIA/Old City of Aleppo.jpg",
+                                                 "images/continents/asia/SYRIA/Old City of Damascus.jpg",
+                                                 "images/continents/asia/SYRIA/Palmyra.jpg"
+                                             ],
+                                   "TAIWAN":  [
+                                                  "images/continents/asia/TAIWAN/Shilin Night Market.jpg",
+                                                  "images/continents/asia/TAIWAN/Taipei 101.jpg",
+                                                  "images/continents/asia/TAIWAN/Taroko Gorge.jpg"
+                                              ],
+                                   "TAJIKISTAN":  [
+                                                      "images/continents/asia/TAJIKISTAN/Dushanbe flagpole.jpg",
+                                                      "images/continents/asia/TAJIKISTAN/Iskanderkul Lake.jpg",
+                                                      "images/continents/asia/TAJIKISTAN/Pamir Mountains.jpg",
+                                                      "images/continents/asia/TAJIKISTAN/Wakhan Corridor.jpg"
+                                                  ],
+                                   "THAILAND":  [
+                                                    "images/continents/asia/THAILAND/Ayutthaya Historical Park.jpg",
+                                                    "images/continents/asia/THAILAND/Chiang Mai Temples.jpg",
+                                                    "images/continents/asia/THAILAND/Golden Shower Tree.jpg",
+                                                    "images/continents/asia/THAILAND/Phi Phi Islands.jpg",
+                                                    "images/continents/asia/THAILAND/Siamese Fireback.jpg",
+                                                    "images/continents/asia/THAILAND/Thai Elephant.jpg",
+                                                    "images/continents/asia/THAILAND/Wat Phra Kaew (Temple of the Emerald Buddha) 2.jpg",
+                                                    "images/continents/asia/THAILAND/Wat Phra Kaew (Temple of the Emerald Buddha).jpg"
+                                                ],
+                                   "TURKEY":  [
+                                                  "images/continents/asia/TURKEY/Cappadocia.jpg",
+                                                  "images/continents/asia/TURKEY/Pamukkale.jpg"
+                                              ],
+                                   "TURKMENISTAN":  [
+                                                        "images/continents/asia/TURKMENISTAN/Door to Hell.jpg",
+                                                        "images/continents/asia/TURKMENISTAN/NISSA.jpg"
+                                                    ],
+                                   "UAE":  [
+                                               "images/continents/asia/UAE/Date Palm.jpg",
+                                               "images/continents/asia/UAE/Dubai Mall.jpg",
+                                               "images/continents/asia/UAE/Empty Quarter.jpg",
+                                               "images/continents/asia/UAE/Palm Jumeirah.jpg",
+                                               "images/continents/asia/UAE/Peregrine Falcon.jpg",
+                                               "images/continents/asia/UAE/Sheikh Zayed Grand Mosque.jpg",
+                                               "images/continents/asia/UAE/Tribulus omanense.jpg"
+                                           ],
+                                   "UZBEKISTAN":  [
+                                                      "images/continents/asia/UZBEKISTAN/Bukhara Old Town.jpg",
+                                                      "images/continents/asia/UZBEKISTAN/Registan, Samarkand.jpg"
+                                                  ],
+                                   "VIETNAM":  [
+                                                   "images/continents/asia/VIETNAM/Bamboo.jpg",
+                                                   "images/continents/asia/VIETNAM/Lotus.jpg",
+                                                   "images/continents/asia/VIETNAM/Phong Nha Caves.jpg",
+                                                   "images/continents/asia/VIETNAM/Sapa Rice Terraces.jpg",
+                                                   "images/continents/asia/VIETNAM/Water Buffalo.jpg"
+                                               ],
+                                   "YEMEN":  [
+                                                 "images/continents/asia/YEMEN/Ma\u0027rib.jpg",
+                                                 "images/continents/asia/YEMEN/Old City of Sana\u0027a.jpg",
+                                                 "images/continents/asia/YEMEN/Shibam Hadramawt.jpg",
+                                                 "images/continents/asia/YEMEN/Socotra Island.jpg"
+                                             ]
+                               }
+             }
+}
