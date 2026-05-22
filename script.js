@@ -30,27 +30,59 @@ fetch('data/country_image_manifest.json')
 
 Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJkOTliMzlhMi00YjM3LTQ5YzgtYjQ3Yy0yMzAyNzdkZmJkZjAiLCJpZCI6MjkxMjYwLCJpYXQiOjE3NDM5MjIxMjd9.F6e2OH8LUMPgc8m89UP5jcINYGXIqBfY0XsvCrxmd5g';
 
-function clampedZoom(camera, direction, amount) {
-  const stepCount = 6;
-  const stepAmount = amount / stepCount;
+function clampedZoom(camera, direction) {
+  const currentHeight =
+    camera.positionCartographic.height;
 
-  function runStep(remaining) {
-    const currentHeight = camera.positionCartographic.height;
+  const MIN_HEIGHT = 150000;
+  const MAX_HEIGHT = 30000000;
 
-    if (direction === "out") {
-      if (currentHeight >= MAX_ZOOM || remaining <= 0) return;
-      camera.zoomOut(Math.min(stepAmount, MAX_ZOOM - currentHeight));
-    } else {
-      if (currentHeight <= MIN_ZOOM || remaining <= 0) return;
-      camera.zoomIn(Math.min(stepAmount, currentHeight - MIN_ZOOM));
-    }
+  let moveAmount;
 
-    if (remaining > 1) {
-      requestAnimationFrame(() => runStep(remaining - 1));
-    }
+  if (currentHeight > 15000000) {
+    moveAmount = 2000000;
+  } else if (currentHeight > 8000000) {
+    moveAmount = 1000000;
+  } else if (currentHeight > 4000000) {
+    moveAmount = 500000;
+  } else if (currentHeight > 2000000) {
+    moveAmount = 180000;
+  } else if (currentHeight > 1000000) {
+    moveAmount = 80000;
+  } else if (currentHeight > 400000) {
+    moveAmount = 25000;
+  } else if (currentHeight > 250000) {
+    moveAmount = 12000;
+  } else {
+    moveAmount = 5000;
   }
 
-  runStep(stepCount);
+  let targetHeight;
+
+  if (direction === "in") {
+    targetHeight = currentHeight - moveAmount;
+  } else {
+    targetHeight = currentHeight + moveAmount;
+  }
+
+  targetHeight = Math.max(
+    MIN_HEIGHT,
+    Math.min(MAX_HEIGHT, targetHeight)
+  );
+
+  const destination =
+    Cesium.Cartesian3.fromRadians(
+      camera.positionCartographic.longitude,
+      camera.positionCartographic.latitude,
+      targetHeight
+    );
+
+  camera.flyTo({
+    destination,
+    duration: 0.12,
+    easingFunction:
+      Cesium.EasingFunction.QUADRATIC_OUT
+  });
 }
 
 function normalizeName(name) {
@@ -386,7 +418,7 @@ async function initGlobe() {
 
   // Prevent excessive zooming out/in which can cause black globe on low-end devices
   // Camera limits to prevent black globe and prevent camera going behind globe
-  viewer.scene.screenSpaceCameraController.minimumZoomDistance = MIN_ZOOM;
+  viewer.scene.screenSpaceCameraController.minimumZoomDistance = 150000;
   viewer.scene.screenSpaceCameraController.maximumZoomDistance = MAX_ZOOM;
   viewer.scene.screenSpaceCameraController.enableCollisionDetection = true;
 
@@ -424,34 +456,45 @@ async function initGlobe() {
 
   let wheelZoomFrame = null;
 
-  function smoothZoom(direction, amount) {
-    if (wheelZoomFrame) {
-      cancelAnimationFrame(wheelZoomFrame);
-      wheelZoomFrame = null;
-    }
-
+  function smoothZoom(direction) {
     const camera = viewer.camera;
-    let remaining = Math.max(amount, 0);
 
-    function animate() {
-      const currentHeight = camera.positionCartographic.height;
-      if ((direction === "in" && currentHeight <= MIN_ZOOM) || (direction === "out" && currentHeight >= MAX_ZOOM) || remaining <= 0) {
-        wheelZoomFrame = null;
-        return;
-      }
+    const currentHeight =
+      camera.positionCartographic.height;
 
-      const chunk = Math.min(remaining, Math.max(currentHeight * 0.03, 20000));
-      if (direction === "in") {
-        camera.zoomIn(Math.min(chunk, currentHeight - MIN_ZOOM));
-      } else {
-        camera.zoomOut(Math.min(chunk, MAX_ZOOM - currentHeight));
-      }
+    const MIN_HEIGHT = 150000;
+    const MAX_HEIGHT = 30000000;
 
-      remaining -= chunk;
-      wheelZoomFrame = requestAnimationFrame(animate);
+    let zoomFactor = 0.35;
+
+    let targetHeight;
+
+    if (direction === "in") {
+      targetHeight =
+        currentHeight * (1 - zoomFactor);
+    } else {
+      targetHeight =
+        currentHeight * (1 + zoomFactor);
     }
 
-    animate();
+    targetHeight = Math.max(
+      MIN_HEIGHT,
+      Math.min(MAX_HEIGHT, targetHeight)
+    );
+
+    const destination =
+      Cesium.Cartesian3.fromRadians(
+        camera.positionCartographic.longitude,
+        camera.positionCartographic.latitude,
+        targetHeight
+      );
+
+    camera.flyTo({
+      destination,
+      duration: 0.18,
+      easingFunction:
+        Cesium.EasingFunction.QUADRATIC_OUT
+    });
   }
 
   canvas.addEventListener("wheel", (event) => {
@@ -468,7 +511,7 @@ async function initGlobe() {
     const direction = delta > 0 ? "out" : "in";
     const height = viewer.camera.positionCartographic.height;
     const amount = Math.min(Math.abs(delta) * (height * 0.02), height * 0.5);
-    smoothZoom(direction, amount);
+    smoothZoom(direction);
   }, { passive: false });
 
   // Recalculate resolution and aspect on resize / orientation change
