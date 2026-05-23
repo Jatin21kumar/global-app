@@ -207,6 +207,33 @@ function findCountryMatch(countryName) {
   return null;
 }
 
+async function searchCountryCoordinates(countryName) {
+  const countryMatch = findCountryMatch(countryName);
+  if (!countryMatch) return null;
+
+  try {
+    const searchUrl = new URL("https://nominatim.openstreetmap.org/search");
+    searchUrl.searchParams.set("format", "jsonv2");
+    searchUrl.searchParams.set("limit", "1");
+    searchUrl.searchParams.set("accept-language", "en");
+    searchUrl.searchParams.set("q", countryMatch.countryName);
+
+    const res = await fetch(searchUrl.toString());
+    const results = await res.json();
+    const place = results?.[0];
+
+    if (!place) return null;
+
+    return {
+      latitude: Number(place.lat),
+      longitude: Number(place.lon),
+      countryName: countryMatch.countryName
+    };
+  } catch {
+    return null;
+  }
+}
+
 function findStateMatch(stateName) {
   const normalizedState = normalizeName(stateName);
 
@@ -326,6 +353,15 @@ async function resolveLocationInfo(osmInfo) {
 window.addEventListener("DOMContentLoaded", () => {
   initGlobe();
 
+  const homeButton = document.querySelector(".cesium-home-button");
+  const searchWidget = document.getElementById("countrySearchWidget");
+
+  if (homeButton && searchWidget) {
+    searchWidget.appendChild(homeButton);
+  }
+
+  initCountrySearch();
+
   document.getElementById("closeInfoBox").addEventListener("click", () => {
     document.getElementById("infoBox").style.display = "none";
   });
@@ -342,6 +378,64 @@ window.addEventListener("DOMContentLoaded", () => {
     clampedZoom(camera, "out", 3000000);
   });
 });
+
+function initCountrySearch() {
+  const widget = document.getElementById("countrySearchWidget");
+  const toggleButton = document.getElementById("countrySearchToggle");
+  const input = document.getElementById("countrySearchInput");
+
+  if (!widget || !toggleButton || !input) return;
+
+  const openSearch = () => {
+    widget.classList.add("open");
+    toggleButton.setAttribute("aria-expanded", "true");
+    window.requestAnimationFrame(() => input.focus());
+  };
+
+  const closeSearch = () => {
+    widget.classList.remove("open");
+    toggleButton.setAttribute("aria-expanded", "false");
+  };
+
+  toggleButton.addEventListener("click", (event) => {
+    event.stopPropagation();
+
+    if (widget.classList.contains("open")) {
+      closeSearch();
+    } else {
+      openSearch();
+    }
+  });
+
+  input.addEventListener("keydown", async (event) => {
+    if (event.key !== "Enter") return;
+
+    event.preventDefault();
+
+    const query = input.value.trim();
+    if (!query || !window.cesiumViewer) return;
+
+    const target = await searchCountryCoordinates(query);
+    if (!target) return;
+
+    window.cesiumViewer.camera.flyTo({
+      destination: Cesium.Cartesian3.fromDegrees(
+        target.longitude,
+        target.latitude,
+        2500000
+      ),
+      duration: 1.5
+    });
+
+    closeSearch();
+  });
+
+  document.addEventListener("pointerdown", (event) => {
+    if (!widget.classList.contains("open")) return;
+    if (widget.contains(event.target)) return;
+    closeSearch();
+  }, true);
+}
 
 async function initGlobe() {
   const viewer = new Cesium.Viewer("cesiumContainer", {
@@ -375,6 +469,61 @@ async function initGlobe() {
       duration: 2
     });
   });
+
+  if (viewer.homeButton && viewer.homeButton.container) {
+    const homeBtn = viewer.homeButton.container;
+
+    // Remove Cesium conflicting classes/styles
+    homeBtn.classList.remove(
+      "cesium-toolbar-button",
+      "cesium-button"
+    );
+
+    // Apply custom class
+    homeBtn.classList.add("top-control-btn");
+
+    // Force clean inline styling
+    Object.assign(homeBtn.style, {
+      width: "48px",
+      height: "48px",
+      minWidth: "48px",
+      minHeight: "48px",
+      padding: "0",
+      margin: "0",
+      border: "none",
+      borderRadius: "16px",
+      overflow: "hidden",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      background: "rgba(30,30,30,0.88)"
+    });
+
+    homeBtn.style.setProperty(
+      "box-shadow",
+      "0 8px 24px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.04)",
+      "important"
+    );
+
+    // Fix SVG color
+    const svg = homeBtn.querySelector("svg");
+    if (svg) {
+      Object.assign(svg.style, {
+        fill: "white",
+        color: "white",
+        width: "22px",
+        height: "22px",
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        right: "auto",
+        bottom: "auto",
+        margin: "0",
+        transform: "translate(-50%, -50%)",
+        pointerEvents: "none"
+      });
+    }
+  }
 
   viewer.camera.setView({
     destination: Cesium.Cartesian3.fromDegrees(78.9629, 22.5937, 3000000)
