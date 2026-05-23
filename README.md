@@ -28,21 +28,3 @@ Windows / macOS / Linux (Python 3):
 python -m http.server 8000
 # then open http://localhost:8000 in your browser
 ```
-
-Or open `index.html` directly in your browser, though some features may require a local server.
-
-## Configuration
-Edit `config.js` to change zoom limits, default country, or other behavior.
-
-## Data sources
-This repository includes local copies of geographic datasets and image assets under `data/` and `images/`.
-
-## Contributing
-If you'd like to contribute, please open an issue or submit a pull request with a clear description of changes.
-
-## License
-This project is provided under the MIT License — see `LICENSE` (if added) for details.
-
----
-
-If you want, I can also add a `LICENSE` file, usage screenshots, or run tests. Tell me which.
