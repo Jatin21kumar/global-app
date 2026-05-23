@@ -161,6 +161,34 @@
       display: none;
     }
 
+    #continentLabelOverlay {
+      position: absolute;
+      inset: 0;
+      z-index: 6;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .continent-surface-label {
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform-origin: center center;
+      white-space: nowrap;
+      user-select: none;
+      will-change: transform, opacity;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #1d3f73;
+      text-shadow:
+        0 0 4px rgba(255, 255, 255, 0.85),
+        0 0 8px rgba(255, 255, 255, 0.45);
+      opacity: 0;
+      display: none;
+    }
+
     #zoomControls {
       position: fixed;
       bottom: 30px;
@@ -425,6 +453,7 @@
 
 <body>
   <div id="cesiumContainer"></div>
+  <div id="continentLabelOverlay" aria-hidden="true"></div>
   <div id="creditContainer" style="display: none;"></div>
   <!-- <div id="appName">SPARKI</div> -->
 

@@ -6,6 +6,16 @@ let COUNTRY_IMAGE_MANIFEST = {};
 // Lowered MIN_ZOOM so users can zoom in closer (meters)
 const MIN_ZOOM = 10;
 const MAX_ZOOM = 40000000;
+const CONTINENT_LABEL_MIN_CAMERA_HEIGHT = 4500000;
+const CONTINENT_LABELS = [
+  { text: "North America", lon: -100, lat: 45 },
+  { text: "South America", lon: -60, lat: -17 },
+  { text: "Europe", lon: 15, lat: 55 },
+  { text: "Africa", lon: 20, lat: 5 },
+  { text: "Asia", lon: 90, lat: 35 },
+  { text: "Australia", lon: 135, lat: -25 },
+  { text: "Antarctica", lon: 0, lat: -82 }
+];
 
 fetch('data/indian_states_data.json')
   .then(res => res.json())
@@ -454,11 +464,20 @@ async function initGlobe() {
   });
 
   const voyager = new Cesium.UrlTemplateImageryProvider({
-    url: "https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png",
+    // Use no-label tiles so we can control continent text language/spelling ourselves.
+    url: "https://basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}.png",
+    credit: "© OpenStreetMap contributors © CARTO"
+  });
+
+  const voyagerLabels = new Cesium.UrlTemplateImageryProvider({
+    // Add labels back only when zoomed in so country/state names are visible.
+    url: "https://basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}.png",
     credit: "© OpenStreetMap contributors © CARTO"
   });
 
   viewer.imageryLayers.addImageryProvider(voyager);
+  const labelsLayer = viewer.imageryLayers.addImageryProvider(voyagerLabels);
+  labelsLayer.show = false;
 
   viewer.cesiumWidget.creditContainer.style.display = "none";
 
@@ -541,6 +560,20 @@ async function initGlobe() {
   });
 
   window.cesiumViewer = viewer;
+  const continentLabelState = createEnglishContinentLabels(viewer);
+
+  function updatePlaceLabelVisibility() {
+    const cameraHeight = viewer.camera.positionCartographic.height;
+    labelsLayer.show = cameraHeight <= CONTINENT_LABEL_MIN_CAMERA_HEIGHT;
+  }
+
+  updatePlaceLabelVisibility();
+  viewer.camera.moveEnd.addEventListener(updatePlaceLabelVisibility);
+
+  viewer.scene.postRender.addEventListener(function updateContinentLabelOverlay() {
+    updatePlaceLabelVisibility();
+    updateContinentLabels(viewer, continentLabelState);
+  });
 
   // Mobile WebView GPU optimisations and render quality
   const dpr = window.devicePixelRatio || 1;
@@ -875,6 +908,79 @@ async function getWeather(lat, lon) {
 function getFlagEmoji(code) {
   return code ? code.toUpperCase().replace(/./g, c =>
     String.fromCodePoint(127397 + c.charCodeAt())) : "";
+}
+
+function createEnglishContinentLabels(viewer) {
+  const overlay = document.getElementById("continentLabelOverlay") || (() => {
+    const created = document.createElement("div");
+    created.id = "continentLabelOverlay";
+    created.setAttribute("aria-hidden", "true");
+    document.body.appendChild(created);
+    return created;
+  })();
+
+  return CONTINENT_LABELS.map((continent) => {
+    const element = document.createElement("div");
+    element.className = "continent-surface-label";
+    element.textContent = continent.text;
+    overlay.appendChild(element);
+
+    return {
+      ...continent,
+      element,
+      position: Cesium.Cartesian3.fromDegrees(continent.lon, continent.lat, 0)
+    };
+  });
+}
+
+function getVisibility(lat, lon, rotation) {
+  const surfacePosition = Cesium.Cartesian3.fromDegrees(lon, lat, 0);
+  const surfaceDirection = Cesium.Cartesian3.normalize(surfacePosition, new Cesium.Cartesian3());
+  const cameraDirection = Cesium.Cartesian3.normalize(rotation, new Cesium.Cartesian3());
+
+  return Math.max(0, Cesium.Cartesian3.dot(surfaceDirection, cameraDirection));
+}
+
+function updateContinentLabels(viewer, continentLabels) {
+  const scene = viewer.scene;
+  const camera = viewer.camera;
+  const canvas = scene.canvas;
+  const ellipsoid = scene.globe.ellipsoid;
+  const occluder = new Cesium.EllipsoidalOccluder(ellipsoid, camera.positionWC);
+  const centerX = canvas.clientWidth * 0.5;
+  const centerY = canvas.clientHeight * 0.5;
+
+  continentLabels.forEach((label) => {
+    const position = label.position;
+    const element = label.element;
+    const visible = occluder.isPointVisible(position);
+    const depth = getVisibility(label.lat, label.lon, camera.positionWC);
+
+    if (!visible || depth <= 0) {
+      element.style.display = "none";
+      return;
+    }
+
+    const screenPosition = Cesium.SceneTransforms.wgs84ToWindowCoordinates(scene, position, new Cesium.Cartesian2());
+
+    if (!screenPosition) {
+      element.style.display = "none";
+      return;
+    }
+
+    const perspective = Math.min(1, Math.max(0, depth));
+    const scale = 0.52 + perspective * 0.78;
+    const opacity = 0.12 + perspective * 0.88;
+    const pullToCenter = (1 - perspective) * 0.085;
+
+    const x = screenPosition.x + (centerX - screenPosition.x) * pullToCenter;
+    const y = screenPosition.y + (centerY - screenPosition.y) * pullToCenter;
+
+    element.style.display = "block";
+    element.style.opacity = String(opacity);
+    element.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%) scale(${scale})`;
+    element.style.zIndex = String(10 + Math.round(perspective * 10));
+  });
 }
 
 const COUNTRY_INFO = {
