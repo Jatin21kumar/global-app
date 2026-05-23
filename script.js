@@ -395,6 +395,7 @@ function initCountrySearch() {
   const closeSearch = () => {
     widget.classList.remove("open");
     toggleButton.setAttribute("aria-expanded", "false");
+    input.value = "";
   };
 
   toggleButton.addEventListener("click", (event) => {
@@ -504,6 +505,16 @@ async function initGlobe() {
       "0 8px 24px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.04)",
       "important"
     );
+
+    homeBtn.style.position = "static";
+    homeBtn.style.top = "auto";
+    homeBtn.style.right = "auto";
+    homeBtn.style.margin = "0";
+
+    const homeButtonSlot = document.getElementById("homeButtonSlot");
+    if (homeButtonSlot) {
+      homeButtonSlot.appendChild(homeBtn);
+    }
 
     // Fix SVG color
     const svg = homeBtn.querySelector("svg");
