@@ -24,7 +24,7 @@
     }
 
     #infoBox {
-      position: absolute;
+      position: fixed;
       top: 10px;
       left: 10px;
       background: #fff9ec;
@@ -35,13 +35,32 @@
       max-height: calc(100vh - 40px);
       overflow-y: auto;
       font-size: 14px;
-      z-index: 999;
+      z-index: 1000;
       display: flex;
       flex-direction: column;
       align-items: center;
       box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
       border: 2px dashed #ffd369;
       overscroll-behavior: contain;
+      opacity: 0;
+      transform: translateY(-10px) scale(0.98);
+      visibility: hidden;
+      pointer-events: none;
+      transition:
+        opacity 0.22s ease,
+        transform 0.22s ease,
+        visibility 0s linear 0.22s;
+    }
+
+    #infoBox.is-open {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      visibility: visible;
+      pointer-events: auto;
+      transition:
+        opacity 0.22s ease,
+        transform 0.22s ease,
+        visibility 0s linear 0s;
     }
 
     #infoContent {
@@ -155,6 +174,24 @@
       font-size: 18px;
       border-radius: 6px;
       cursor: pointer;
+      z-index: 1100;
+    }
+
+    #interactionBackdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 27, 38, 0.22);
+      backdrop-filter: blur(1px);
+      -webkit-backdrop-filter: blur(1px);
+      z-index: 900;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s ease;
+    }
+
+    body.card-open #interactionBackdrop {
+      opacity: 1;
+      pointer-events: auto;
     }
 
     #creditContainer {
@@ -196,8 +233,12 @@
       display: flex;
       flex-direction: column;
       gap: 6px;
-      z-index: 99999;
+      z-index: 500;
       pointer-events: auto;
+      transition:
+        opacity 0.22s ease,
+        transform 0.22s ease,
+        visibility 0s linear 0.22s;
     }
 
     #zoomControls button {
@@ -223,20 +264,36 @@
       color: #ff914d;
     }
 
-    /* top controls row */
-    /* ===== TOP CONTROL CONTAINER ===== */
     #topRightControls {
-      position: absolute;
+      position: fixed;
       top: 14px;
       right: 14px;
-      z-index: 99999;
+      z-index: 500;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
       pointer-events: auto;
+      transition:
+        opacity 0.22s ease,
+        transform 0.22s ease,
+        visibility 0s linear 0.22s;
     }
 
+    body.card-open #topRightControls,
+    body.card-open #zoomControls {
+      opacity: 0;
+      transform: translateY(-10px) scale(0.98);
+      visibility: hidden;
+      pointer-events: none;
+      transition:
+        opacity 0.22s ease,
+        transform 0.22s ease,
+        visibility 0s linear 0s;
+    }
+
+    /* top controls row */
+    /* ===== TOP CONTROL CONTAINER ===== */
     #countrySearchWidget {
       position: relative;
       top: auto;
@@ -455,10 +512,11 @@
   <div id="cesiumContainer"></div>
   <div id="continentLabelOverlay" aria-hidden="true"></div>
   <div id="creditContainer" style="display: none;"></div>
+  <div id="interactionBackdrop" aria-hidden="true"></div>
   <!-- <div id="appName">SPARKI</div> -->
 
 
-  <div id="infoBox" style="display: none;">
+  <div id="infoBox" aria-hidden="true">
     <button id="closeInfoBox">×</button>
     <div id="infoContent">Click anywhere on the globe 🌍</div>
   </div>

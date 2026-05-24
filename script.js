@@ -1,6 +1,7 @@
 let STATE_INFO = {};
 let CONTINENT_INFO = {};
 let COUNTRY_IMAGE_MANIFEST = {};
+let isCardOpen = false;
 
 // Use camera distance limits that still allow useful close zoom on laptops/mobile
 // Lowered MIN_ZOOM so users can zoom in closer (meters)
@@ -373,7 +374,7 @@ window.addEventListener("DOMContentLoaded", () => {
   initCountrySearch();
 
   document.getElementById("closeInfoBox").addEventListener("click", () => {
-    document.getElementById("infoBox").style.display = "none";
+    setCardOpenState(false);
   });
 
   document.getElementById("zoomIn").addEventListener("click", () => {
@@ -752,7 +753,7 @@ async function initGlobe() {
     if (!infoContent || !infoBox) return;
 
     infoContent.innerHTML = `🔍 Fetching location info...`;
-    infoBox.style.display = "block";
+    setCardOpenState(true);
 
     const osmInfo = await getLocationFromOSM(lat, lon);
     const locationInfo = await resolveLocationInfo(osmInfo);
@@ -908,6 +909,21 @@ async function getWeather(lat, lon) {
 function getFlagEmoji(code) {
   return code ? code.toUpperCase().replace(/./g, c =>
     String.fromCodePoint(127397 + c.charCodeAt())) : "";
+}
+
+function setCardOpenState(open) {
+  isCardOpen = Boolean(open);
+  document.body.classList.toggle("card-open", isCardOpen);
+
+  const infoBox = document.getElementById("infoBox");
+  if (infoBox) {
+    infoBox.classList.toggle("is-open", isCardOpen);
+    infoBox.setAttribute("aria-hidden", isCardOpen ? "false" : "true");
+  }
+
+  if (window.cesiumViewer?.scene?.screenSpaceCameraController) {
+    window.cesiumViewer.scene.screenSpaceCameraController.enableInputs = !isCardOpen;
+  }
 }
 
 function createEnglishContinentLabels(viewer) {
