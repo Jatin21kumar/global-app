@@ -83,6 +83,31 @@ function resolveMicrostate(lat, lon, fallbackCountry) {
   return match ? match.name : fallbackCountry;
 }
 
+// Common alternate names that users may type when searching. Maps the alias to
+// the exact country name used as a key in CONTINENT_INFO.
+const COUNTRY_ALIASES = {
+  "US": "United States of America",
+  "USA": "United States of America",
+  "United States": "United States of America",
+  "UK": "United Kingdom",
+  "Great Britain": "United Kingdom",
+  "Bosnia": "Bosnia and Herzegovina",
+  "Bosnia-Herzegovina": "Bosnia and Herzegovina",
+  "Czechia": "Czech Republic",
+  "Congo-Brazzaville": "Republic of Congo",
+  "Congo Brazzaville": "Republic of Congo",
+  "Congo-Kinshasa": "Democratic Republic of Congo",
+  "Congo Kinshasa": "Democratic Republic of Congo",
+  "DRC": "Democratic Republic of Congo",
+  "Cote d'Ivoire": "Ivory Coast",
+  "Côte d'Ivoire": "Ivory Coast",
+  "Sao Tome and Principe": "São Tomé and Príncipe",
+  "Timor-Leste": "East Timor",
+  "Türkiye": "Turkey",
+  "United Arab Emirates": "UAE",
+  "Trinidad & Tobago": "Trinidad and Tobago"
+};
+
 fetch('data/indian_states_data.json')
   .then(res => res.json())
   .then(data => {
@@ -261,7 +286,14 @@ async function loadCountryImages(continentName, countryName) {
 }
 
 function findCountryMatch(countryName) {
-  const normalizedCountry = normalizeName(countryName);
+  // Resolve common aliases (e.g. "USA" → "United States of America") so users
+  // can search with either the official name or a popular alternate name.
+  const aliasTarget = Object.entries(COUNTRY_ALIASES).find(([alias]) =>
+    normalizeName(alias) === normalizeName(countryName)
+  )?.[1];
+  const effectiveName = aliasTarget || countryName;
+
+  const normalizedCountry = normalizeName(effectiveName);
 
   if (!normalizedCountry) return null;
 
