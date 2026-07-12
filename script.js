@@ -2,6 +2,7 @@ let STATE_INFO = {};
 let CONTINENT_INFO = {};
 let COUNTRY_IMAGE_MANIFEST = {};
 let isCardOpen = false;
+let COUNTRY_BOUNDARY_DATA_SOURCE = null;
 
 // Use camera distance limits that still allow useful close zoom on laptops/mobile
 // Lowered MIN_ZOOM so users can zoom in closer (meters)
@@ -17,6 +18,70 @@ const CONTINENT_LABELS = [
   { text: "Australia", lon: 135, lat: -25 },
   { text: "Antarctica", lon: 0, lat: -82 }
 ];
+
+// ISO 3166-1 alpha-2 country code to exact country name mapping
+const COUNTRY_CODE_MAP = {
+  'US': 'United States of America',
+  'GB': 'United Kingdom',
+  'NL': 'Netherlands',
+  'TR': 'Turkey',
+  'KR': 'South Korea',
+  'MC': 'Monaco',
+  'VA': 'Vatican City',
+  'SM': 'San Marino',
+  'IS': 'Iceland',
+  'KP': 'North Korea',
+  'CD': 'Democratic Republic of Congo',
+  'CG': 'Republic of Congo',
+  'CV': 'Cape Verde',
+  'GQ': 'Equatorial Guinea',
+  'ST': 'São Tomé and Príncipe',
+  'BN': 'Brunei',
+  'TL': 'East Timor',
+  'CI': 'Ivory Coast',
+  'KZ': 'Kazakhstan',
+  'KG': 'Kyrgyzstan',
+  'TJ': 'Tajikistan',
+  'TM': 'Turkmenistan',
+  'UZ': 'Uzbekistan',
+  'PS': 'Palestine',
+  'AE': 'UAE',
+  'CF': 'Central African Republic',
+  'GW': 'Guinea-Bissau',
+  'LA': 'Laos',
+  'MM': 'Myanmar',
+  'MA': 'Morocco',
+  'SS': 'South Sudan'
+};
+
+// Tiny countries / city-states that are easily misidentified by reverse geocoding
+// when the user clicks on them from a zoomed-out globe. Each entry has an
+// approximate center and a catchment radius in kilometres.
+const MICROSTATES = [
+  { name: "Monaco", code: "MC", lat: 43.7384, lon: 7.4246, radiusKm: 3.5 },
+  { name: "Vatican City", code: "VA", lat: 41.9029, lon: 12.4534, radiusKm: 1.5 },
+  { name: "San Marino", code: "SM", lat: 43.9424, lon: 12.4578, radiusKm: 6 },
+  { name: "Liechtenstein", code: "LI", lat: 47.166, lon: 9.555, radiusKm: 9 },
+  { name: "Andorra", code: "AD", lat: 42.5063, lon: 1.5218, radiusKm: 11 }
+];
+
+function haversineKm(lat1, lon1, lat2, lon2) {
+  const R = 6371;
+  const toRad = deg => deg * Math.PI / 180;
+  const dLat = toRad(lat2 - lat1);
+  const dLon = toRad(lon2 - lon1);
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+    Math.sin(dLon / 2) ** 2;
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+}
+
+function resolveMicrostate(lat, lon, fallbackCountry) {
+  const match = MICROSTATES.find(m => haversineKm(lat, lon, m.lat, m.lon) <= m.radiusKm);
+  return match ? match.name : fallbackCountry;
+}
 
 fetch('data/indian_states_data.json')
   .then(res => res.json())
@@ -230,6 +295,8 @@ async function searchCountryCoordinates(countryName) {
     searchUrl.searchParams.set("format", "jsonv2");
     searchUrl.searchParams.set("limit", "5");
     searchUrl.searchParams.set("accept-language", "en");
+    searchUrl.searchParams.set("polygon_geojson", "1");
+    searchUrl.searchParams.set("polygon_threshold", "0.05");
     searchUrl.searchParams.set("q", countryMatch.countryName);
 
     const res = await fetch(searchUrl.toString());
@@ -242,13 +309,96 @@ async function searchCountryCoordinates(countryName) {
     }
 
     return {
+      kind: "country",
       latitude: Number(place.lat),
       longitude: Number(place.lon),
-      countryName: countryMatch.countryName
+      countryName: countryMatch.countryName,
+      geojson: place.geojson
     };
   } catch (error) {
     console.error('Search error:', error);
     return null;
+  }
+}
+
+function findContinentMatch(name) {
+  const normalized = normalizeName(name);
+  if (!normalized) return null;
+
+  return Object.keys(CONTINENT_INFO).find((key) =>
+    normalizeName(key) === normalized
+  ) || null;
+}
+
+function searchContinentCoordinates(name) {
+  const continentName = findContinentMatch(name);
+  if (!continentName) return null;
+
+  const label = CONTINENT_LABELS.find((c) =>
+    normalizeName(c.text) === normalizeName(continentName)
+  );
+
+  if (!label) return null;
+
+  return {
+    kind: "continent",
+    latitude: label.lat,
+    longitude: label.lon,
+    name: label.text,
+    height: 10000000
+  };
+}
+
+async function loadCountryBoundary(countryName) {
+  try {
+    const searchUrl = new URL("https://nominatim.openstreetmap.org/search");
+    searchUrl.searchParams.set("format", "jsonv2");
+    searchUrl.searchParams.set("limit", "1");
+    searchUrl.searchParams.set("accept-language", "en");
+    searchUrl.searchParams.set("polygon_geojson", "1");
+    searchUrl.searchParams.set("polygon_threshold", "0.05");
+    searchUrl.searchParams.set("q", countryName);
+
+    const res = await fetch(searchUrl.toString());
+    const results = await res.json();
+    return results?.[0]?.geojson || null;
+  } catch (error) {
+    console.warn('Boundary fetch error:', error);
+    return null;
+  }
+}
+
+function clearCountryBoundary() {
+  const viewer = window.cesiumViewer;
+  if (!viewer || !COUNTRY_BOUNDARY_DATA_SOURCE) return;
+  viewer.dataSources.remove(COUNTRY_BOUNDARY_DATA_SOURCE);
+  COUNTRY_BOUNDARY_DATA_SOURCE = null;
+}
+
+async function showCountryBoundary(geojson, name) {
+  const viewer = window.cesiumViewer;
+  if (!viewer || !geojson) return;
+
+  clearCountryBoundary();
+
+  try {
+    const dataSource = await Cesium.GeoJsonDataSource.load(geojson, {
+      stroke: Cesium.Color.ORANGE,
+      fill: Cesium.Color.ORANGE.withAlpha(0.12),
+      strokeWidth: 3,
+      clampToGround: true
+    });
+
+    // Remove default labels/entities that GeoJsonDataSource may create
+    dataSource.entities.values.forEach((entity) => {
+      if (entity.label) entity.label.show = false;
+      if (entity.billboard) entity.billboard.show = false;
+    });
+
+    COUNTRY_BOUNDARY_DATA_SOURCE = dataSource;
+    viewer.dataSources.add(dataSource);
+  } catch (error) {
+    console.warn('Failed to show country boundary:', error);
   }
 }
 
@@ -369,6 +519,78 @@ async function resolveLocationInfo(osmInfo) {
   return null;
 }
 
+function showTemporaryMarker(lat, lon, labelText) {
+  const viewer = window.cesiumViewer;
+  if (!viewer) return;
+
+  if (!window._cesiumClickMarker) window._cesiumClickMarker = { id: null };
+
+  try {
+    if (window._cesiumClickMarker.id) {
+      viewer.entities.removeById(window._cesiumClickMarker.id);
+      window._cesiumClickMarker.id = null;
+    }
+
+    const markerId = `click-marker-${Date.now()}`;
+    const position = Cesium.Cartesian3.fromDegrees(lon, lat, 0);
+
+    const marker = viewer.entities.add({
+      id: markerId,
+      position: position,
+      billboard: {
+        image: 'images/pin.png',
+        verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+        scale: 0.8,
+        pixelOffset: new Cesium.Cartesian2(0, -8)
+      },
+      label: {
+        text: labelText || `${lat.toFixed(4)}, ${lon.toFixed(4)}`,
+        font: '14px sans-serif',
+        fillColor: Cesium.Color.WHITE,
+        style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+        outlineColor: Cesium.Color.BLACK,
+        outlineWidth: 2,
+        pixelOffset: new Cesium.Cartesian2(0, -36)
+      },
+      ellipse: {
+        semiMajorAxis: 25000,
+        semiMinorAxis: 25000,
+        material: Cesium.Color.WHITE.withAlpha(0.12),
+        height: 0
+      }
+    });
+
+    window._cesiumClickMarker.id = markerId;
+
+    const start = Date.now();
+    const durationMs = 1800;
+    const initialSemi = 25000;
+    const maxSemi = 90000;
+
+    function animatePulse() {
+      const t = (Date.now() - start) / durationMs;
+      if (t >= 1) {
+        viewer.entities.remove(marker);
+        window._cesiumClickMarker.id = null;
+        return;
+      }
+      const semi = initialSemi + (maxSemi - initialSemi) * t;
+      const alpha = 0.12 * (1 - t);
+      if (marker && marker.ellipse) {
+        marker.ellipse.semiMajorAxis = semi;
+        marker.ellipse.semiMinorAxis = semi;
+        marker.ellipse.material = Cesium.Color.WHITE.withAlpha(alpha);
+      }
+      viewer.scene.requestRender();
+      requestAnimationFrame(animatePulse);
+    }
+
+    requestAnimationFrame(animatePulse);
+  } catch (e) {
+    console.warn('Failed to create temporary marker:', e);
+  }
+}
+
 window.addEventListener("DOMContentLoaded", () => {
   initGlobe();
 
@@ -435,17 +657,29 @@ function initCountrySearch() {
     const query = input.value.trim();
     if (!query || !window.cesiumViewer) return;
 
-    const target = await searchCountryCoordinates(query);
+    let target = await searchCountryCoordinates(query);
+    if (!target) {
+      target = searchContinentCoordinates(query);
+    }
     if (!target) return;
 
     window.cesiumViewer.camera.flyTo({
       destination: Cesium.Cartesian3.fromDegrees(
         target.longitude,
         target.latitude,
-        2500000
+        target.height || 2500000
       ),
       duration: 1.5
     });
+
+    // Brief visual highlight so the searched place is easy to spot
+    showTemporaryMarker(target.latitude, target.longitude, target.countryName || target.name);
+
+    // Highlight the country/continent boundary so the user knows exactly which
+    // place was matched and doesn't accidentally think another area was selected.
+    if (target.geojson) {
+      showCountryBoundary(target.geojson, target.countryName);
+    }
 
     closeSearch();
   });
@@ -764,83 +998,37 @@ async function initGlobe() {
     setCardOpenState(true);
 
     const osmInfo = await getLocationFromOSM(lat, lon);
+
+    // Tiny countries (Monaco, Vatican City, etc.) can be misidentified by
+    // Nominatim when a click from a zoomed-out globe lands just outside their
+    // actual borders. If the clicked point is within the catchment radius of a
+    // known microstate, prefer that country over the geocoder result.
+    const correctedCountry = resolveMicrostate(lat, lon, osmInfo?.country);
+    if (correctedCountry !== osmInfo?.country) {
+      const microstate = MICROSTATES.find(m => m.name === correctedCountry);
+      osmInfo.country = correctedCountry;
+      osmInfo.countryCode = microstate?.code || osmInfo?.countryCode;
+    }
+
     const locationInfo = await resolveLocationInfo(osmInfo);
 
     if (!locationInfo) {
       const stateName = osmInfo?.state || "";
       const countryName = getEnglishCountryName(osmInfo?.country, osmInfo?.countryCode);
       infoContent.innerHTML = `⚠️ No data available for <b>${stateName || countryName}</b>`;
+      clearCountryBoundary();
       return;
     }
 
     renderLocationInfo(infoContent, locationInfo);
 
-    // Add a temporary click marker (pin + pulse)
-    try {
-      // remove previous
-      if (window._cesiumClickMarker.id) {
-        viewer.entities.removeById(window._cesiumClickMarker.id);
-        window._cesiumClickMarker.id = null;
-      }
+    // Add a temporary click marker (pin + pulse) so the user can spot the place
+    showTemporaryMarker(lat, lon, locationInfo?.displayName);
 
-      const markerId = `click-marker-${Date.now()}`;
-      const position = Cesium.Cartesian3.fromDegrees(lon, lat, 0);
-
-      const marker = viewer.entities.add({
-        id: markerId,
-        position: position,
-        billboard: {
-          image: 'images/pin.png', // optional app pin (falls back if missing)
-          verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
-          scale: 0.8,
-          pixelOffset: new Cesium.Cartesian2(0, -8)
-        },
-        label: {
-          text: `${lat.toFixed(4)}, ${lon.toFixed(4)}`,
-          font: '14px sans-serif',
-          fillColor: Cesium.Color.WHITE,
-          style: Cesium.LabelStyle.FILL_AND_OUTLINE,
-          outlineColor: Cesium.Color.BLACK,
-          outlineWidth: 2,
-          pixelOffset: new Cesium.Cartesian2(0, -36)
-        },
-        ellipse: {
-          semiMajorAxis: 25000,
-          semiMinorAxis: 25000,
-          material: Cesium.Color.WHITE.withAlpha(0.12),
-          height: 0
-        }
-      });
-
-      window._cesiumClickMarker.id = markerId;
-
-      // pulse animation: expand ellipse once then reduce opacity
-      const start = Date.now();
-      const durationMs = 1800;
-      const initialSemi = 25000;
-      const maxSemi = 90000;
-
-      function animatePulse() {
-        const t = (Date.now() - start) / durationMs;
-        if (t >= 1) {
-          viewer.entities.remove(marker);
-          window._cesiumClickMarker.id = null;
-          return;
-        }
-        const semi = initialSemi + (maxSemi - initialSemi) * t;
-        const alpha = 0.12 * (1 - t);
-        if (marker && marker.ellipse) {
-          marker.ellipse.semiMajorAxis = semi;
-          marker.ellipse.semiMinorAxis = semi;
-          marker.ellipse.material = Cesium.Color.WHITE.withAlpha(alpha);
-        }
-        viewer.scene.requestRender();
-        requestAnimationFrame(animatePulse);
-      }
-
-      requestAnimationFrame(animatePulse);
-    } catch (e) {
-      console.warn('Failed to create click marker:', e);
+    // Highlight the country boundary so it's obvious which territory was selected
+    if (locationInfo.kind === "country" && locationInfo.displayName) {
+      const boundaryGeoJson = await loadCountryBoundary(locationInfo.displayName);
+      showCountryBoundary(boundaryGeoJson, locationInfo.displayName);
     }
   }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
 }
@@ -863,11 +1051,22 @@ async function getLocationFromOSM(lat, lon) {
 }
 
 function getEnglishCountryName(countryName, countryCode) {
+  // First, try our custom country code map for exact matches
   if (countryCode) {
+    const mappedName = COUNTRY_CODE_MAP[countryCode.toUpperCase()];
+    if (mappedName) {
+      console.log(`📍 Country code ${countryCode} mapped to: ${mappedName}`);
+      return mappedName;
+    }
+    
+    // Fall back to Intl.DisplayNames for unmapped codes
     try {
       const displayNames = new Intl.DisplayNames(["en"], { type: "region" });
-      return displayNames.of(countryCode.toUpperCase()) || countryName || "";
+      const result = displayNames.of(countryCode.toUpperCase()) || countryName || "";
+      console.log(`📍 Country code ${countryCode} resolved to: ${result}`);
+      return result;
     } catch {
+      console.log(`📍 Country code ${countryCode} fallback to OSM name: ${countryName}`);
       return countryName || countryCode.toUpperCase();
     }
   }
@@ -931,6 +1130,10 @@ function setCardOpenState(open) {
 
   if (window.cesiumViewer?.scene?.screenSpaceCameraController) {
     window.cesiumViewer.scene.screenSpaceCameraController.enableInputs = !isCardOpen;
+  }
+
+  if (!isCardOpen) {
+    clearCountryBoundary();
   }
 }
 
