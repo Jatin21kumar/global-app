@@ -259,7 +259,8 @@ function findStateMatch(stateName) {
 
   return Object.keys(STATE_INFO).find((key) => {
     const normalizedKey = normalizeName(key);
-    return normalizedKey === normalizedState || normalizedKey.includes(normalizedState) || normalizedState.includes(normalizedKey);
+    // Use exact match only to avoid false matches with substring collisions
+    return normalizedKey === normalizedState;
   }) || null;
 }
 
