@@ -203,7 +203,8 @@ function findCountryMatch(countryName) {
   for (const [continentName, continentData] of Object.entries(CONTINENT_INFO)) {
     const matchedCountryKey = Object.keys(continentData).find((key) => {
       const normalizedKey = normalizeName(key);
-      return normalizedKey === normalizedCountry || normalizedKey.includes(normalizedCountry) || normalizedCountry.includes(normalizedKey);
+      // Use exact match only to avoid false matches like "OMAN" matching "ROMANIA"
+      return normalizedKey === normalizedCountry;
     });
 
     if (matchedCountryKey) {
@@ -220,27 +221,33 @@ function findCountryMatch(countryName) {
 
 async function searchCountryCoordinates(countryName) {
   const countryMatch = findCountryMatch(countryName);
-  if (!countryMatch) return null;
+  if (!countryMatch) {
+    return null;
+  }
 
   try {
     const searchUrl = new URL("https://nominatim.openstreetmap.org/search");
     searchUrl.searchParams.set("format", "jsonv2");
-    searchUrl.searchParams.set("limit", "1");
+    searchUrl.searchParams.set("limit", "5");
     searchUrl.searchParams.set("accept-language", "en");
     searchUrl.searchParams.set("q", countryMatch.countryName);
 
     const res = await fetch(searchUrl.toString());
     const results = await res.json();
+
     const place = results?.[0];
 
-    if (!place) return null;
+    if (!place) {
+      return null;
+    }
 
     return {
       latitude: Number(place.lat),
       longitude: Number(place.lon),
       countryName: countryMatch.countryName
     };
-  } catch {
+  } catch (error) {
+    console.error('Search error:', error);
     return null;
   }
 }
