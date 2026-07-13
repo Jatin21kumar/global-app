@@ -4,6 +4,14 @@ let COUNTRY_IMAGE_MANIFEST = {};
 let isCardOpen = false;
 let COUNTRY_BOUNDARY_DATA_SOURCE = null;
 
+// Search state — protects against races and Nominatim rate-limit hiccups on mobile.
+// _activeSearchAbortController: cancels any in-flight search when a newer one starts.
+// _latestSearchId: only the most recent search is allowed to apply its result.
+// _countrySearchCache: avoids re-hitting Nominatim for the same country.
+let _activeSearchAbortController = null;
+let _latestSearchId = 0;
+const _countrySearchCache = new Map();
+
 // Use camera distance limits that still allow useful close zoom on laptops/mobile
 // Lowered MIN_ZOOM so users can zoom in closer (meters)
 const MIN_ZOOM = 10;
@@ -316,22 +324,39 @@ function findCountryMatch(countryName) {
   return null;
 }
 
-async function searchCountryCoordinates(countryName) {
+async function searchCountryCoordinates(countryName, { signal } = {}) {
   const countryMatch = findCountryMatch(countryName);
   if (!countryMatch) {
     return null;
   }
 
+  // Cache hit — skip the network round-trip entirely. Helps avoid Nominatim
+  // rate-limit hits on mobile when users search the same country more than once.
+  const cacheKey = countryMatch.countryName.toLowerCase();
+  const cached = _countrySearchCache.get(cacheKey);
+  if (cached) {
+    return cached;
+  }
+
   try {
     const searchUrl = new URL("https://nominatim.openstreetmap.org/search");
     searchUrl.searchParams.set("format", "jsonv2");
-    searchUrl.searchParams.set("limit", "5");
+    // Keep the response small: we only need the first place's lat/lon for the
+    // camera flyTo. Requesting the polygon here (as was previously done) makes
+    // every search download hundreds of KB to several MB of GeoJSON, which is
+    // fast on broadband but cripples search on mobile networks — the fetch
+    // can take 5–15s or time out, leaving the camera sitting where the user
+    // last touched it. The boundary outline is fetched separately, in the
+    // background, after the camera has already flown.
+    searchUrl.searchParams.set("limit", "1");
     searchUrl.searchParams.set("accept-language", "en");
-    searchUrl.searchParams.set("polygon_geojson", "1");
-    searchUrl.searchParams.set("polygon_threshold", "0.05");
     searchUrl.searchParams.set("q", countryMatch.countryName);
 
-    const res = await fetch(searchUrl.toString());
+    const res = await fetch(searchUrl.toString(), { signal });
+    if (!res.ok) {
+      console.warn(`Nominatim search returned HTTP ${res.status} for "${countryMatch.countryName}"`);
+      return null;
+    }
     const results = await res.json();
 
     const place = results?.[0];
@@ -340,14 +365,19 @@ async function searchCountryCoordinates(countryName) {
       return null;
     }
 
-    return {
+    const result = {
       kind: "country",
       latitude: Number(place.lat),
       longitude: Number(place.lon),
-      countryName: countryMatch.countryName,
-      geojson: place.geojson
+      countryName: countryMatch.countryName
     };
+    _countrySearchCache.set(cacheKey, result);
+    return result;
   } catch (error) {
+    if (error.name === "AbortError") {
+      // Caller handles the abort; don't log as an error or cache the failure.
+      throw error;
+    }
     console.error('Search error:', error);
     return null;
   }
@@ -388,7 +418,11 @@ async function loadCountryBoundary(countryName) {
     searchUrl.searchParams.set("limit", "1");
     searchUrl.searchParams.set("accept-language", "en");
     searchUrl.searchParams.set("polygon_geojson", "1");
-    searchUrl.searchParams.set("polygon_threshold", "0.05");
+    // Aggressive simplification: the response drops from megabytes to tens
+    // of KB, which makes the outline fetch finish in ~1s on mobile networks
+    // instead of timing out. The visual outline is still clearly the right
+    // country — only redundant interior vertices are removed.
+    searchUrl.searchParams.set("polygon_threshold", "1.0");
     searchUrl.searchParams.set("q", countryName);
 
     const res = await fetch(searchUrl.toString());
@@ -652,6 +686,24 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+function showSearchErrorInWidget(widget, query) {
+  // Show a small inline error so the user knows the search actually failed,
+  // rather than the camera silently staying at the previous place.
+  let errorEl = widget.querySelector(".search-error-message");
+  if (!errorEl) {
+    errorEl = document.createElement("div");
+    errorEl.className = "search-error-message";
+    errorEl.setAttribute("role", "alert");
+    widget.appendChild(errorEl);
+  }
+  errorEl.textContent = `Couldn't find "${query}". Check spelling or try again in a moment.`;
+}
+
+function clearSearchErrorInWidget(widget) {
+  const errorEl = widget.querySelector(".search-error-message");
+  if (errorEl) errorEl.textContent = "";
+}
+
 function initCountrySearch() {
   const widget = document.getElementById("countrySearchWidget");
   const toggleButton = document.getElementById("countrySearchToggle");
@@ -662,6 +714,7 @@ function initCountrySearch() {
   const openSearch = () => {
     widget.classList.add("open");
     toggleButton.setAttribute("aria-expanded", "true");
+    clearSearchErrorInWidget(widget);
     window.requestAnimationFrame(() => input.focus());
   };
 
@@ -669,6 +722,14 @@ function initCountrySearch() {
     widget.classList.remove("open");
     toggleButton.setAttribute("aria-expanded", "false");
     input.value = "";
+    // NOTE: Do NOT call input.blur() here. On mobile, blurring mid-flight
+    // dismisses the on-screen keyboard, which fires a viewport resize that
+    // races with the Cesium flyTo animation and can leave the camera zoomed
+    // in place at the user's current view instead of flying to the search
+    // target (especially after a recent touch rotation). The keyboard is
+    // harmless if it stays open briefly, and any ghost keystrokes land on
+    // an input whose value is cleared and whose handler re-checks `query`.
+    clearSearchErrorInWidget(widget);
   };
 
   toggleButton.addEventListener("click", (event) => {
@@ -689,11 +750,47 @@ function initCountrySearch() {
     const query = input.value.trim();
     if (!query || !window.cesiumViewer) return;
 
-    let target = await searchCountryCoordinates(query);
-    if (!target) {
-      target = searchContinentCoordinates(query);
+    // Cancel any in-flight search so a slow earlier response can't overwrite
+    // the camera position when this newer search resolves first.
+    if (_activeSearchAbortController) {
+      _activeSearchAbortController.abort();
     }
-    if (!target) return;
+    const controller = new AbortController();
+    _activeSearchAbortController = controller;
+
+    // Sequence token: even if a stale response slips past the abort (e.g.
+    // abort races with a just-resolved response), it won't be applied.
+    const mySearchId = ++_latestSearchId;
+
+    let target = null;
+    try {
+      target = await searchCountryCoordinates(query, { signal: controller.signal });
+      if (!target && !controller.signal.aborted) {
+        target = searchContinentCoordinates(query);
+      }
+    } catch (error) {
+      if (error.name !== "AbortError") {
+        console.error('Search error:', error);
+      }
+    }
+
+    // A newer search has started or this one was cancelled — drop this result.
+    if (mySearchId !== _latestSearchId || controller.signal.aborted) return;
+
+    if (!target) {
+      // Keep the widget open with the user's query visible so they can retry,
+      // and surface the failure instead of silently leaving the camera where it was.
+      showSearchErrorInWidget(widget, query);
+      return;
+    }
+
+    // Cancel any in-progress Cesium flight so a leftover animation from a
+    // recent touch rotation / click can't fight this one. Without this,
+    // a residual flight path can resolve to "zoom at current lat/lon" rather
+    // than the search target — especially on mobile after a touch drag.
+    if (typeof window.cesiumViewer.camera.cancelFlight === "function") {
+      window.cesiumViewer.camera.cancelFlight();
+    }
 
     window.cesiumViewer.camera.flyTo({
       destination: Cesium.Cartesian3.fromDegrees(
@@ -707,13 +804,19 @@ function initCountrySearch() {
     // Brief visual highlight so the searched place is easy to spot
     showTemporaryMarker(target.latitude, target.longitude, target.countryName || target.name);
 
-    // Highlight the country/continent boundary so the user knows exactly which
-    // place was matched and doesn't accidentally think another area was selected.
-    if (target.geojson) {
-      showCountryBoundary(target.geojson, target.countryName);
-    }
-
     closeSearch();
+
+    // Fetch the boundary outline in the BACKGROUND after the camera has
+    // already started flying. Doing this inline used to block flyTo on a
+    // slow polygon download from Nominatim on mobile networks, which is
+    // exactly the bug that broke search on phones.
+    if (target.kind === "country" && target.countryName) {
+      loadCountryBoundary(target.countryName)
+        .then((geojson) => {
+          if (geojson) showCountryBoundary(geojson, target.countryName);
+        })
+        .catch(() => { /* boundary is a nice-to-have, ignore failures */ });
+    }
   });
 
   document.addEventListener("pointerdown", (event) => {
