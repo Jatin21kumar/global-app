@@ -3,6 +3,45 @@ let CONTINENT_INFO = {};
 let COUNTRY_IMAGE_MANIFEST = {};
 let isCardOpen = false;
 
+// --- Search diagnostics & cache ---
+// The search bug is "after several searches, the camera stops moving with no
+// console error". The most likely cause is Nominatim rate-limiting silently:
+// searchCountryCoordinates() swallowed fetch failures in an empty catch and
+// returned null, after which the handler returned early without ever calling
+// flyTo. The cache + visible error feedback + debug log below lets us both
+// diagnose and work around that case.
+const _countrySearchCache = new Map();
+const _searchDebugLog = [];
+const SEARCH_DEBUG_LOG_MAX = 80;
+
+function searchDebug(message) {
+  const stamped = `[search ${Date.now()}] ${message}`;
+  _searchDebugLog.push(stamped);
+  if (_searchDebugLog.length > SEARCH_DEBUG_LOG_MAX) _searchDebugLog.shift();
+  if (typeof window !== "undefined") {
+    window._searchDebugLog = _searchDebugLog;
+    window._countrySearchCache = _countrySearchCache;
+  }
+  // eslint-disable-next-line no-console
+  console.log(stamped);
+}
+
+function showSearchErrorInWidget(widget, query) {
+  let errorEl = widget.querySelector(".search-error-message");
+  if (!errorEl) {
+    errorEl = document.createElement("div");
+    errorEl.className = "search-error-message";
+    errorEl.setAttribute("role", "alert");
+    widget.appendChild(errorEl);
+  }
+  errorEl.textContent = `Couldn't look up "${query}". Try again in a moment.`;
+}
+
+function clearSearchErrorInWidget(widget) {
+  const errorEl = widget.querySelector(".search-error-message");
+  if (errorEl) errorEl.textContent = "";
+}
+
 // Use camera distance limits that still allow useful close zoom on laptops/mobile
 // Lowered MIN_ZOOM so users can zoom in closer (meters)
 const MIN_ZOOM = 10;
@@ -219,8 +258,23 @@ function findCountryMatch(countryName) {
 }
 
 async function searchCountryCoordinates(countryName) {
+  searchDebug(`searchCountryCoordinates("${countryName}") entered`);
   const countryMatch = findCountryMatch(countryName);
-  if (!countryMatch) return null;
+  if (!countryMatch) {
+    searchDebug(`  findCountryMatch returned null for "${countryName}"`);
+    return null;
+  }
+  searchDebug(`  matched country: "${countryMatch.countryName}"`);
+
+  // Cache hit — avoids re-hitting Nominatim for any country the user has
+  // already searched. This is the primary defense against Nominatim's
+  // ~1 req/sec rate limit, which on mobile manifests as "search gradually
+  // stops working" after several rapid searches.
+  const cached = _countrySearchCache.get(countryMatch.countryName);
+  if (cached) {
+    searchDebug(`  cache hit: lat=${cached.latitude}, lon=${cached.longitude}`);
+    return cached;
+  }
 
   try {
     const searchUrl = new URL("https://nominatim.openstreetmap.org/search");
@@ -229,18 +283,35 @@ async function searchCountryCoordinates(countryName) {
     searchUrl.searchParams.set("accept-language", "en");
     searchUrl.searchParams.set("q", countryMatch.countryName);
 
+    searchDebug(`  fetching from Nominatim...`);
     const res = await fetch(searchUrl.toString());
+    searchDebug(`  Nominatim responded HTTP ${res.status}`);
+    if (!res.ok) {
+      searchDebug(`  aborting: HTTP ${res.status}`);
+      return null;
+    }
     const results = await res.json();
+    searchDebug(`  Nominatim returned ${Array.isArray(results) ? results.length : "non-array"} results`);
     const place = results?.[0];
 
-    if (!place) return null;
+    if (!place) {
+      searchDebug(`  aborting: no place in results`);
+      return null;
+    }
 
-    return {
+    const result = {
       latitude: Number(place.lat),
       longitude: Number(place.lon),
       countryName: countryMatch.countryName
     };
-  } catch {
+    searchDebug(`  success: lat=${result.latitude}, lon=${result.longitude}`);
+    _countrySearchCache.set(countryMatch.countryName, result);
+    return result;
+  } catch (error) {
+    // The original code had an empty `catch {}` here — every fetch failure
+    // (rate limit, CORS, network, JSON parse) returned null silently,
+    // which is exactly the symptom we're debugging.
+    searchDebug(`  fetch threw: ${error && error.message ? error.message : error}`);
     return null;
   }
 }
@@ -400,6 +471,7 @@ function initCountrySearch() {
   const openSearch = () => {
     widget.classList.add("open");
     toggleButton.setAttribute("aria-expanded", "true");
+    clearSearchErrorInWidget(widget);
     window.requestAnimationFrame(() => input.focus());
   };
 
@@ -407,6 +479,7 @@ function initCountrySearch() {
     widget.classList.remove("open");
     toggleButton.setAttribute("aria-expanded", "false");
     input.value = "";
+    clearSearchErrorInWidget(widget);
   };
 
   toggleButton.addEventListener("click", (event) => {
@@ -425,19 +498,28 @@ function initCountrySearch() {
     event.preventDefault();
 
     const query = input.value.trim();
+    searchDebug(`Enter pressed, query="${query}", viewer=${!!window.cesiumViewer}`);
     if (!query || !window.cesiumViewer) return;
 
     const target = await searchCountryCoordinates(query);
-    if (!target) return;
+    if (!target) {
+      // Surface the failure so the user can distinguish "search returned no
+      // result" from "search never started" — and so we can see in the logs
+      // exactly which step dropped the result.
+      searchDebug(`search returned no target for "${query}" — showing inline error`);
+      showSearchErrorInWidget(widget, query);
+      return;
+    }
 
-    window.cesiumViewer.camera.flyTo({
+    searchDebug(`calling camera.setView to (${target.longitude}, ${target.latitude}) [DIAGNOSTIC: was flyTo]`);
+    window.cesiumViewer.camera.setView({
       destination: Cesium.Cartesian3.fromDegrees(
         target.longitude,
         target.latitude,
         2500000
-      ),
-      duration: 1.5
+      )
     });
+    searchDebug(`setView dispatched`);
 
     closeSearch();
   });
