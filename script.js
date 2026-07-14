@@ -12,8 +12,18 @@ let COUNTRY_BOUNDARY_DATA_SOURCE = null;
 // flyTo. The cache + visible error feedback + debug log below lets us both
 // diagnose and work around that case.
 const _countrySearchCache = new Map();
+const _countryBoundaryCache = new Map();
 const _searchDebugLog = [];
 const SEARCH_DEBUG_LOG_MAX = 80;
+
+// Synchronous coordinate cache lookup. Skips the await on `searchCountryCoordinates`
+// when the result is already cached — this is the difference between "fly
+// instantly" and "fly after one microtask tick of perceived delay".
+function getCachedCountry(countryName) {
+  const match = findCountryMatch(countryName);
+  if (!match) return null;
+  return _countrySearchCache.get(match.countryName) || null;
+}
 
 function searchDebug(message) {
   const stamped = `[search ${Date.now()}] ${message}`;
@@ -22,6 +32,7 @@ function searchDebug(message) {
   if (typeof window !== "undefined") {
     window._searchDebugLog = _searchDebugLog;
     window._countrySearchCache = _countrySearchCache;
+    window._countryBoundaryCache = _countryBoundaryCache;
   }
   // eslint-disable-next-line no-console
   console.log(stamped);
@@ -530,6 +541,13 @@ window.addEventListener("DOMContentLoaded", () => {
     const camera = window.cesiumViewer.camera;
     clampedZoom(camera, "out", 3000000);
   });
+
+  // Warm the search caches for popular countries + all microstates so the
+  // first child tap on a common country is instant. Runs after init so it
+  // doesn't compete with initial render for the main thread.
+  // CONTINENT_INFO must be loaded before findCountryMatch can resolve keys,
+  // so we wait a tick before kicking the preload off.
+  setTimeout(preloadPopularCountries, 600);
 });
 
 function findContinentMatch(name) {
@@ -561,6 +579,16 @@ function searchContinentCoordinates(name) {
 }
 
 async function loadCountryBoundary(countryName) {
+  // Cache hit — no network, instant return. This is what makes a repeat
+  // search feel instant: coordinates are cached AND the boundary outline is
+  // cached, so the second search for the same country never touches the
+  // network.
+  const cached = _countryBoundaryCache.get(countryName);
+  if (cached) {
+    searchDebug(`  boundary cache hit for "${countryName}"`);
+    return cached;
+  }
+
   try {
     const searchUrl = new URL("https://nominatim.openstreetmap.org/search");
     searchUrl.searchParams.set("format", "jsonv2");
@@ -574,7 +602,11 @@ async function loadCountryBoundary(countryName) {
 
     const res = await fetch(searchUrl.toString());
     const results = await res.json();
-    return results?.[0]?.geojson || null;
+    const geojson = results?.[0]?.geojson || null;
+    if (geojson) {
+      _countryBoundaryCache.set(countryName, geojson);
+    }
+    return geojson;
   } catch (error) {
     console.warn('Boundary fetch error:', error);
     return null;
@@ -738,21 +770,36 @@ function initCountrySearch() {
     }
     isSearching = true;
 
+    const tStart = performance.now();
+    let tSearchResolved = tStart;
+
     try {
       const query = input.value.trim();
       searchDebug(`performCountrySearch, query="${query}", viewer=${!!window.cesiumViewer}`);
       if (!query || !window.cesiumViewer) return;
 
-      let target = await searchCountryCoordinates(query);
-      // Fall back to continent labels (e.g. "Asia", "Europe") so the search
-      // box is useful even when the user types a continent name instead of
-      // a country.
-      if (!target) {
-        target = searchContinentCoordinates(query);
-        if (target) {
-          searchDebug(`  no country match, fell back to continent "${target.name}"`);
+      // SYNC cache lookup first. This is the single biggest win for "the
+      // globe should react immediately": when the user re-searches a country
+      // they've already searched, we never await anything before flyTo.
+      let target = getCachedCountry(query);
+      let cacheHit = !!target;
+      if (target) {
+        searchDebug(`  sync coordinate cache hit`);
+      } else {
+        // Cache miss — must hit Nominatim. Don't await anything else in
+        // parallel; this is the slow path and there's nothing we can do
+        // about it for a brand-new country.
+        target = await searchCountryCoordinates(query);
+        tSearchResolved = performance.now();
+        if (!target) {
+          // Continent fallback (sync, no network).
+          target = searchContinentCoordinates(query);
+          if (target) {
+            searchDebug(`  no country match, fell back to continent "${target.name}"`);
+          }
         }
       }
+
       if (!target) {
         // Surface the failure so the user can distinguish "search returned no
         // result" from "search never started" — and so we can see in the logs
@@ -765,6 +812,7 @@ function initCountrySearch() {
       const destinationHeight = target.height || 2500000;
       const labelText = target.countryName || target.name;
 
+      const tBeforeFly = performance.now();
       searchDebug(`cancelFlight + flyTo(0.5s, easing) to (${target.longitude}, ${target.latitude}, ${destinationHeight})`);
       // Cancel any in-flight flight so a leftover animation (touch inertia,
       // previous search, click handler) can't override this new flight.
@@ -782,11 +830,10 @@ function initCountrySearch() {
         // reliable.
         easingFunction: Cesium.EasingFunction.QUADRATIC_IN_OUT
       });
+      const tAfterFly = performance.now();
       searchDebug(`flyTo dispatched`);
 
-      // Highlight the searched place. Each highlight step is wrapped in its
-      // own try/catch so a render / Cesium error can never prevent the
-      // camera flight or closeSearch() from completing.
+      // Pin + country-name label. Synchronous, no network.
       try {
         showTemporaryMarker(target.latitude, target.longitude, labelText);
       } catch (highlightErr) {
@@ -795,23 +842,43 @@ function initCountrySearch() {
 
       closeSearch();
 
-      // Fetch the country boundary in the BACKGROUND. The camera has
-      // already started flying, so a slow polygon download no longer blocks
-      // the search experience. showCountryBoundary clears any previous
-      // outline first, so only one country is highlighted at a time.
+      // Boundary highlight: sync from cache when possible, otherwise fetch
+      // in the background. Cache hit means the boundary appears at the
+      // exact same instant the camera starts moving (no perceptible delay).
       if (target.kind === "country" && target.countryName) {
-        loadCountryBoundary(target.countryName)
-          .then((geojson) => {
-            if (geojson) {
-              try {
-                showCountryBoundary(geojson, target.countryName);
-              } catch (boundaryErr) {
-                searchDebug(`  showCountryBoundary failed: ${boundaryErr && boundaryErr.message}`);
+        const cachedBoundary = _countryBoundaryCache.get(target.countryName);
+        if (cachedBoundary) {
+          try {
+            showCountryBoundary(cachedBoundary, target.countryName);
+          } catch (boundaryErr) {
+            searchDebug(`  showCountryBoundary failed: ${boundaryErr && boundaryErr.message}`);
+          }
+        } else {
+          // Fire-and-forget background fetch — populates the cache for
+          // next time and draws the outline when it arrives.
+          loadCountryBoundary(target.countryName)
+            .then((geojson) => {
+              if (geojson) {
+                try {
+                  showCountryBoundary(geojson, target.countryName);
+                } catch (boundaryErr) {
+                  searchDebug(`  showCountryBoundary failed: ${boundaryErr && boundaryErr.message}`);
+                }
               }
-            }
-          })
-          .catch(() => { /* boundary is a nice-to-have, ignore failures */ });
+            })
+            .catch(() => { /* boundary is a nice-to-have, ignore failures */ });
+        }
       }
+
+      const tEnd = performance.now();
+      searchDebug(
+        `timings ms — total=${(tEnd - tStart).toFixed(1)}, ` +
+        `search=${(tSearchResolved - tStart).toFixed(1)}, ` +
+        `flyTo=${(tAfterFly - tBeforeFly).toFixed(1)}, ` +
+        `rest=${(tEnd - tAfterFly).toFixed(1)}, ` +
+        `cacheHit=${cacheHit}, ` +
+        `boundaryCacheHit=${target.countryName && _countryBoundaryCache.has(target.countryName)}`
+      );
     } finally {
       isSearching = false;
     }
@@ -848,6 +915,47 @@ function initCountrySearch() {
     if (widget.contains(event.target)) return;
     closeSearch();
   }, true);
+}
+
+// Background pre-loader: warms the coordinate and boundary caches for the
+// countries a child is most likely to search, plus every microstate. Runs
+// once after the page is interactive so the FIRST search for a popular
+// country is also instant (cache hit, zero network requests).
+//
+// Nominatim's policy is ~1 req/sec, so we don't fire everything in parallel —
+// we stagger boundary fetches at ~350ms intervals. Coordinate fetches are
+// small and fast, so we fire them in parallel (the cache is checked first
+// inside searchCountryCoordinates, so re-firing is free).
+function preloadPopularCountries() {
+  const popular = [
+    "United States of America", "United Kingdom", "France", "Germany",
+    "Italy", "Spain", "Japan", "China", "India", "Brazil",
+    "Mexico", "Canada", "Australia", "Russia", "South Korea",
+    "Argentina", "Egypt", "South Africa", "Indonesia", "Turkey"
+  ];
+  const microstateNames = MICROSTATES.map((m) => m.name);
+  const all = Array.from(new Set([...popular, ...microstateNames]));
+
+  searchDebug(`preload: warming caches for ${all.length} countries`);
+
+  // Coordinate fetches in parallel — cheap and the cache guards duplicates.
+  for (const country of all) {
+    searchCountryCoordinates(country).catch(() => { /* ignore preload failures */ });
+  }
+
+  // Boundary fetches staggered so we don't slam Nominatim. Each one also
+  // populates the boundary cache via loadCountryBoundary.
+  all.forEach((country, index) => {
+    setTimeout(() => {
+      loadCountryBoundary(country)
+        .then((geojson) => {
+          if (geojson) {
+            searchDebug(`preload: boundary cached for "${country}"`);
+          }
+        })
+        .catch(() => { /* ignore preload failures */ });
+    }, 800 + index * 350); // 350ms apart, starting 800ms after init
+  });
 }
 
 async function initGlobe() {
