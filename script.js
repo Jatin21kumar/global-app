@@ -511,15 +511,17 @@ function initCountrySearch() {
       return;
     }
 
-    searchDebug(`calling camera.setView to (${target.longitude}, ${target.latitude}) [DIAGNOSTIC: was flyTo]`);
-    window.cesiumViewer.camera.setView({
+    searchDebug(`cancelFlight + flyTo(0.5s) to (${target.longitude}, ${target.latitude}) [DIAGNOSTIC: shorter flight]`);
+    window.cesiumViewer.camera.cancelFlight();
+    window.cesiumViewer.camera.flyTo({
       destination: Cesium.Cartesian3.fromDegrees(
         target.longitude,
         target.latitude,
         2500000
-      )
+      ),
+      duration: 0.5
     });
-    searchDebug(`setView dispatched`);
+    searchDebug(`flyTo dispatched`);
 
     closeSearch();
   });
