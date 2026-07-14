@@ -11,6 +11,17 @@ let COUNTRY_BOUNDARY_DATA_SOURCE = null;
 let _activeSearchAbortController = null;
 let _latestSearchId = 0;
 const _countrySearchCache = new Map();
+const _countryBoundaryCache = new Map();
+
+// Synchronous coordinate cache lookup. Skips the await on
+// searchCountryCoordinates() when the result is already cached — this is the
+// difference between "fly instantly" and "fly after one microtask tick of
+// perceived delay" on repeat searches.
+function getCachedCountry(countryName) {
+  const match = findCountryMatch(countryName);
+  if (!match) return null;
+  return _countrySearchCache.get(match.countryName) || null;
+}
 
 // Use camera distance limits that still allow useful close zoom on laptops/mobile
 // Lowered MIN_ZOOM so users can zoom in closer (meters)
@@ -412,6 +423,15 @@ function searchContinentCoordinates(name) {
 }
 
 async function loadCountryBoundary(countryName) {
+  // Cache hit — no network, instant return. This is what makes a repeat
+  // search feel instant: coordinates are cached AND the boundary outline is
+  // cached, so the second search for the same country never touches the
+  // network.
+  const cachedBoundary = _countryBoundaryCache.get(countryName);
+  if (cachedBoundary) {
+    return cachedBoundary;
+  }
+
   try {
     const searchUrl = new URL("https://nominatim.openstreetmap.org/search");
     searchUrl.searchParams.set("format", "jsonv2");
@@ -427,7 +447,11 @@ async function loadCountryBoundary(countryName) {
 
     const res = await fetch(searchUrl.toString());
     const results = await res.json();
-    return results?.[0]?.geojson || null;
+    const geojson = results?.[0]?.geojson || null;
+    if (geojson) {
+      _countryBoundaryCache.set(countryName, geojson);
+    }
+    return geojson;
   } catch (error) {
     console.warn('Boundary fetch error:', error);
     return null;
@@ -629,15 +653,25 @@ function showTemporaryMarker(lat, lon, labelText) {
     window._cesiumClickMarker.id = markerId;
 
     const start = Date.now();
-    const durationMs = 1800;
+    // Pulse animation duration — the visible "ripple" expands and fades over
+    // this many milliseconds. Kept short so the ripple is a brief flourish,
+    // not a constant distraction.
+    const pulseDurationMs = 1800;
+    // Total marker lifetime — the pin + country-name label stays visible for
+    // this long before being auto-removed. A subsequent search replaces the
+    // marker immediately, so this is just the "linger" time when nothing
+    // else happens.
+    const markerLifetimeMs = 6000;
     const initialSemi = 25000;
     const maxSemi = 90000;
 
     function animatePulse() {
-      const t = (Date.now() - start) / durationMs;
+      const elapsed = Date.now() - start;
+      const t = elapsed / pulseDurationMs;
       if (t >= 1) {
-        viewer.entities.remove(marker);
-        window._cesiumClickMarker.id = null;
+        // Pulse done. Stop animating but keep the marker (pin + label)
+        // visible until markerLifetimeMs passes.
+        viewer.scene.requestRender();
         return;
       }
       const semi = initialSemi + (maxSemi - initialSemi) * t;
@@ -652,6 +686,17 @@ function showTemporaryMarker(lat, lon, labelText) {
     }
 
     requestAnimationFrame(animatePulse);
+
+    // Auto-remove the marker after markerLifetimeMs so the pin + country
+    // name don't linger on screen forever. Only clear the global id if it
+    // still points at OUR marker — a newer search may have already replaced
+    // it, and we don't want to clobber the new id.
+    setTimeout(() => {
+      if (window._cesiumClickMarker.id === markerId) {
+        viewer.entities.removeById(markerId);
+        window._cesiumClickMarker.id = null;
+      }
+    }, markerLifetimeMs);
   } catch (e) {
     console.warn('Failed to create temporary marker:', e);
   }
@@ -684,6 +729,12 @@ window.addEventListener("DOMContentLoaded", () => {
     const camera = window.cesiumViewer.camera;
     clampedZoom(camera, "out", 3000000);
   });
+
+  // Warm the search caches for popular countries + all microstates so the
+  // first child tap on a common country is instant (zero network).
+  // CONTINENT_INFO must be loaded before findCountryMatch can resolve keys,
+  // so we wait a tick before kicking the preload off.
+  setTimeout(preloadPopularCountries, 600);
 });
 
 function showSearchErrorInWidget(widget, query) {
@@ -732,91 +783,154 @@ function initCountrySearch() {
     clearSearchErrorInWidget(widget);
   };
 
+  // Guard against rapid duplicate taps (common on touch devices, especially
+  // for children). Without this, two fast taps would launch two fetches and
+  // two camera flights in parallel, and the second one would cancel the
+  // first via cancelFlight() — leaving the user at a different country than
+  // the one in the (now-cleared) input.
+  let isSearching = false;
+
+  // Single source of truth for "run the country search now". Both the Enter
+  // keydown handler and the toggle-button click handler call this so they
+  // behave identically — pressing Enter on the keyboard and tapping the
+  // search button with a non-empty input both run the same flow.
+  async function performCountrySearch() {
+    if (isSearching) return;
+    isSearching = true;
+
+    try {
+      const query = input.value.trim();
+      if (!query || !window.cesiumViewer) return;
+
+      // SYNC cache lookup first. This is the single biggest win for "the
+      // globe should react immediately": when the user re-searches a country
+      // they've already searched, we never await anything before flyTo.
+      let target = getCachedCountry(query);
+
+      if (!target) {
+        // Cache miss — must hit Nominatim. Cancel any in-flight search so a
+        // slow earlier response can't overwrite this newer search's result.
+        if (_activeSearchAbortController) {
+          _activeSearchAbortController.abort();
+        }
+        const controller = new AbortController();
+        _activeSearchAbortController = controller;
+
+        // Sequence token: even if a stale response slips past the abort,
+        // it won't be applied.
+        const mySearchId = ++_latestSearchId;
+
+        try {
+          target = await searchCountryCoordinates(query, { signal: controller.signal });
+          if (!target && !controller.signal.aborted) {
+            target = searchContinentCoordinates(query);
+          }
+        } catch (error) {
+          if (error.name !== "AbortError") {
+            console.error('Search error:', error);
+          }
+        }
+
+        // A newer search has started or this one was cancelled — drop this result.
+        if (mySearchId !== _latestSearchId || controller.signal.aborted) return;
+      }
+
+      if (!target) {
+        // Keep the widget open with the user's query visible so they can retry,
+        // and surface the failure instead of silently leaving the camera where it was.
+        showSearchErrorInWidget(widget, query);
+        return;
+      }
+
+      const destinationHeight = target.height || 2500000;
+      const labelText = target.countryName || target.name;
+
+      // Cancel any in-progress Cesium flight so a leftover animation from a
+      // recent touch rotation / click can't fight this one. Without this,
+      // a residual flight path can resolve to "zoom at current lat/lon" rather
+      // than the search target — especially on mobile after a touch drag.
+      if (typeof window.cesiumViewer.camera.cancelFlight === "function") {
+        window.cesiumViewer.camera.cancelFlight();
+      }
+
+      window.cesiumViewer.camera.flyTo({
+        destination: Cesium.Cartesian3.fromDegrees(
+          target.longitude,
+          target.latitude,
+          destinationHeight
+        ),
+        // Short, smooth flight: long enough to feel like a deliberate camera
+        // move, short enough that no other flight path (touch inertia, click
+        // handler, next search) can start and override it mid-flight.
+        duration: 0.5,
+        easingFunction: Cesium.EasingFunction.QUADRATIC_IN_OUT
+      });
+
+      // Pin + country-name label. Synchronous, no network.
+      try {
+        showTemporaryMarker(target.latitude, target.longitude, labelText);
+      } catch (highlightErr) {
+        console.warn('showTemporaryMarker failed:', highlightErr);
+      }
+
+      closeSearch();
+
+      // Boundary highlight: sync from cache when possible, otherwise fetch
+      // in the background. Cache hit means the boundary appears at the
+      // exact same instant the camera starts moving (no perceptible delay).
+      if (target.kind === "country" && target.countryName) {
+        const cachedBoundary = _countryBoundaryCache.get(target.countryName);
+        if (cachedBoundary) {
+          try {
+            showCountryBoundary(cachedBoundary, target.countryName);
+          } catch (boundaryErr) {
+            console.warn('showCountryBoundary failed:', boundaryErr);
+          }
+        } else {
+          // Fire-and-forget background fetch — populates the cache for
+          // next time and draws the outline when it arrives.
+          loadCountryBoundary(target.countryName)
+            .then((geojson) => {
+              if (geojson) {
+                try {
+                  showCountryBoundary(geojson, target.countryName);
+                } catch (boundaryErr) {
+                  console.warn('showCountryBoundary failed:', boundaryErr);
+                }
+              }
+            })
+            .catch(() => { /* boundary is a nice-to-have, ignore failures */ });
+        }
+      }
+    } finally {
+      isSearching = false;
+    }
+  }
+
   toggleButton.addEventListener("click", (event) => {
     event.stopPropagation();
 
-    if (widget.classList.contains("open")) {
-      closeSearch();
-    } else {
+    if (!widget.classList.contains("open")) {
+      // Closed → open it.
       openSearch();
-    }
-  });
-
-  input.addEventListener("keydown", async (event) => {
-    if (event.key !== "Enter") return;
-
-    event.preventDefault();
-
-    const query = input.value.trim();
-    if (!query || !window.cesiumViewer) return;
-
-    // Cancel any in-flight search so a slow earlier response can't overwrite
-    // the camera position when this newer search resolves first.
-    if (_activeSearchAbortController) {
-      _activeSearchAbortController.abort();
-    }
-    const controller = new AbortController();
-    _activeSearchAbortController = controller;
-
-    // Sequence token: even if a stale response slips past the abort (e.g.
-    // abort races with a just-resolved response), it won't be applied.
-    const mySearchId = ++_latestSearchId;
-
-    let target = null;
-    try {
-      target = await searchCountryCoordinates(query, { signal: controller.signal });
-      if (!target && !controller.signal.aborted) {
-        target = searchContinentCoordinates(query);
-      }
-    } catch (error) {
-      if (error.name !== "AbortError") {
-        console.error('Search error:', error);
-      }
-    }
-
-    // A newer search has started or this one was cancelled — drop this result.
-    if (mySearchId !== _latestSearchId || controller.signal.aborted) return;
-
-    if (!target) {
-      // Keep the widget open with the user's query visible so they can retry,
-      // and surface the failure instead of silently leaving the camera where it was.
-      showSearchErrorInWidget(widget, query);
       return;
     }
 
-    // Cancel any in-progress Cesium flight so a leftover animation from a
-    // recent touch rotation / click can't fight this one. Without this,
-    // a residual flight path can resolve to "zoom at current lat/lon" rather
-    // than the search target — especially on mobile after a touch drag.
-    if (typeof window.cesiumViewer.camera.cancelFlight === "function") {
-      window.cesiumViewer.camera.cancelFlight();
+    // Widget already open:
+    //   - non-empty input  → perform the search (same as pressing Enter)
+    //   - empty input      → just close the widget
+    const query = input.value.trim();
+    if (query) {
+      performCountrySearch();
+    } else {
+      closeSearch();
     }
+  });
 
-    window.cesiumViewer.camera.flyTo({
-      destination: Cesium.Cartesian3.fromDegrees(
-        target.longitude,
-        target.latitude,
-        target.height || 2500000
-      ),
-      duration: 1.5
-    });
-
-    // Brief visual highlight so the searched place is easy to spot
-    showTemporaryMarker(target.latitude, target.longitude, target.countryName || target.name);
-
-    closeSearch();
-
-    // Fetch the boundary outline in the BACKGROUND after the camera has
-    // already started flying. Doing this inline used to block flyTo on a
-    // slow polygon download from Nominatim on mobile networks, which is
-    // exactly the bug that broke search on phones.
-    if (target.kind === "country" && target.countryName) {
-      loadCountryBoundary(target.countryName)
-        .then((geojson) => {
-          if (geojson) showCountryBoundary(geojson, target.countryName);
-        })
-        .catch(() => { /* boundary is a nice-to-have, ignore failures */ });
-    }
+  input.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter") return;
+    event.preventDefault();
+    performCountrySearch();
   });
 
   document.addEventListener("pointerdown", (event) => {
@@ -824,6 +938,37 @@ function initCountrySearch() {
     if (widget.contains(event.target)) return;
     closeSearch();
   }, true);
+}
+
+// Background pre-loader: warms the coordinate and boundary caches for the
+// countries a child is most likely to search, plus every microstate. Runs
+// once after the page is interactive so the FIRST search for a popular
+// country is also instant (cache hit, zero network requests).
+//
+// Nominatim's policy is ~1 req/sec, so we don't fire everything in parallel —
+// we stagger boundary fetches at ~350ms intervals. Coordinate fetches are
+// cheap and the cache guards duplicates, so they fire in parallel.
+function preloadPopularCountries() {
+  const popular = [
+    "United States of America", "United Kingdom", "France", "Germany",
+    "Italy", "Spain", "Japan", "China", "India", "Brazil",
+    "Mexico", "Canada", "Australia", "Russia", "South Korea",
+    "Argentina", "Egypt", "South Africa", "Indonesia", "Turkey"
+  ];
+  const microstateNames = MICROSTATES.map((m) => m.name);
+  const all = Array.from(new Set([...popular, ...microstateNames]));
+
+  // Coordinate fetches in parallel — cheap, and the cache guards duplicates.
+  for (const country of all) {
+    searchCountryCoordinates(country).catch(() => { /* ignore preload failures */ });
+  }
+
+  // Boundary fetches staggered so we don't slam Nominatim.
+  all.forEach((country, index) => {
+    setTimeout(() => {
+      loadCountryBoundary(country).catch(() => { /* ignore preload failures */ });
+    }, 800 + index * 350); // 350ms apart, starting 800ms after init
+  });
 }
 
 async function initGlobe() {
