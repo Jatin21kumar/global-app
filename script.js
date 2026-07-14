@@ -2,6 +2,7 @@ let STATE_INFO = {};
 let CONTINENT_INFO = {};
 let COUNTRY_IMAGE_MANIFEST = {};
 let isCardOpen = false;
+let COUNTRY_BOUNDARY_DATA_SOURCE = null;
 
 // --- Search diagnostics & cache ---
 // The search bug is "after several searches, the camera stops moving with no
@@ -56,6 +57,67 @@ const CONTINENT_LABELS = [
   { text: "Australia", lon: 135, lat: -25 },
   { text: "Antarctica", lon: 0, lat: -82 }
 ];
+
+// Common alternate names that users may type when searching. Maps the alias to
+// the exact country name used as a key in CONTINENT_INFO.
+const COUNTRY_ALIASES = {
+  "US": "United States of America",
+  "USA": "United States of America",
+  "United States": "United States of America",
+  "UK": "United Kingdom",
+  "Great Britain": "United Kingdom",
+  "Bosnia": "Bosnia and Herzegovina",
+  "Bosnia-Herzegovina": "Bosnia and Herzegovina",
+  "Czechia": "Czech Republic",
+  "Congo-Brazzaville": "Republic of Congo",
+  "Congo Brazzaville": "Republic of Congo",
+  "Congo-Kinshasa": "Democratic Republic of Congo",
+  "Congo Kinshasa": "Democratic Republic of Congo",
+  "DRC": "Democratic Republic of Congo",
+  "Cote d'Ivoire": "Ivory Coast",
+  "Côte d'Ivoire": "Ivory Coast",
+  "Sao Tome and Principe": "São Tomé and Príncipe",
+  "Timor-Leste": "East Timor",
+  "Türkiye": "Turkey",
+  "United Arab Emirates": "UAE",
+  "Trinidad & Tobago": "Trinidad and Tobago"
+};
+
+// Tiny countries / city-states that are easily misidentified by reverse
+// geocoding when the user clicks on them from a zoomed-out globe, AND that
+// users may type directly into search. Each entry has an approximate center
+// and a catchment radius in kilometres. Singapore, Luxembourg and Malta are
+// larger than the classic microstates but are still small enough that
+// Nominatim sometimes returns a neighbouring country for a click near the
+// border.
+const MICROSTATES = [
+  { name: "Monaco", code: "MC", lat: 43.7384, lon: 7.4246, radiusKm: 3.5 },
+  { name: "Vatican City", code: "VA", lat: 41.9029, lon: 12.4534, radiusKm: 1.5 },
+  { name: "San Marino", code: "SM", lat: 43.9424, lon: 12.4578, radiusKm: 6 },
+  { name: "Liechtenstein", code: "LI", lat: 47.166, lon: 9.555, radiusKm: 9 },
+  { name: "Andorra", code: "AD", lat: 42.5063, lon: 1.5218, radiusKm: 11 },
+  { name: "Singapore", code: "SG", lat: 1.3521, lon: 103.8198, radiusKm: 8 },
+  { name: "Luxembourg", code: "LU", lat: 49.6116, lon: 6.1319, radiusKm: 15 },
+  { name: "Malta", code: "MT", lat: 35.9375, lon: 14.3754, radiusKm: 10 }
+];
+
+function haversineKm(lat1, lon1, lat2, lon2) {
+  const R = 6371;
+  const toRad = deg => deg * Math.PI / 180;
+  const dLat = toRad(lat2 - lat1);
+  const dLon = toRad(lon2 - lon1);
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+    Math.sin(dLon / 2) ** 2;
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+}
+
+function resolveMicrostate(lat, lon, fallbackCountry) {
+  const match = MICROSTATES.find(m => haversineKm(lat, lon, m.lat, m.lon) <= m.radiusKm);
+  return match ? match.name : fallbackCountry;
+}
 
 fetch('data/indian_states_data.json')
   .then(res => res.json())
@@ -235,14 +297,22 @@ async function loadCountryImages(continentName, countryName) {
 }
 
 function findCountryMatch(countryName) {
-  const normalizedCountry = normalizeName(countryName);
+  // Resolve common aliases (e.g. "USA" → "United States of America") so users
+  // can search with either the official name or a popular alternate name.
+  const aliasTarget = Object.entries(COUNTRY_ALIASES).find(([alias]) =>
+    normalizeName(alias) === normalizeName(countryName)
+  )?.[1];
+  const effectiveName = aliasTarget || countryName;
+
+  const normalizedCountry = normalizeName(effectiveName);
 
   if (!normalizedCountry) return null;
 
   for (const [continentName, continentData] of Object.entries(CONTINENT_INFO)) {
     const matchedCountryKey = Object.keys(continentData).find((key) => {
       const normalizedKey = normalizeName(key);
-      return normalizedKey === normalizedCountry || normalizedKey.includes(normalizedCountry) || normalizedCountry.includes(normalizedKey);
+      // Exact match only — avoids false positives like "OMAN" matching "ROMANIA".
+      return normalizedKey === normalizedCountry;
     });
 
     if (matchedCountryKey) {
@@ -300,6 +370,7 @@ async function searchCountryCoordinates(countryName) {
     }
 
     const result = {
+      kind: "country",
       latitude: Number(place.lat),
       longitude: Number(place.lon),
       countryName: countryMatch.countryName
@@ -461,6 +532,172 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+function findContinentMatch(name) {
+  const normalized = normalizeName(name);
+  if (!normalized) return null;
+
+  return Object.keys(CONTINENT_INFO).find((key) =>
+    normalizeName(key) === normalized
+  ) || null;
+}
+
+function searchContinentCoordinates(name) {
+  const continentName = findContinentMatch(name);
+  if (!continentName) return null;
+
+  const label = CONTINENT_LABELS.find((c) =>
+    normalizeName(c.text) === normalizeName(continentName)
+  );
+
+  if (!label) return null;
+
+  return {
+    kind: "continent",
+    latitude: label.lat,
+    longitude: label.lon,
+    name: label.text,
+    height: 10000000
+  };
+}
+
+async function loadCountryBoundary(countryName) {
+  try {
+    const searchUrl = new URL("https://nominatim.openstreetmap.org/search");
+    searchUrl.searchParams.set("format", "jsonv2");
+    searchUrl.searchParams.set("limit", "1");
+    searchUrl.searchParams.set("accept-language", "en");
+    // High-detail polygon: the fetch happens in the background after the
+    // camera has already flown, so the response size doesn't block search.
+    searchUrl.searchParams.set("polygon_geojson", "1");
+    searchUrl.searchParams.set("polygon_threshold", "0.05");
+    searchUrl.searchParams.set("q", countryName);
+
+    const res = await fetch(searchUrl.toString());
+    const results = await res.json();
+    return results?.[0]?.geojson || null;
+  } catch (error) {
+    console.warn('Boundary fetch error:', error);
+    return null;
+  }
+}
+
+function clearCountryBoundary() {
+  const viewer = window.cesiumViewer;
+  if (!viewer || !COUNTRY_BOUNDARY_DATA_SOURCE) return;
+  viewer.dataSources.remove(COUNTRY_BOUNDARY_DATA_SOURCE);
+  COUNTRY_BOUNDARY_DATA_SOURCE = null;
+}
+
+async function showCountryBoundary(geojson, name) {
+  const viewer = window.cesiumViewer;
+  if (!viewer || !geojson) return;
+
+  // Always clear the previous highlight first so only one country is outlined
+  // at a time. This avoids duplicate entity accumulation on rapid searches.
+  clearCountryBoundary();
+
+  try {
+    const dataSource = await Cesium.GeoJsonDataSource.load(geojson, {
+      stroke: Cesium.Color.ORANGE,
+      fill: Cesium.Color.ORANGE.withAlpha(0.12),
+      strokeWidth: 3,
+      clampToGround: true
+    });
+
+    // Hide GeoJsonDataSource's default per-feature labels so only our pin
+    // label shows the country name.
+    dataSource.entities.values.forEach((entity) => {
+      if (entity.label) entity.label.show = false;
+      if (entity.billboard) entity.billboard.show = false;
+    });
+
+    COUNTRY_BOUNDARY_DATA_SOURCE = dataSource;
+    viewer.dataSources.add(dataSource);
+  } catch (error) {
+    console.warn('Failed to show country boundary:', error);
+  }
+}
+
+function showTemporaryMarker(lat, lon, labelText) {
+  const viewer = window.cesiumViewer;
+  if (!viewer) return;
+
+  if (!window._cesiumClickMarker) window._cesiumClickMarker = { id: null };
+
+  try {
+    // Remove the previous pin so only one is visible at a time. We track the
+    // id explicitly so an in-flight pulse animation from the previous marker
+    // can't accidentally clear our new marker's id (the animation also clears
+    // the id when it ends — see below — so we keep that contract).
+    if (window._cesiumClickMarker.id) {
+      viewer.entities.removeById(window._cesiumClickMarker.id);
+      window._cesiumClickMarker.id = null;
+    }
+
+    const markerId = `search-marker-${Date.now()}`;
+    const position = Cesium.Cartesian3.fromDegrees(lon, lat, 0);
+
+    const marker = viewer.entities.add({
+      id: markerId,
+      position: position,
+      billboard: {
+        image: 'images/pin.png',
+        verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+        scale: 0.8,
+        pixelOffset: new Cesium.Cartesian2(0, -8)
+      },
+      label: {
+        text: labelText || `${lat.toFixed(4)}, ${lon.toFixed(4)}`,
+        font: '14px sans-serif',
+        fillColor: Cesium.Color.WHITE,
+        style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+        outlineColor: Cesium.Color.BLACK,
+        outlineWidth: 2,
+        pixelOffset: new Cesium.Cartesian2(0, -36)
+      },
+      ellipse: {
+        semiMajorAxis: 25000,
+        semiMinorAxis: 25000,
+        material: Cesium.Color.WHITE.withAlpha(0.12),
+        height: 0
+      }
+    });
+
+    window._cesiumClickMarker.id = markerId;
+
+    const start = Date.now();
+    const durationMs = 1800;
+    const initialSemi = 25000;
+    const maxSemi = 90000;
+
+    function animatePulse() {
+      const t = (Date.now() - start) / durationMs;
+      if (t >= 1) {
+        viewer.entities.remove(marker);
+        // Only clear the global id if it still points at OUR marker — a newer
+        // search may have already replaced it.
+        if (window._cesiumClickMarker.id === markerId) {
+          window._cesiumClickMarker.id = null;
+        }
+        return;
+      }
+      const semi = initialSemi + (maxSemi - initialSemi) * t;
+      const alpha = 0.12 * (1 - t);
+      if (marker && marker.ellipse) {
+        marker.ellipse.semiMajorAxis = semi;
+        marker.ellipse.semiMinorAxis = semi;
+        marker.ellipse.material = Cesium.Color.WHITE.withAlpha(alpha);
+      }
+      viewer.scene.requestRender();
+      requestAnimationFrame(animatePulse);
+    }
+
+    requestAnimationFrame(animatePulse);
+  } catch (e) {
+    console.warn('Failed to create temporary marker:', e);
+  }
+}
+
 function initCountrySearch() {
   const widget = document.getElementById("countrySearchWidget");
   const toggleButton = document.getElementById("countrySearchToggle");
@@ -506,7 +743,16 @@ function initCountrySearch() {
       searchDebug(`performCountrySearch, query="${query}", viewer=${!!window.cesiumViewer}`);
       if (!query || !window.cesiumViewer) return;
 
-      const target = await searchCountryCoordinates(query);
+      let target = await searchCountryCoordinates(query);
+      // Fall back to continent labels (e.g. "Asia", "Europe") so the search
+      // box is useful even when the user types a continent name instead of
+      // a country.
+      if (!target) {
+        target = searchContinentCoordinates(query);
+        if (target) {
+          searchDebug(`  no country match, fell back to continent "${target.name}"`);
+        }
+      }
       if (!target) {
         // Surface the failure so the user can distinguish "search returned no
         // result" from "search never started" — and so we can see in the logs
@@ -516,19 +762,56 @@ function initCountrySearch() {
         return;
       }
 
-      searchDebug(`cancelFlight + flyTo(0.5s) to (${target.longitude}, ${target.latitude})`);
+      const destinationHeight = target.height || 2500000;
+      const labelText = target.countryName || target.name;
+
+      searchDebug(`cancelFlight + flyTo(0.5s, easing) to (${target.longitude}, ${target.latitude}, ${destinationHeight})`);
+      // Cancel any in-flight flight so a leftover animation (touch inertia,
+      // previous search, click handler) can't override this new flight.
       window.cesiumViewer.camera.cancelFlight();
       window.cesiumViewer.camera.flyTo({
         destination: Cesium.Cartesian3.fromDegrees(
           target.longitude,
           target.latitude,
-          2500000
+          destinationHeight
         ),
-        duration: 0.5
+        duration: 0.5,
+        // Smooth ease-in-out so the camera accelerates gently and decelerates
+        // into the target rather than snapping at the end — keeps the flight
+        // feeling premium on mobile while still being short enough to be
+        // reliable.
+        easingFunction: Cesium.EasingFunction.QUADRATIC_IN_OUT
       });
       searchDebug(`flyTo dispatched`);
 
+      // Highlight the searched place. Each highlight step is wrapped in its
+      // own try/catch so a render / Cesium error can never prevent the
+      // camera flight or closeSearch() from completing.
+      try {
+        showTemporaryMarker(target.latitude, target.longitude, labelText);
+      } catch (highlightErr) {
+        searchDebug(`  showTemporaryMarker failed: ${highlightErr && highlightErr.message}`);
+      }
+
       closeSearch();
+
+      // Fetch the country boundary in the BACKGROUND. The camera has
+      // already started flying, so a slow polygon download no longer blocks
+      // the search experience. showCountryBoundary clears any previous
+      // outline first, so only one country is highlighted at a time.
+      if (target.kind === "country" && target.countryName) {
+        loadCountryBoundary(target.countryName)
+          .then((geojson) => {
+            if (geojson) {
+              try {
+                showCountryBoundary(geojson, target.countryName);
+              } catch (boundaryErr) {
+                searchDebug(`  showCountryBoundary failed: ${boundaryErr && boundaryErr.message}`);
+              }
+            }
+          })
+          .catch(() => { /* boundary is a nice-to-have, ignore failures */ });
+      }
     } finally {
       isSearching = false;
     }
