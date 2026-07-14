@@ -729,12 +729,6 @@ window.addEventListener("DOMContentLoaded", () => {
     const camera = window.cesiumViewer.camera;
     clampedZoom(camera, "out", 3000000);
   });
-
-  // Warm the search caches for popular countries + all microstates so the
-  // first child tap on a common country is instant (zero network).
-  // CONTINENT_INFO must be loaded before findCountryMatch can resolve keys,
-  // so we wait a tick before kicking the preload off.
-  setTimeout(preloadPopularCountries, 600);
 });
 
 function showSearchErrorInWidget(widget, query) {
@@ -859,10 +853,10 @@ function initCountrySearch() {
           target.latitude,
           destinationHeight
         ),
-        // Short, smooth flight: long enough to feel like a deliberate camera
-        // move, short enough that no other flight path (touch inertia, click
-        // handler, next search) can start and override it mid-flight.
-        duration: 0.5,
+        // Longer, smooth flight — the previous 0.5s felt like a snap on
+        // mobile. 1.5s with quadratic ease-in-out gives a deliberate
+        // "travel to" feel without the user having to wait.
+        duration: 1.5,
         easingFunction: Cesium.EasingFunction.QUADRATIC_IN_OUT
       });
 
@@ -940,36 +934,11 @@ function initCountrySearch() {
   }, true);
 }
 
-// Background pre-loader: warms the coordinate and boundary caches for the
-// countries a child is most likely to search, plus every microstate. Runs
-// once after the page is interactive so the FIRST search for a popular
-// country is also instant (cache hit, zero network requests).
-//
-// Nominatim's policy is ~1 req/sec, so we don't fire everything in parallel —
-// we stagger boundary fetches at ~350ms intervals. Coordinate fetches are
-// cheap and the cache guards duplicates, so they fire in parallel.
-function preloadPopularCountries() {
-  const popular = [
-    "United States of America", "United Kingdom", "France", "Germany",
-    "Italy", "Spain", "Japan", "China", "India", "Brazil",
-    "Mexico", "Canada", "Australia", "Russia", "South Korea",
-    "Argentina", "Egypt", "South Africa", "Indonesia", "Turkey"
-  ];
-  const microstateNames = MICROSTATES.map((m) => m.name);
-  const all = Array.from(new Set([...popular, ...microstateNames]));
-
-  // Coordinate fetches in parallel — cheap, and the cache guards duplicates.
-  for (const country of all) {
-    searchCountryCoordinates(country).catch(() => { /* ignore preload failures */ });
-  }
-
-  // Boundary fetches staggered so we don't slam Nominatim.
-  all.forEach((country, index) => {
-    setTimeout(() => {
-      loadCountryBoundary(country).catch(() => { /* ignore preload failures */ });
-    }, 800 + index * 350); // 350ms apart, starting 800ms after init
-  });
-}
+// Background pre-loader intentionally not implemented: pre-fetching dozens of
+// countries at startup violates Nominatim's usage policy (rate limit + CORS),
+// causing 429s and failed requests that hurt the very users the preloader was
+// meant to help. The first search for any country takes the normal Nominatim
+// path; subsequent searches hit the in-memory cache.
 
 async function initGlobe() {
   const viewer = new Cesium.Viewer("cesiumContainer", {
