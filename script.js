@@ -741,12 +741,20 @@ function showSearchErrorInWidget(widget, query) {
     errorEl.setAttribute("role", "alert");
     widget.appendChild(errorEl);
   }
+  // Restore visibility in case the element was hidden by a previous
+  // clearSearchErrorInWidget() call.
+  errorEl.style.display = "";
   errorEl.textContent = `Couldn't find "${query}". Check spelling or try again in a moment.`;
 }
 
 function clearSearchErrorInWidget(widget) {
   const errorEl = widget.querySelector(".search-error-message");
-  if (errorEl) errorEl.textContent = "";
+  if (errorEl) {
+    errorEl.textContent = "";
+    // Hide the element entirely — otherwise its CSS padding/border/background
+    // leaves a visible empty box on the page even when the text is empty.
+    errorEl.style.display = "none";
+  }
 }
 
 function initCountrySearch() {
