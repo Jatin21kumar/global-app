@@ -482,48 +482,82 @@ function initCountrySearch() {
     clearSearchErrorInWidget(widget);
   };
 
+  // Guard against rapid duplicate taps (common on touch devices, especially
+  // for children). Without this, two fast taps would launch two fetches and
+  // two camera flights in parallel, and the second one would cancel the
+  // first via cancelFlight() — leaving the user at a different country than
+  // the one in the (now-cleared) input.
+  let isSearching = false;
+
+  // Single source of truth for "run the country search now". Both the Enter
+  // keydown handler and the toggle-button click handler call this so they
+  // behave identically (previously only Enter triggered a real search — a
+  // second tap on the toggle button while the widget was open just closed
+  // it, even if the user had typed a query).
+  async function performCountrySearch() {
+    if (isSearching) {
+      searchDebug(`performCountrySearch ignored: already searching`);
+      return;
+    }
+    isSearching = true;
+
+    try {
+      const query = input.value.trim();
+      searchDebug(`performCountrySearch, query="${query}", viewer=${!!window.cesiumViewer}`);
+      if (!query || !window.cesiumViewer) return;
+
+      const target = await searchCountryCoordinates(query);
+      if (!target) {
+        // Surface the failure so the user can distinguish "search returned no
+        // result" from "search never started" — and so we can see in the logs
+        // exactly which step dropped the result.
+        searchDebug(`search returned no target for "${query}" — showing inline error`);
+        showSearchErrorInWidget(widget, query);
+        return;
+      }
+
+      searchDebug(`cancelFlight + flyTo(0.5s) to (${target.longitude}, ${target.latitude})`);
+      window.cesiumViewer.camera.cancelFlight();
+      window.cesiumViewer.camera.flyTo({
+        destination: Cesium.Cartesian3.fromDegrees(
+          target.longitude,
+          target.latitude,
+          2500000
+        ),
+        duration: 0.5
+      });
+      searchDebug(`flyTo dispatched`);
+
+      closeSearch();
+    } finally {
+      isSearching = false;
+    }
+  }
+
   toggleButton.addEventListener("click", (event) => {
     event.stopPropagation();
 
-    if (widget.classList.contains("open")) {
-      closeSearch();
-    } else {
+    if (!widget.classList.contains("open")) {
+      // Closed → open it.
       openSearch();
-    }
-  });
-
-  input.addEventListener("keydown", async (event) => {
-    if (event.key !== "Enter") return;
-
-    event.preventDefault();
-
-    const query = input.value.trim();
-    searchDebug(`Enter pressed, query="${query}", viewer=${!!window.cesiumViewer}`);
-    if (!query || !window.cesiumViewer) return;
-
-    const target = await searchCountryCoordinates(query);
-    if (!target) {
-      // Surface the failure so the user can distinguish "search returned no
-      // result" from "search never started" — and so we can see in the logs
-      // exactly which step dropped the result.
-      searchDebug(`search returned no target for "${query}" — showing inline error`);
-      showSearchErrorInWidget(widget, query);
       return;
     }
 
-    searchDebug(`cancelFlight + flyTo(0.5s) to (${target.longitude}, ${target.latitude}) [DIAGNOSTIC: shorter flight]`);
-    window.cesiumViewer.camera.cancelFlight();
-    window.cesiumViewer.camera.flyTo({
-      destination: Cesium.Cartesian3.fromDegrees(
-        target.longitude,
-        target.latitude,
-        2500000
-      ),
-      duration: 0.5
-    });
-    searchDebug(`flyTo dispatched`);
+    // Widget already open:
+    //   - non-empty input  → perform the search (same as pressing Enter)
+    //   - empty input      → just close the widget
+    const query = input.value.trim();
+    if (query) {
+      performCountrySearch();
+    } else {
+      closeSearch();
+    }
+  });
 
-    closeSearch();
+  input.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter") return;
+    event.preventDefault();
+    performCountrySearch();
   });
 
   document.addEventListener("pointerdown", (event) => {
