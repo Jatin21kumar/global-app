@@ -891,6 +891,26 @@ function initCountrySearch() {
       // they've already searched, we never await anything before flyTo.
       let target = getCachedCountry(query);
 
+      // Kick off the boundary (polygon) download as early as possible.
+      // findCountryMatch / findStateMatch are synchronous, so we can start
+      // the polygon fetch in parallel with the (slow) coordinate round-trip
+      // to Nominatim. That gives the highlight a head start equal to the
+      // entire coordinate fetch + camera flight, so it appears right when
+      // the camera arrives instead of seconds after.
+      let earlyBoundaryPromise = null;
+      let earlyBoundaryKey = null;
+      {
+        const cm = findCountryMatch(query);
+        const sm = findStateMatch(query);
+        if (cm && !_countryBoundaryCache.has(cm.countryName)) {
+          earlyBoundaryKey = { kind: "country", name: cm.countryName };
+          earlyBoundaryPromise = loadCountryBoundary(cm.countryName).catch(() => null);
+        } else if (sm && !_stateBoundaryCache.has(sm)) {
+          earlyBoundaryKey = { kind: "state", name: sm };
+          earlyBoundaryPromise = loadStateBoundary(sm).catch(() => null);
+        }
+      }
+
       if (!target) {
         // Cache miss — must hit Nominatim. Cancel any in-flight search so a
         // slow earlier response can't overwrite this newer search's result.
@@ -962,40 +982,47 @@ function initCountrySearch() {
 
       closeSearch();
 
-      // Boundary highlight: sync from cache when possible, otherwise fetch
-      // in the background. Cache hit means the boundary appears at the
-      // exact same instant the camera starts moving (no perceptible delay).
+      // Boundary highlight: prefer cache (instant), then the early promise
+      // that's been downloading in parallel since before flyTo, then a
+      // fresh fetch as a last resort. With the early-promise path the
+      // polygon arrives at the same moment the camera does, not seconds
+      // after — which is the whole point of starting it in parallel.
+      const drawBoundary = (geojson, key) => {
+        if (!geojson) return;
+        try {
+          showCountryBoundary(geojson, key);
+        } catch (boundaryErr) {
+          console.warn('showCountryBoundary failed:', boundaryErr);
+        }
+      };
+
       if (target.kind === "country" && target.countryName) {
         const cachedBoundary = _countryBoundaryCache.get(target.countryName);
         if (cachedBoundary) {
-          try {
-            showCountryBoundary(cachedBoundary, target.countryName);
-          } catch (boundaryErr) {
-            console.warn('showCountryBoundary failed:', boundaryErr);
-          }
+          drawBoundary(cachedBoundary, target.countryName);
+        } else if (
+          earlyBoundaryPromise &&
+          earlyBoundaryKey &&
+          earlyBoundaryKey.kind === "country" &&
+          earlyBoundaryKey.name === target.countryName
+        ) {
+          earlyBoundaryPromise.then((geojson) => drawBoundary(geojson, target.countryName));
         } else {
-          // Fire-and-forget background fetch — populates the cache for
-          // next time and draws the outline when it arrives.
           loadCountryBoundary(target.countryName)
-            .then((geojson) => {
-              if (geojson) {
-                try {
-                  showCountryBoundary(geojson, target.countryName);
-                } catch (boundaryErr) {
-                  console.warn('showCountryBoundary failed:', boundaryErr);
-                }
-              }
-            })
+            .then((geojson) => drawBoundary(geojson, target.countryName))
             .catch(() => { /* boundary is a nice-to-have, ignore failures */ });
         }
       } else if (target.kind === "state" && target.stateName) {
         const cachedBoundary = _stateBoundaryCache.get(target.stateName);
         if (cachedBoundary) {
-          try {
-            showCountryBoundary(cachedBoundary, target.stateName);
-          } catch (boundaryErr) {
-            console.warn('showCountryBoundary failed:', boundaryErr);
-          }
+          drawBoundary(cachedBoundary, target.stateName);
+        } else if (
+          earlyBoundaryPromise &&
+          earlyBoundaryKey &&
+          earlyBoundaryKey.kind === "state" &&
+          earlyBoundaryKey.name === target.stateName
+        ) {
+          earlyBoundaryPromise.then((geojson) => drawBoundary(geojson, target.stateName));
         } else {
           loadStateBoundary(target.stateName)
             .then((geojson) => {
