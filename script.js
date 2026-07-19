@@ -12,6 +12,8 @@ let _activeSearchAbortController = null;
 let _latestSearchId = 0;
 const _countrySearchCache = new Map();
 const _countryBoundaryCache = new Map();
+const _stateSearchCache = new Map();
+const _stateBoundaryCache = new Map();
 
 // Synchronous coordinate cache lookup. Skips the await on
 // searchCountryCoordinates() when the result is already cached — this is the
@@ -438,11 +440,11 @@ async function loadCountryBoundary(countryName) {
     searchUrl.searchParams.set("limit", "1");
     searchUrl.searchParams.set("accept-language", "en");
     searchUrl.searchParams.set("polygon_geojson", "1");
-    // Aggressive simplification: the response drops from megabytes to tens
-    // of KB, which makes the outline fetch finish in ~1s on mobile networks
-    // instead of timing out. The visual outline is still clearly the right
-    // country — only redundant interior vertices are removed.
-    searchUrl.searchParams.set("polygon_threshold", "1.0");
+    // Keep the full boundary curve detail (no polygon_threshold). Earlier
+    // versions simplified with threshold=1.0 to shrink the response on mobile
+    // networks, but that visibly straightened coastlines and state borders,
+    // making the highlight not match the real outline. Full detail is what
+    // the user expects when "highlight the boundary".
     searchUrl.searchParams.set("q", countryName);
 
     const res = await fetch(searchUrl.toString());
@@ -502,6 +504,86 @@ function findStateMatch(stateName) {
     // Use exact match only to avoid false matches with substring collisions
     return normalizedKey === normalizedState;
   }) || null;
+}
+
+async function searchStateCoordinates(stateName, { signal } = {}) {
+  const stateMatch = findStateMatch(stateName);
+  if (!stateMatch) {
+    return null;
+  }
+
+  const cacheKey = stateMatch.toLowerCase();
+  const cached = _stateSearchCache.get(cacheKey);
+  if (cached) {
+    return cached;
+  }
+
+  try {
+    const searchUrl = new URL("https://nominatim.openstreetmap.org/search");
+    searchUrl.searchParams.set("format", "jsonv2");
+    searchUrl.searchParams.set("limit", "1");
+    searchUrl.searchParams.set("accept-language", "en");
+    searchUrl.searchParams.set("q", `${stateMatch}, India`);
+
+    const res = await fetch(searchUrl.toString(), { signal });
+    if (!res.ok) {
+      console.warn(`Nominatim state search returned HTTP ${res.status} for "${stateMatch}"`);
+      return null;
+    }
+    const results = await res.json();
+
+    const place = results?.[0];
+
+    if (!place) {
+      return null;
+    }
+
+    const result = {
+      kind: "state",
+      latitude: Number(place.lat),
+      longitude: Number(place.lon),
+      stateName: stateMatch,
+      height: 1000000
+    };
+    _stateSearchCache.set(cacheKey, result);
+    return result;
+  } catch (error) {
+    if (error.name === "AbortError") {
+      throw error;
+    }
+    console.error('State search error:', error);
+    return null;
+  }
+}
+
+async function loadStateBoundary(stateName) {
+  const cachedBoundary = _stateBoundaryCache.get(stateName);
+  if (cachedBoundary) {
+    return cachedBoundary;
+  }
+
+  try {
+    const searchUrl = new URL("https://nominatim.openstreetmap.org/search");
+    searchUrl.searchParams.set("format", "jsonv2");
+    searchUrl.searchParams.set("limit", "1");
+    searchUrl.searchParams.set("accept-language", "en");
+    searchUrl.searchParams.set("polygon_geojson", "1");
+    // No polygon_threshold — preserve the actual state boundary curve detail.
+    // Simplified polygons made the highlight look like a rough approximation
+    // instead of the real outline.
+    searchUrl.searchParams.set("q", `${stateName}, India`);
+
+    const res = await fetch(searchUrl.toString());
+    const results = await res.json();
+    const geojson = results?.[0]?.geojson || null;
+    if (geojson) {
+      _stateBoundaryCache.set(stateName, geojson);
+    }
+    return geojson;
+  } catch (error) {
+    console.warn('State boundary fetch error:', error);
+    return null;
+  }
 }
 
 function renderContentValue(content, renderImageAlt) {
@@ -827,6 +909,9 @@ function initCountrySearch() {
           if (!target && !controller.signal.aborted) {
             target = searchContinentCoordinates(query);
           }
+          if (!target && !controller.signal.aborted) {
+            target = await searchStateCoordinates(query, { signal: controller.signal });
+          }
         } catch (error) {
           if (error.name !== "AbortError") {
             console.error('Search error:', error);
@@ -845,7 +930,7 @@ function initCountrySearch() {
       }
 
       const destinationHeight = target.height || 2500000;
-      const labelText = target.countryName || target.name;
+      const labelText = target.countryName || target.stateName || target.name;
 
       // Cancel any in-progress Cesium flight so a leftover animation from a
       // recent touch rotation / click can't fight this one. Without this,
@@ -896,6 +981,27 @@ function initCountrySearch() {
               if (geojson) {
                 try {
                   showCountryBoundary(geojson, target.countryName);
+                } catch (boundaryErr) {
+                  console.warn('showCountryBoundary failed:', boundaryErr);
+                }
+              }
+            })
+            .catch(() => { /* boundary is a nice-to-have, ignore failures */ });
+        }
+      } else if (target.kind === "state" && target.stateName) {
+        const cachedBoundary = _stateBoundaryCache.get(target.stateName);
+        if (cachedBoundary) {
+          try {
+            showCountryBoundary(cachedBoundary, target.stateName);
+          } catch (boundaryErr) {
+            console.warn('showCountryBoundary failed:', boundaryErr);
+          }
+        } else {
+          loadStateBoundary(target.stateName)
+            .then((geojson) => {
+              if (geojson) {
+                try {
+                  showCountryBoundary(geojson, target.stateName);
                 } catch (boundaryErr) {
                   console.warn('showCountryBoundary failed:', boundaryErr);
                 }
